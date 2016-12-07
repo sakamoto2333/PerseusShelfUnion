@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		4721AD741DF7B8E4000CD963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721AD731DF7B8E4000CD963 /* AppDelegate.swift */; };
 		4721AD761DF7B8E4000CD963 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721AD751DF7B8E4000CD963 /* ViewController.swift */; };
-		4721AD791DF7B8E4000CD963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4721AD771DF7B8E4000CD963 /* Main.storyboard */; };
 		4721AD7C1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4721AD7A1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodeld */; };
 		4721AD7E1DF7B8E4000CD963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4721AD7D1DF7B8E4000CD963 /* Assets.xcassets */; };
 		4721AD811DF7B8E4000CD963 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4721AD7F1DF7B8E4000CD963 /* LaunchScreen.storyboard */; };
+		4721AD8D1DF7CCB2000CD963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4721AD8C1DF7CCB2000CD963 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4721AD701DF7B8E4000CD963 /* PerseusShelfUnion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerseusShelfUnion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4721AD731DF7B8E4000CD963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4721AD751DF7B8E4000CD963 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4721AD781DF7B8E4000CD963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4721AD7B1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerseusShelfUnion.xcdatamodel; sourceTree = "<group>"; };
 		4721AD7D1DF7B8E4000CD963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4721AD801DF7B8E4000CD963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4721AD821DF7B8E4000CD963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4721AD8C1DF7CCB2000CD963 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,47 @@
 		4721AD721DF7B8E4000CD963 /* PerseusShelfUnion */ = {
 			isa = PBXGroup;
 			children = (
+				4721AD8A1DF7CB9E000CD963 /* Model */,
+				4721AD891DF7CB87000CD963 /* View */,
+				4721AD881DF7BBCC000CD963 /* Controller */,
+				4721AD8B1DF7CC95000CD963 /* Storyboard */,
 				4721AD731DF7B8E4000CD963 /* AppDelegate.swift */,
 				4721AD751DF7B8E4000CD963 /* ViewController.swift */,
-				4721AD771DF7B8E4000CD963 /* Main.storyboard */,
 				4721AD7D1DF7B8E4000CD963 /* Assets.xcassets */,
 				4721AD7F1DF7B8E4000CD963 /* LaunchScreen.storyboard */,
 				4721AD821DF7B8E4000CD963 /* Info.plist */,
 				4721AD7A1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodeld */,
 			);
 			path = PerseusShelfUnion;
+			sourceTree = "<group>";
+		};
+		4721AD881DF7BBCC000CD963 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4721AD891DF7CB87000CD963 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4721AD8A1DF7CB9E000CD963 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4721AD8B1DF7CC95000CD963 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				4721AD8C1DF7CCB2000CD963 /* Main.storyboard */,
+			);
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +160,7 @@
 			files = (
 				4721AD811DF7B8E4000CD963 /* LaunchScreen.storyboard in Resources */,
 				4721AD7E1DF7B8E4000CD963 /* Assets.xcassets in Resources */,
-				4721AD791DF7B8E4000CD963 /* Main.storyboard in Resources */,
+				4721AD8D1DF7CCB2000CD963 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,14 +180,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4721AD771DF7B8E4000CD963 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4721AD781DF7B8E4000CD963 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4721AD7F1DF7B8E4000CD963 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
