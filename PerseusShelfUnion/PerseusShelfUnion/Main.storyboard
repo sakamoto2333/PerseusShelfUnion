@@ -32,31 +32,36 @@
         <scene sceneID="6zF-oN-2cK">
             <objects>
                 <viewControllerPlaceholder storyboardName="TakeOrdersList" id="aWN-mP-CNv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="抢单" id="YhT-PJ-1Pk"/>
+                    <tabBarItem key="tabBarItem" title="抢单" image="ic_description_white" id="YhT-PJ-1Pk"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BpP-JK-O0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-651" y="368"/>
+            <point key="canvasLocation" x="-646" y="334"/>
         </scene>
         <!--OrdersList-->
         <scene sceneID="cyQ-xS-1LT">
             <objects>
                 <viewControllerPlaceholder storyboardName="OrdersList" id="q0p-kj-j8L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="订单" id="fpM-s3-0Zx"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="订单" image="ic_assignment_white" id="fpM-s3-0Zx"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1F-Hs-wgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="311"/>
+            <point key="canvasLocation" x="147" y="334"/>
         </scene>
         <!--User-->
         <scene sceneID="u09-DA-Wdn">
             <objects>
                 <viewControllerPlaceholder storyboardName="User" id="nwL-T1-r70" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="我的资料" id="MFn-ie-Hgi"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="我的资料" image="ic_account_box_white" id="MFn-ie-Hgi"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Czj-bI-OUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-300" y="334"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_account_box_white" width="24" height="24"/>
+        <image name="ic_assignment_white" width="24" height="24"/>
+        <image name="ic_description_white" width="24" height="24"/>
+    </resources>
 </document>

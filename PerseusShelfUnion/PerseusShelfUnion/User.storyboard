@@ -43,7 +43,7 @@
         <scene sceneID="4Oo-7B-aeb">
             <objects>
                 <navigationController id="PDG-Mh-nur" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的资料" id="Q0y-2y-6zp"/>
+                    <tabBarItem key="tabBarItem" title="我的资料" image="ic_account_box_white" id="Q0y-2y-6zp"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="tX8-dK-NSH">
@@ -59,4 +59,7 @@
             <point key="canvasLocation" x="156" y="-76"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_account_box_white" width="24" height="24"/>
+    </resources>
 </document>

@@ -43,7 +43,7 @@
         <scene sceneID="4pT-7w-zSP">
             <objects>
                 <navigationController id="Moy-fR-FcU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="订单" id="m6t-HR-nV3"/>
+                    <tabBarItem key="tabBarItem" title="订单" image="ic_assignment_white" id="m6t-HR-nV3"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="C9n-fR-4tK">
@@ -59,4 +59,7 @@
             <point key="canvasLocation" x="161" y="311"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_assignment_white" width="24" height="24"/>
+    </resources>
 </document>
