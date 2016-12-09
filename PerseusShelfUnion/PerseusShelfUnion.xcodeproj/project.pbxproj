@@ -322,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 533BE66A65;
 				INFOPLIST_FILE = PerseusShelfUnion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -329,7 +330,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.XHVolunteeriOS.PerseusShelfUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -337,6 +338,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 533BE66A65;
 				INFOPLIST_FILE = PerseusShelfUnion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -344,7 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.XHVolunteeriOS.PerseusShelfUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

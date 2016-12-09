@@ -16,7 +16,7 @@
             <objects>
                 <tableViewController id="syU-Y5-5H6" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" id="FZI-9s-qsi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -33,16 +33,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZQ-2b-gQO" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="10" width="300" height="109"/>
+                                                    <rect key="frame" x="10" y="10" width="300" height="108"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阁楼式货架" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdu-oh-fGH">
-                                                            <rect key="frame" x="15" y="30" width="237" height="49"/>
+                                                            <rect key="frame" x="15" y="30" width="237" height="48"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开工日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE1-SS-JyU">
-                                                            <rect key="frame" x="8" y="8" width="61.5" height="20"/>
+                                                            <rect key="frame" x="8" y="8" width="62" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="OiR-in-cra"/>
                                                             </constraints>
@@ -51,19 +51,19 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.05.12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKk-bQ-Nlc">
-                                                            <rect key="frame" x="69.5" y="8" width="61.5" height="20"/>
+                                                            <rect key="frame" x="70" y="8" width="62" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安装周期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBQ-L0-vh9">
-                                                            <rect key="frame" x="146" y="8" width="61.5" height="20"/>
+                                                            <rect key="frame" x="147" y="8" width="62" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20人/天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwi-Gm-b3C">
-                                                            <rect key="frame" x="208" y="8" width="43.5" height="20"/>
+                                                            <rect key="frame" x="209" y="8" width="44" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -77,31 +77,31 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计吨位：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWn-XF-zWc">
-                                                            <rect key="frame" x="8" y="81" width="61.5" height="20"/>
+                                                            <rect key="frame" x="8" y="80" width="62" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSm-rR-iaz">
-                                                            <rect key="frame" x="69.5" y="81" width="61.5" height="20"/>
+                                                            <rect key="frame" x="70" y="80" width="62" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安装地点：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0Z-Yp-BIi">
-                                                            <rect key="frame" x="146" y="81" width="61.5" height="20"/>
+                                                            <rect key="frame" x="147" y="80" width="62" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="江苏南京" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h37-1H-hTp">
-                                                            <rect key="frame" x="207.5" y="81" width="49.5" height="20"/>
+                                                            <rect key="frame" x="209" y="80" width="50" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YI7-Kl-opS">
-                                                            <rect key="frame" x="262" y="34.5" width="30" height="40"/>
+                                                            <rect key="frame" x="262" y="34" width="30" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="MdR-7j-Udw"/>
                                                                 <constraint firstAttribute="height" constant="40" id="QLa-D4-24A"/>
@@ -157,7 +157,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="ope-JU-Ito" kind="showDetail" action="showViewController:sender:" id="3CH-CQ-ul1"/>
+                                            <segue destination="Ewn-Yh-GN0" kind="showDetail" action="showViewController:sender:" id="K2w-jW-mtg"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -169,16 +169,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="抢单" id="VoB-H4-Liu"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eX-5V-NNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="418.84057971014494" y="579.61956521739137"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="PIG-nb-9uh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="bOB-IY-Y0t" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Juw-hi-bZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3013" y="190"/>
+        </scene>
         <!--抢单详情-->
         <scene sceneID="Xu5-xK-2UL">
             <objects>
-                <tableViewController id="Ewn-Yh-GN0" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="Ewn-Yh-GN0" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="K4j-ns-KHH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,7 +219,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阁楼式货架" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guW-3D-VUr">
-                                                            <rect key="frame" x="115.5" y="8" width="176.5" height="28"/>
+                                                            <rect key="frame" x="116" y="8" width="176" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -268,7 +275,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="125吨位" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0A-QX-C1x">
-                                                            <rect key="frame" x="115.5" y="8" width="176.5" height="28"/>
+                                                            <rect key="frame" x="116" y="8" width="176" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -315,7 +322,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安装地点" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8P-6E-Zx2">
-                                                            <rect key="frame" x="41" y="8" width="69.5" height="28"/>
+                                                            <rect key="frame" x="41" y="8" width="70" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="5XX-Tf-SA1"/>
                                                             </constraints>
@@ -324,7 +331,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="江苏南京" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GC8-ce-iHD">
-                                                            <rect key="frame" x="115.5" y="8" width="176.5" height="28"/>
+                                                            <rect key="frame" x="116" y="8" width="176" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -380,7 +387,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015.06.28" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xty-n3-WPB">
-                                                            <rect key="frame" x="115.5" y="8" width="176.5" height="28"/>
+                                                            <rect key="frame" x="116" y="8" width="176" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -436,7 +443,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20人＊天" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U47-mH-m0x">
-                                                            <rect key="frame" x="115.5" y="8" width="176.5" height="28"/>
+                                                            <rect key="frame" x="116" y="8" width="176" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -532,7 +539,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20米" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-y5-Koc">
-                                                            <rect key="frame" x="82.5" y="8" width="209.5" height="28"/>
+                                                            <rect key="frame" x="83" y="8" width="209" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -579,7 +586,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4米" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb5-p7-4qq">
-                                                            <rect key="frame" x="82.5" y="8" width="209.5" height="28"/>
+                                                            <rect key="frame" x="83" y="8" width="209" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -626,7 +633,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5层" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSn-KK-NSH">
-                                                            <rect key="frame" x="82.5" y="8" width="209.5" height="28"/>
+                                                            <rect key="frame" x="83" y="8" width="209" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -673,7 +680,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8米" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiX-yc-smm">
-                                                            <rect key="frame" x="82.5" y="8" width="209.5" height="28"/>
+                                                            <rect key="frame" x="83" y="8" width="209" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -807,7 +814,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120/吨" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blz-km-E3K">
-                                                            <rect key="frame" x="115.5" y="8" width="176.5" height="28"/>
+                                                            <rect key="frame" x="116" y="8" width="176" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -863,7 +870,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张嘎子" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZd-0C-7jn">
-                                                            <rect key="frame" x="115.5" y="8" width="176.5" height="28"/>
+                                                            <rect key="frame" x="116" y="8" width="176" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -919,7 +926,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1865281338" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAS-Zp-PVw">
-                                                            <rect key="frame" x="115.5" y="8" width="176.5" height="28"/>
+                                                            <rect key="frame" x="116" y="8" width="176" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -961,7 +968,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抢单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpu-kK-2Pz">
-                                                    <rect key="frame" x="142.5" y="12" width="35" height="21"/>
+                                                    <rect key="frame" x="143" y="12" width="35" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -986,31 +993,16 @@
                     <navigationItem key="navigationItem" title="抢单详情" id="mTj-bL-SEr">
                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_white" id="5DY-9F-iHT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="bOB-IY-Y0t" kind="presentation" modalTransitionStyle="flipHorizontal" id="fYz-KU-bnc"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N3-yk-y3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2197.5" y="578.87323943661977"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="86w-kc-cys">
-            <objects>
-                <navigationController id="ope-JU-Ito" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="d5B-ef-L4p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.8980392157" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Ewn-Yh-GN0" kind="relationship" relationship="rootViewController" id="O2E-vI-1tP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1o7-lk-LLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1187" y="579"/>
+            <point key="canvasLocation" x="1236" y="579"/>
         </scene>
         <!--TakeOrdersList-->
         <scene sceneID="oUt-Z4-hDQ">
@@ -1019,7 +1011,7 @@
                     <tabBarItem key="tabBarItem" title="抢单" image="ic_description_white" id="27d-5G-re1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="fPr-KJ-mE0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="fPr-KJ-mE0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.8980392157" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
