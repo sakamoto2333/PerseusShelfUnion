@@ -2089,7 +2089,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgq-0I-AaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106.25" y="726.76056338028172"/>
+            <point key="canvasLocation" x="1106" y="727"/>
         </scene>
         <!--我的资料-->
         <scene sceneID="4Oo-7B-aeb">
@@ -2125,6 +2125,6 @@
         <image name="滑稽" width="504" height="504"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hb8-Wz-XHk"/>
+        <segue reference="TXb-3F-h8C"/>
     </inferredMetricsTieBreakers>
 </document>

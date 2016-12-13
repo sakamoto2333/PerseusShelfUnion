@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		470706C11DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470706C01DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift */; };
 		470706C31DFF8BA300F27AAF /* ButtonRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470706C21DFF8BA300F27AAF /* ButtonRed.swift */; };
-		470706C51DFF8DA900F27AAF /* ButtonWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470706C41DFF8DA800F27AAF /* ButtonWhite.swift */; };
+		470706C71DFFA0D800F27AAF /* TableButton_Red.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470706C61DFFA0D800F27AAF /* TableButton_Red.swift */; };
+		470706C91DFFA0F500F27AAF /* ButtonWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470706C81DFFA0F500F27AAF /* ButtonWhite.swift */; };
+		470706CB1DFFA11E00F27AAF /* TableButton_White.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470706CA1DFFA11E00F27AAF /* TableButton_White.swift */; };
 		4721AD741DF7B8E4000CD963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721AD731DF7B8E4000CD963 /* AppDelegate.swift */; };
 		4721AD761DF7B8E4000CD963 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721AD751DF7B8E4000CD963 /* ViewController.swift */; };
 		4721AD7C1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4721AD7A1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodeld */; };
@@ -30,7 +32,9 @@
 /* Begin PBXFileReference section */
 		470706C01DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame_Middle.swift; path = View/TableViewCellFrame_Middle.swift; sourceTree = "<group>"; };
 		470706C21DFF8BA300F27AAF /* ButtonRed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonRed.swift; path = View/ButtonRed.swift; sourceTree = "<group>"; };
-		470706C41DFF8DA800F27AAF /* ButtonWhite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWhite.swift; sourceTree = "<group>"; };
+		470706C61DFFA0D800F27AAF /* TableButton_Red.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableButton_Red.swift; path = View/TableButton_Red.swift; sourceTree = "<group>"; };
+		470706C81DFFA0F500F27AAF /* ButtonWhite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonWhite.swift; path = View/ButtonWhite.swift; sourceTree = "<group>"; };
+		470706CA1DFFA11E00F27AAF /* TableButton_White.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableButton_White.swift; path = View/TableButton_White.swift; sourceTree = "<group>"; };
 		4721AD701DF7B8E4000CD963 /* PerseusShelfUnion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerseusShelfUnion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4721AD731DF7B8E4000CD963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4721AD751DF7B8E4000CD963 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +115,9 @@
 				476AC8351DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift */,
 				470706C01DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift */,
 				470706C21DFF8BA300F27AAF /* ButtonRed.swift */,
-				470706C41DFF8DA800F27AAF /* ButtonWhite.swift */,
+				470706C61DFFA0D800F27AAF /* TableButton_Red.swift */,
+				470706C81DFFA0F500F27AAF /* ButtonWhite.swift */,
+				470706CA1DFFA11E00F27AAF /* TableButton_White.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -215,12 +221,14 @@
 				476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */,
 				476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */,
 				4721AD761DF7B8E4000CD963 /* ViewController.swift in Sources */,
-				470706C51DFF8DA900F27AAF /* ButtonWhite.swift in Sources */,
+				470706C71DFFA0D800F27AAF /* TableButton_Red.swift in Sources */,
+				470706C91DFFA0F500F27AAF /* ButtonWhite.swift in Sources */,
 				4721AD7C1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodeld in Sources */,
 				4721AD741DF7B8E4000CD963 /* AppDelegate.swift in Sources */,
 				476AC82E1DFA715900093B38 /* TableViewCellFrame.swift in Sources */,
 				470706C11DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift in Sources */,
 				470706C31DFF8BA300F27AAF /* ButtonRed.swift in Sources */,
+				470706CB1DFFA11E00F27AAF /* TableButton_White.swift in Sources */,
 				476AC8361DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
