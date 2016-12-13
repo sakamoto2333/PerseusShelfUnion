@@ -180,7 +180,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="bOB-IY-Y0t" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Juw-hi-bZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3013" y="190"/>
+            <point key="canvasLocation" x="2188" y="238"/>
         </scene>
         <!--抢单详情-->
         <scene sceneID="Xu5-xK-2UL">
@@ -1011,7 +1011,7 @@
                     <tabBarItem key="tabBarItem" title="抢单" image="ic_description_white" id="27d-5G-re1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="fPr-KJ-mE0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="fPr-KJ-mE0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.8980392157" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
