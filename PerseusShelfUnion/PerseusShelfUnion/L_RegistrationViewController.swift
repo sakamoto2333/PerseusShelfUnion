@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class L_RegistrationViewController: UIViewController {
 
     @IBOutlet weak var generateCodeView: GenerateCodeView!
     @IBOutlet weak var CodeTextField: UITextField!

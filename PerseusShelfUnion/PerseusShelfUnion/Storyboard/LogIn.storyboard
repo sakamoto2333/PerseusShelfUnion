@@ -10,13 +10,13 @@
         <!--英仙座货架联盟-->
         <scene sceneID="HI1-HA-mMV">
             <objects>
-                <viewController title="英仙座货架联盟" id="Aek-cJ-cUO" customClass="LoginViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="英仙座货架联盟" id="Aek-cJ-cUO" customClass="L_LoginViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cZa-uX-z4n"/>
                         <viewControllerLayoutGuide type="bottom" id="E1W-yb-5gG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pgd-MU-v6E">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TlY-GS-Eez" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -99,13 +99,13 @@
         <!--注册-->
         <scene sceneID="Xqc-uc-C0Q">
             <objects>
-                <viewController title="注册" id="ND9-BQ-bfs" customClass="RegistrationViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="注册" id="ND9-BQ-bfs" customClass="L_RegistrationViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tnm-a3-FlD"/>
                         <viewControllerLayoutGuide type="bottom" id="BQR-Ht-zXh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4IC-fU-yNU">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  输入公司名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8oP-cG-dLu" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
