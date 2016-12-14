@@ -27,6 +27,8 @@
 		476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8331DFA809900093B38 /* TableViewCellFrame_Top.swift */; };
 		476AC8361DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8351DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift */; };
 		47EC22CC1E00C65800BD439D /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22CB1E00C65800BD439D /* ErrorMessages.swift */; };
+		47EC22D21E00DEA000BD439D /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47EC22CF1E00DEA000BD439D /* ProgressHUD.bundle */; };
+		47EC22D31E00DEA000BD439D /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22D11E00DEA000BD439D /* ProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,10 @@
 		476AC8331DFA809900093B38 /* TableViewCellFrame_Top.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame_Top.swift; path = View/TableViewCellFrame_Top.swift; sourceTree = "<group>"; };
 		476AC8351DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame_SecondMenu.swift; path = View/TableViewCellFrame_SecondMenu.swift; sourceTree = "<group>"; };
 		47EC22CB1E00C65800BD439D /* ErrorMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorMessages.swift; path = Other/ErrorMessages.swift; sourceTree = "<group>"; };
+		47EC22CF1E00DEA000BD439D /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		47EC22D01E00DEA000BD439D /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		47EC22D11E00DEA000BD439D /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		47EC22D41E00DEC700BD439D /* bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,7 @@
 				4721AD7F1DF7B8E4000CD963 /* LaunchScreen.storyboard */,
 				4721AD821DF7B8E4000CD963 /* Info.plist */,
 				4721AD7A1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodeld */,
+				47EC22D41E00DEC700BD439D /* bridging.h */,
 			);
 			path = PerseusShelfUnion;
 			sourceTree = "<group>";
@@ -153,8 +160,20 @@
 		47EC22CD1E00C75700BD439D /* ThirdPartyControls */ = {
 			isa = PBXGroup;
 			children = (
+				47EC22CE1E00DEA000BD439D /* ProgressHUD */,
 			);
 			name = ThirdPartyControls;
+			sourceTree = "<group>";
+		};
+		47EC22CE1E00DEA000BD439D /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				47EC22CF1E00DEA000BD439D /* ProgressHUD.bundle */,
+				47EC22D01E00DEA000BD439D /* ProgressHUD.h */,
+				47EC22D11E00DEA000BD439D /* ProgressHUD.m */,
+			);
+			name = ProgressHUD;
+			path = ThirdPartyControls/ProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +240,7 @@
 				4721AD7E1DF7B8E4000CD963 /* Assets.xcassets in Resources */,
 				476AC82A1DFA70F000093B38 /* OrdersList.storyboard in Resources */,
 				476AC82B1DFA70F000093B38 /* TakeOrdersList.storyboard in Resources */,
+				47EC22D21E00DEA000BD439D /* ProgressHUD.bundle in Resources */,
 				476AC81A1DF9340D00093B38 /* Icons.xcassets in Resources */,
 				476AC8281DFA70F000093B38 /* LogIn.storyboard in Resources */,
 				476AC82C1DFA70F000093B38 /* User.storyboard in Resources */,
@@ -235,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */,
+				47EC22D31E00DEA000BD439D /* ProgressHUD.m in Sources */,
 				476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */,
 				470706C71DFFA0D800F27AAF /* TableButton_Red.swift in Sources */,
 				470706C91DFFA0F500F27AAF /* ButtonWhite.swift in Sources */,
@@ -365,6 +386,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.XHVolunteeriOS.PerseusShelfUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = PerseusShelfUnion/bridging.h;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,6 +404,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.XHVolunteeriOS.PerseusShelfUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = PerseusShelfUnion/bridging.h;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
