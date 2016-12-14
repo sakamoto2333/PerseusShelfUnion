@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="p7b-ER-Psg">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,17 +13,17 @@
         <!--英仙座货架联盟-->
         <scene sceneID="HI1-HA-mMV">
             <objects>
-                <viewController title="英仙座货架联盟" id="Aek-cJ-cUO" sceneMemberID="viewController">
+                <viewController title="英仙座货架联盟" id="Aek-cJ-cUO" customClass="L_LoginViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cZa-uX-z4n"/>
                         <viewControllerLayoutGuide type="bottom" id="E1W-yb-5gG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pgd-MU-v6E">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TlY-GS-Eez" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="64" y="163" width="192" height="30"/>
+                                <rect key="frame" x="64" y="207" width="192" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dXr-9U-Otr"/>
@@ -33,7 +33,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7y-U0-MpX" customClass="ButtonRed" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="70" y="213" width="80" height="30"/>
+                                <rect key="frame" x="70" y="257" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.90980392156862744" green="0.30588235294117649" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="qBO-h1-3IS"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6r2-ja-uVT" customClass="ButtonWhite" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="170" y="213" width="80" height="30"/>
+                                <rect key="frame" x="170" y="257" width="80" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="注册">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dnv-RB-Ew5" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="64" y="113" width="192" height="30"/>
+                                <rect key="frame" x="64" y="157" width="192" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -106,13 +106,13 @@
         <!--注册-->
         <scene sceneID="Xqc-uc-C0Q">
             <objects>
-                <viewController title="注册" id="ND9-BQ-bfs" sceneMemberID="viewController">
+                <viewController title="注册" id="ND9-BQ-bfs" customClass="L_RegistrationViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tnm-a3-FlD"/>
                         <viewControllerLayoutGuide type="bottom" id="BQR-Ht-zXh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4IC-fU-yNU">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  输入公司名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8oP-cG-dLu" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -152,6 +152,9 @@
                                 <state key="normal" title="注册">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="register:" destination="ND9-BQ-bfs" eventType="touchUpInside" id="NvC-yv-RrD"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即表示您已经同意了英仙座货架联盟协议" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwQ-21-KrV">
                                 <rect key="frame" x="67.5" y="360" width="204.5" height="12"/>
@@ -190,11 +193,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LB3-2A-Ok2">
-                                <rect key="frame" x="48" y="250" width="100" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LB3-2A-Ok2" customClass="GenerateCodeView" customModule="PerseusShelfUnion" customModuleProvider="target">
+                                <rect key="frame" x="48" y="270" width="100" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="M4e-0I-Rp0"/>
+                                    <constraint firstAttribute="height" constant="30" id="M4e-0I-Rp0"/>
                                     <constraint firstAttribute="width" constant="100" id="fsr-vp-aaB"/>
                                 </constraints>
                             </view>
@@ -230,7 +233,7 @@
                             <constraint firstItem="uYc-cc-lOn" firstAttribute="height" secondItem="8oP-cG-dLu" secondAttribute="height" id="l0c-et-H1c"/>
                             <constraint firstItem="m9D-lM-LdR" firstAttribute="leading" secondItem="tdu-Il-eAz" secondAttribute="leading" id="nW8-I3-uL9"/>
                             <constraint firstItem="QUM-LC-V1Q" firstAttribute="leading" secondItem="NOs-tt-Xup" secondAttribute="leading" id="pRF-bl-TbR"/>
-                            <constraint firstItem="LB3-2A-Ok2" firstAttribute="top" secondItem="m9D-lM-LdR" secondAttribute="bottom" constant="10" id="s2a-u2-PXs"/>
+                            <constraint firstItem="LB3-2A-Ok2" firstAttribute="top" secondItem="m9D-lM-LdR" secondAttribute="bottom" constant="30" id="s2a-u2-PXs"/>
                             <constraint firstItem="m9D-lM-LdR" firstAttribute="width" secondItem="8oP-cG-dLu" secondAttribute="width" id="umW-qK-LA0"/>
                             <constraint firstItem="CS1-R0-FqC" firstAttribute="leading" secondItem="pTH-Dq-Mkx" secondAttribute="leading" id="vcL-Iq-9yv"/>
                             <constraint firstItem="gTd-zf-tOP" firstAttribute="height" secondItem="8oP-cG-dLu" secondAttribute="height" id="xsN-cc-ZM2"/>
@@ -242,12 +245,17 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_white" id="pAP-tC-3iO">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="p7b-ER-Psg" kind="presentation" modalTransitionStyle="flipHorizontal" id="vK7-NQ-UVr"/>
+                                <segue destination="Bva-4M-DFr" kind="unwind" unwindAction="L_backWithSegue:" id="HW0-fR-3e1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="CodeTextField" destination="QUM-LC-V1Q" id="2Ps-JK-hA8"/>
+                        <outlet property="generateCodeView" destination="LB3-2A-Ok2" id="g9X-IA-38K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ld-Tw-4OC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Bva-4M-DFr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="661.875" y="71.25"/>
         </scene>
