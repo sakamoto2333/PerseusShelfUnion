@@ -15,7 +15,7 @@
         <!--我的资料-->
         <scene sceneID="CGd-d0-aUr">
             <objects>
-                <tableViewController id="jqL-re-1ID" sceneMemberID="viewController">
+                <tableViewController id="jqL-re-1ID" customClass="U_MyDataTableViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="iTM-ee-P9M">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,18 +273,10 @@
             </objects>
             <point key="canvasLocation" x="1106.25" y="-76.056338028169009"/>
         </scene>
-        <!--Main-->
-        <scene sceneID="Xca-le-wNY">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="Nw9-92-Bsm" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AHH-e3-phu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2449" y="19"/>
-        </scene>
         <!--资质认证-->
         <scene sceneID="lVu-Z2-OvN">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="acN-lq-m3Z" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="acN-lq-m3Z" customClass="U_MyCertificateTableViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="O7T-bY-eOu">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -959,7 +951,7 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_white" id="WHD-bJ-jfe">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Nw9-92-Bsm" kind="presentation" modalTransitionStyle="flipHorizontal" id="XSh-nS-UWJ"/>
+                                <segue destination="UiP-Cl-2eO" kind="unwind" unwindAction="U_backWithSegue:" id="lF0-ea-tPv"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="完成" id="d0i-xB-SSY">
@@ -968,8 +960,9 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51t-r7-rCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="UiP-Cl-2eO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2448.75" y="726.76056338028172"/>
+            <point key="canvasLocation" x="1871" y="727"/>
         </scene>
         <!--关于英仙座货架联盟-->
         <scene sceneID="Ml9-Oc-Wmf">
@@ -1135,7 +1128,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5G-a9-9Ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1421" y="-1057"/>
+            <point key="canvasLocation" x="3414" y="727"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2jw-AB-ZRI">
@@ -1152,12 +1145,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASl-kO-RbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="617" y="-1057"/>
+            <point key="canvasLocation" x="2612" y="727"/>
         </scene>
         <!--个人信息-->
         <scene sceneID="mpO-tb-NQg">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="s5D-ID-FhZ" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="s5D-ID-FhZ" customClass="U_MyInformationTableViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="mGe-lB-9dV">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1591,19 +1584,20 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_white" id="INy-TX-aRe">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Nw9-92-Bsm" kind="presentation" modalTransitionStyle="flipHorizontal" id="Hb8-Wz-XHk"/>
+                                <segue destination="oc6-qF-tP3" kind="unwind" unwindAction="U_backWithSegue:" id="L3T-x8-drq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7K-Vn-abU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="oc6-qF-tP3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="-399"/>
+            <point key="canvasLocation" x="2010" y="-76"/>
         </scene>
         <!--我的信用-->
         <scene sceneID="xq1-QY-SHs">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="WYy-a3-GgI" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="WYy-a3-GgI" customClass="U_MyCreditTableViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="IYA-SR-fCd">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2082,12 +2076,13 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_white" id="7F9-ZP-a5w">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Nw9-92-Bsm" kind="presentation" modalTransitionStyle="flipHorizontal" id="TXb-3F-h8C"/>
+                                <segue destination="sIA-uA-v1n" kind="unwind" unwindAction="U_backWithSegue:" id="QsW-OL-qze"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgq-0I-AaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="sIA-uA-v1n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1106" y="727"/>
         </scene>
@@ -2124,7 +2119,4 @@
         <image name="ic_star_half" width="24" height="24"/>
         <image name="滑稽" width="504" height="504"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Hb8-Wz-XHk"/>
-    </inferredMetricsTieBreakers>
 </document>
