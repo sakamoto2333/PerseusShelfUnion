@@ -64,7 +64,7 @@ class GenerateCodeView: UIView {
             }else if (d >= dataArray.count) {
                 d = dataArray.count - 1
             }
-            print("---totalcount %d currentCount %d",dataArray.count, d)
+//            print("---totalcount %d currentCount %d",dataArray.count, d)
             codeString = codeString + dataArray[d]
         }
         self.setNeedsDisplay()

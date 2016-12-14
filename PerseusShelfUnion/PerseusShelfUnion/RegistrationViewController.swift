@@ -15,6 +15,7 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        generateCodeView.CreateGenerateCodeAction()
         // Do any additional setup after loading the view.
     }
     
@@ -36,7 +37,9 @@ class RegistrationViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "好的", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }else {
-            
+            let alert = UIAlertController(title: "提示", message: "excuse me?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "好的", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         CodeTextField.resignFirstResponder()
     }

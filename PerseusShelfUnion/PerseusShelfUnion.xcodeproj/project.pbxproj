@@ -29,6 +29,7 @@
 		47EC22CC1E00C65800BD439D /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22CB1E00C65800BD439D /* ErrorMessages.swift */; };
 		9D0C5ECC1E00CCE200B45898 /* GenerateCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C5ECB1E00CCE200B45898 /* GenerateCodeView.swift */; };
 		9D0C5ECE1E00CE7300B45898 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C5ECD1E00CE7300B45898 /* RegistrationViewController.swift */; };
+		9D0C5ED01E00D86F00B45898 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C5ECF1E00D86F00B45898 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		47EC22CB1E00C65800BD439D /* ErrorMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorMessages.swift; path = Other/ErrorMessages.swift; sourceTree = "<group>"; };
 		9D0C5ECB1E00CCE200B45898 /* GenerateCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenerateCodeView.swift; path = Other/GenerateCodeView.swift; sourceTree = "<group>"; };
 		9D0C5ECD1E00CE7300B45898 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		9D0C5ECF1E00D86F00B45898 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				9D0C5ECD1E00CE7300B45898 /* RegistrationViewController.swift */,
+				9D0C5ECF1E00D86F00B45898 /* LoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */,
 				476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */,
 				470706C71DFFA0D800F27AAF /* TableButton_Red.swift in Sources */,
+				9D0C5ED01E00D86F00B45898 /* LoginViewController.swift in Sources */,
 				470706C91DFFA0F500F27AAF /* ButtonWhite.swift in Sources */,
 				9D0C5ECE1E00CE7300B45898 /* RegistrationViewController.swift in Sources */,
 				4721AD7C1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodeld in Sources */,
