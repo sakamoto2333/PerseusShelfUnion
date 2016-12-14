@@ -14,8 +14,15 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var CodeTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         // Do any additional setup after loading the view.
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            CodeTextField.resignFirstResponder()
+        }
+        sender.cancelsTouchesInView = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,9 +32,11 @@ class RegistrationViewController: UIViewController {
     
     @IBAction func register(_ sender: AnyObject) {
         if generateCodeView.codeString.lowercased() == CodeTextField.text?.lowercased() {
-            print("1")
+            let alert = UIAlertController(title: "提示", message: "验证码错误", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "好的", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }else {
-            print("2")
+            
         }
         CodeTextField.resignFirstResponder()
     }
