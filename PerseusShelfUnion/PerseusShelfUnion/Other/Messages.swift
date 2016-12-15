@@ -35,6 +35,7 @@ class Messages: NSObject {
     var Code = [Int:String]()
     override init() {
         Code[0x1001] = "请输入用户名和密码"
+        Code[0x1002] = "用户名或密码错误"
         Code[0x2002] = "刷新成功"
         Code[0x2003] = "刷新失败"
     }
