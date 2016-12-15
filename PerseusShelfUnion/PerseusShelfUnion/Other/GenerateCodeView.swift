@@ -58,14 +58,15 @@ class GenerateCodeView: UIView {
     func CreateGenerateCodeAction() -> Void {
         codeString = ""
         for _ in 0...codeNumber-1 {
-            var d = Int(arc4random())%dataArray.count-1
+            let a: UInt32 = UInt32(dataArray.count)
+            var d = arc4random() % a - 1
             if (d <= 0) {
                 d = 0
-            }else if (d >= dataArray.count) {
-                d = dataArray.count - 1
+            }else if (d >= a) {
+                d = a - 1
             }
 //            print("---totalcount %d currentCount %d",dataArray.count, d)
-            codeString = codeString + dataArray[d]
+            codeString = codeString + dataArray[Int(d)]
         }
         self.setNeedsDisplay()
     }
