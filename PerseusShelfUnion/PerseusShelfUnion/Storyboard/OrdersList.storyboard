@@ -561,10 +561,10 @@
             </objects>
             <point key="canvasLocation" x="1112.8" y="310.79460269865069"/>
         </scene>
-        <!--View Controller-->
+        <!--Order Information View Controller-->
         <scene sceneID="EDk-n5-raO">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="1bR-ni-RNW" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="1bR-ni-RNW" customClass="O_OrderInformationViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="36F-ZC-Hm7"/>
                         <viewControllerLayoutGuide type="bottom" id="48G-k9-bug"/>
@@ -573,19 +573,39 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGe-ho-msu">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVR-8Z-YwQ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <connections>
-                                    <segue destination="Uso-6V-ooo" kind="embed" id="ii8-fJ-oKb"/>
+                                    <segue destination="2UK-su-c6o" kind="embed" id="fIm-UI-W58"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxB-N9-7nD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <connections>
+                                    <segue destination="Uso-6V-ooo" kind="embed" id="eBw-qv-wVT"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TuX-L3-P5u">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <connections>
+                                    <segue destination="BO5-88-fgG" kind="embed" id="Pj0-jB-DXI"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="48G-k9-bug" firstAttribute="top" secondItem="fGe-ho-msu" secondAttribute="bottom" id="KSy-q3-Ohb"/>
-                            <constraint firstAttribute="trailing" secondItem="fGe-ho-msu" secondAttribute="trailing" id="MX7-pA-o7k"/>
-                            <constraint firstItem="fGe-ho-msu" firstAttribute="top" secondItem="36F-ZC-Hm7" secondAttribute="bottom" id="P3N-CT-3ef"/>
-                            <constraint firstItem="fGe-ho-msu" firstAttribute="leading" secondItem="aOa-UH-l1Q" secondAttribute="leading" id="PRl-RQ-uJ0"/>
+                            <constraint firstItem="48G-k9-bug" firstAttribute="top" secondItem="TuX-L3-P5u" secondAttribute="bottom" id="2ys-I9-vBd"/>
+                            <constraint firstItem="nxB-N9-7nD" firstAttribute="leading" secondItem="aOa-UH-l1Q" secondAttribute="leading" id="5QA-0o-b7n"/>
+                            <constraint firstItem="TuX-L3-P5u" firstAttribute="top" secondItem="36F-ZC-Hm7" secondAttribute="bottom" id="7ET-kM-xUN"/>
+                            <constraint firstItem="TuX-L3-P5u" firstAttribute="leading" secondItem="aOa-UH-l1Q" secondAttribute="leading" id="8hn-L3-CtL"/>
+                            <constraint firstItem="48G-k9-bug" firstAttribute="top" secondItem="nxB-N9-7nD" secondAttribute="bottom" id="MYd-sC-bT0"/>
+                            <constraint firstItem="hVR-8Z-YwQ" firstAttribute="leading" secondItem="aOa-UH-l1Q" secondAttribute="leading" id="V0f-QN-9cN"/>
+                            <constraint firstAttribute="trailing" secondItem="hVR-8Z-YwQ" secondAttribute="trailing" id="XLU-rq-TGH"/>
+                            <constraint firstAttribute="trailing" secondItem="nxB-N9-7nD" secondAttribute="trailing" id="fdx-a3-9eO"/>
+                            <constraint firstAttribute="trailing" secondItem="TuX-L3-P5u" secondAttribute="trailing" id="fpf-ES-9Fk"/>
+                            <constraint firstItem="hVR-8Z-YwQ" firstAttribute="top" secondItem="36F-ZC-Hm7" secondAttribute="bottom" id="suB-eK-45F"/>
+                            <constraint firstItem="48G-k9-bug" firstAttribute="top" secondItem="hVR-8Z-YwQ" secondAttribute="bottom" id="u9O-dq-EpZ"/>
+                            <constraint firstItem="nxB-N9-7nD" firstAttribute="top" secondItem="36F-ZC-Hm7" secondAttribute="bottom" id="wp1-CE-NkD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m9W-7y-vB3">
@@ -605,8 +625,17 @@
                                 <segment title="评价"/>
                             </segments>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="viewchanged:" destination="1bR-ni-RNW" eventType="valueChanged" id="GkF-Ta-nZ6"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="evaluation" destination="TuX-L3-P5u" id="8n8-ZH-998"/>
+                        <outlet property="information" destination="hVR-8Z-YwQ" id="BR5-d6-LFS"/>
+                        <outlet property="plan" destination="nxB-N9-7nD" id="cEY-R0-hJU"/>
+                        <outlet property="segment" destination="PIB-uz-oyh" id="8Gm-kR-on1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Izu-qe-rum" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LAU-DZ-Ugr" userLabel="Exit" sceneMemberID="exit"/>
@@ -641,7 +670,7 @@
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="2UK-su-c6o" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bvP-gt-0h9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -1473,7 +1502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMm-up-mfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983.75" y="1085.9154929577464"/>
+            <point key="canvasLocation" x="1969" y="1087"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EPA-LF-22e">
@@ -1484,11 +1513,11 @@
                         <viewControllerLayoutGuide type="bottom" id="0nv-Ff-Sqn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QRG-qE-kGv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4N5-TF-yVp" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="10" y="210" width="300" height="100"/>
+                                <rect key="frame" x="10" y="190" width="300" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这里是评价内容，棒棒的，帅帅的！棒棒的，帅帅的！棒棒的，帅帅的！" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HW3-Xh-isN">
                                         <rect key="frame" x="8" y="8" width="284" height="84"/>
@@ -1508,13 +1537,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评价内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3F-5N-L9t">
-                                <rect key="frame" x="10" y="192" width="61.5" height="18"/>
+                                <rect key="frame" x="10" y="172" width="61.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRw-I0-STK" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="10" y="60" width="300" height="120"/>
+                                <rect key="frame" x="10" y="40" width="300" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ifn-sZ-zDB" customClass="TableViewCellFrame_Middle" customModule="PerseusShelfUnion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -1535,25 +1564,25 @@
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="2wD-Sc-lvd">
-                                                        <rect key="frame" x="20" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="20" y="0.0" width="20.5" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="2wD-Sc-lvd" secondAttribute="height" multiplier="1:1" id="cmO-Qe-bDs"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="uvV-VD-jfh">
-                                                        <rect key="frame" x="40" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="40.5" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="uvV-VD-jfh" secondAttribute="height" multiplier="1:1" id="MjU-dT-MpP"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star_half" translatesAutoresizingMaskIntoConstraints="NO" id="V0G-Sy-v3V">
-                                                        <rect key="frame" x="60" y="0.0" width="19.5" height="20"/>
+                                                        <rect key="frame" x="60.5" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="V0G-Sy-v3V" secondAttribute="height" multiplier="1:1" id="Cdn-XW-QV9"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star_border" translatesAutoresizingMaskIntoConstraints="NO" id="PvZ-FG-yRx">
-                                                        <rect key="frame" x="79.5" y="0.0" width="19.5" height="20"/>
+                                                        <rect key="frame" x="80.5" y="0.0" width="20.5" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="PvZ-FG-yRx" secondAttribute="height" multiplier="1:1" id="Pp0-Kh-eGf"/>
                                                         </constraints>
