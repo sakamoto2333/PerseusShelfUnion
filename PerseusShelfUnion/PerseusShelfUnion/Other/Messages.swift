@@ -35,17 +35,16 @@ class Messages: NSObject {
     var Code = [Int:String]()
     override init() {
         Code[0x1001] = "请输入用户名和密码"
-        Code[0x2001] = "刷新中"
         Code[0x2002] = "刷新成功"
         Code[0x2003] = "刷新失败"
     }
     
     
-    func show(errorCode: Int) {
-        ProgressHUD.show(Code[errorCode])
+    func show(code: Int) {
+        ProgressHUD.showSuccess(Code[code])
     }
     
-    func showError(errorCode: Int) {
-        ProgressHUD.showError(Code[errorCode])
+    func showError(code: Int) {
+        ProgressHUD.showError(Code[code])
     }
 }
