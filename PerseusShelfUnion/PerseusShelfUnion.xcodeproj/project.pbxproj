@@ -21,7 +21,7 @@
 		476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */; };
 		476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8331DFA809900093B38 /* TableViewCellFrame_Top.swift */; };
 		476AC8361DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8351DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift */; };
-		47EC22CC1E00C65800BD439D /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22CB1E00C65800BD439D /* ErrorMessages.swift */; };
+		47EC22CC1E00C65800BD439D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22CB1E00C65800BD439D /* Messages.swift */; };
 		47EC22D21E00DEA000BD439D /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47EC22CF1E00DEA000BD439D /* ProgressHUD.bundle */; };
 		47EC22D31E00DEA000BD439D /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22D11E00DEA000BD439D /* ProgressHUD.m */; };
 		47EC22FA1E010D1F00BD439D /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47EC22F51E010D1F00BD439D /* LogIn.storyboard */; };
@@ -58,7 +58,7 @@
 		476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldFrame.swift; path = View/TextFieldFrame.swift; sourceTree = "<group>"; };
 		476AC8331DFA809900093B38 /* TableViewCellFrame_Top.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame_Top.swift; path = View/TableViewCellFrame_Top.swift; sourceTree = "<group>"; };
 		476AC8351DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame_SecondMenu.swift; path = View/TableViewCellFrame_SecondMenu.swift; sourceTree = "<group>"; };
-		47EC22CB1E00C65800BD439D /* ErrorMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorMessages.swift; path = Other/ErrorMessages.swift; sourceTree = "<group>"; };
+		47EC22CB1E00C65800BD439D /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = Other/Messages.swift; sourceTree = "<group>"; };
 		47EC22CF1E00DEA000BD439D /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		47EC22D01E00DEA000BD439D /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		47EC22D11E00DEA000BD439D /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				9D0718161E0134140071C352 /* GenerateCodeView.swift */,
-				47EC22CB1E00C65800BD439D /* ErrorMessages.swift */,
+				47EC22CB1E00C65800BD439D /* Messages.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -301,7 +301,7 @@
 				4721AD741DF7B8E4000CD963 /* AppDelegate.swift in Sources */,
 				476AC82E1DFA715900093B38 /* TableViewCellFrame.swift in Sources */,
 				9D0718131E0133860071C352 /* U_MyCreditTableViewController.swift in Sources */,
-				47EC22CC1E00C65800BD439D /* ErrorMessages.swift in Sources */,
+				47EC22CC1E00C65800BD439D /* Messages.swift in Sources */,
 				470706C11DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift in Sources */,
 				470706C31DFF8BA300F27AAF /* ButtonRed.swift in Sources */,
 				9D0718141E0133860071C352 /* U_MyDataTableViewController.swift in Sources */,
