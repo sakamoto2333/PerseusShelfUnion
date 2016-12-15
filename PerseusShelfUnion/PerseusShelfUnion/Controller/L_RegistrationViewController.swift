@@ -8,7 +8,7 @@
 
 import UIKit
 
-class L_RegistrationViewController: UIViewController {
+class L_RegistrationViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var generateCodeView: GenerateCodeView!
     @IBOutlet weak var CodeTextField: UITextField!
@@ -16,7 +16,6 @@ class L_RegistrationViewController: UIViewController {
         super.viewDidLoad()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         generateCodeView.CreateGenerateCodeAction()
-        // Do any additional setup after loading the view.
     }
     
     func handleTap(sender: UITapGestureRecognizer) {
@@ -25,7 +24,7 @@ class L_RegistrationViewController: UIViewController {
         }
         sender.cancelsTouchesInView = false
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,14 +43,5 @@ class L_RegistrationViewController: UIViewController {
         CodeTextField.resignFirstResponder()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

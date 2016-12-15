@@ -10,10 +10,19 @@ import UIKit
 
 class L_LoginViewController: UIViewController {
 
+    @IBOutlet weak var id: TextFieldFrame!
+    @IBOutlet weak var password: TextFieldFrame!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            id.resignFirstResponder()
+            password.resignFirstResponder()
+        }
+        sender.cancelsTouchesInView = false
     }
 
     override func didReceiveMemoryWarning() {
