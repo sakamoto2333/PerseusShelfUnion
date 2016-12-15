@@ -35,6 +35,11 @@ class O_OrderInformationViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func O_back(segue:UIStoryboardSegue) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

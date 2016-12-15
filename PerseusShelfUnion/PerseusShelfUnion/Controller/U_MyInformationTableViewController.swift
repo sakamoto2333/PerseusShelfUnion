@@ -29,7 +29,7 @@ class U_MyInformationTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,6 +39,8 @@ class U_MyInformationTableViewController: UITableViewController {
             return 4
         case 1:
             return 2
+        case 2:
+            return 1
         default:
             return 1
         }

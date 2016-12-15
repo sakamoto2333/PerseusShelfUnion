@@ -1147,6 +1147,14 @@
             </objects>
             <point key="canvasLocation" x="2612" y="727"/>
         </scene>
+        <!--LogIn-->
+        <scene sceneID="G2H-QF-Rzm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LogIn" id="Ldp-yh-R6Y" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1OC-lt-J6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2612" y="-76"/>
+        </scene>
         <!--个人信息-->
         <scene sceneID="mpO-tb-NQg">
             <objects>
@@ -1571,6 +1579,36 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="pwx-47-Puh">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="3sx-6s-oaT">
+                                        <rect key="frame" x="0.0" y="495" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3sx-6s-oaT" id="t2p-yt-Hvj">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注销" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfX-BA-gCJ">
+                                                    <rect key="frame" x="8" y="8" width="304" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RfX-BA-gCJ" firstAttribute="leading" secondItem="t2p-yt-Hvj" secondAttribute="leadingMargin" id="HL9-wk-nMX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RfX-BA-gCJ" secondAttribute="trailing" id="PbB-Pg-vtH"/>
+                                                <constraint firstItem="RfX-BA-gCJ" firstAttribute="top" secondItem="t2p-yt-Hvj" secondAttribute="topMargin" id="XXx-iR-Wuc"/>
+                                                <constraint firstItem="RfX-BA-gCJ" firstAttribute="bottom" secondItem="t2p-yt-Hvj" secondAttribute="bottomMargin" id="aU7-hE-pe6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="Ldp-yh-R6Y" kind="presentation" modalTransitionStyle="flipHorizontal" id="dz6-oI-kNc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
