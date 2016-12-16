@@ -36,6 +36,7 @@ class Messages: NSObject {
     override init() {
         Code[0x1001] = "请输入用户名和密码"
         Code[0x1002] = "用户名或密码错误"
+        Code[0x1002] = "无法连接服务器"
         Code[0x2002] = "刷新成功"
         Code[0x2003] = "刷新失败"
     }
