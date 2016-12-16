@@ -2620,7 +2620,7 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_white" id="EgX-Nt-0MM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="PBx-Sr-wHy" kind="unwind" unwindAction="backWithSegue:" id="owg-UX-c87"/>
+                                <segue destination="LMJ-BH-Por" kind="unwind" unwindAction="O_backWithSegue:" id="HDO-dL-2bL"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="完成" id="2eH-dG-Pe9">
@@ -2629,7 +2629,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V6O-VQ-Ez3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="PBx-Sr-wHy" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="LMJ-BH-Por" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3517.5" y="1780.9859154929577"/>
         </scene>
