@@ -10,14 +10,17 @@ import UIKit
 
 class U_MyInformationTableViewController: UITableViewController {
     
+    @IBOutlet weak var UserImageImgView: UIImageView!
+    @IBOutlet weak var UserPhoneLabel: UILabel!
+    @IBOutlet weak var UserRealNameLabel: UILabel!
+    @IBOutlet weak var UserEmailLabel: UILabel!
+    
+    @IBOutlet weak var CompanyNameLabel: UILabel!
+    @IBOutlet weak var UserPositionLabel: UILabel!
+    
+    @IBOutlet weak var CompanyStateLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {

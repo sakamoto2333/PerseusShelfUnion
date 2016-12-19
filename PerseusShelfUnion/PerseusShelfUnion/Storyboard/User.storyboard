@@ -268,6 +268,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我的资料" id="D5L-Sd-IKG"/>
+                    <connections>
+                        <outlet property="CompanyNameLabel" destination="nwf-XL-M2N" id="s0i-zW-Gla"/>
+                        <outlet property="UserImageImgVIew" destination="dFp-PY-y1V" id="O4Y-cw-nba"/>
+                        <outlet property="UserPhoneLabel" destination="0MG-05-fdz" id="tBp-og-F7c"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kpa-zL-3Ed" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1626,6 +1631,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="CompanyNameLabel" destination="u0E-M4-GDi" id="uJg-5m-HkV"/>
+                        <outlet property="CompanyStateLabel" destination="Omy-cK-vpT" id="uog-Pz-UEm"/>
+                        <outlet property="UserEmailLabel" destination="mxi-Xu-ZyY" id="jsm-qR-pmS"/>
+                        <outlet property="UserImageImgView" destination="nV8-vS-kd3" id="9Pe-Tf-TkD"/>
+                        <outlet property="UserPhoneLabel" destination="hQ9-ir-4hb" id="ywG-2Q-5Pk"/>
+                        <outlet property="UserPositionLabel" destination="UC3-zY-50G" id="2v0-9y-B8K"/>
+                        <outlet property="UserRealNameLabel" destination="kOn-OP-A6M" id="Rnz-4b-bjD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7K-Vn-abU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="oc6-qF-tP3" userLabel="Exit" sceneMemberID="exit"/>

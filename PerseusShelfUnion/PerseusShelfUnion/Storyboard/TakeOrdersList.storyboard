@@ -1143,6 +1143,21 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <connections>
+                        <outlet property="InsAtticLayerLabel" destination="eSn-KK-NSH" id="Nne-Dq-9dG"/>
+                        <outlet property="InsBeamHghLabel" destination="mb5-p7-4qq" id="SRR-Bh-JVk"/>
+                        <outlet property="InsCycleLabel" destination="U47-mH-m0x" id="HI4-h8-yoq"/>
+                        <outlet property="InsForkExtensionLabel" destination="SiX-yc-smm" id="6vU-WO-3Ih"/>
+                        <outlet property="InsHeightLabel" destination="pIa-y5-Koc" id="GKv-Tl-AOu"/>
+                        <outlet property="InsMoneyLabel" destination="blz-km-E3K" id="pFn-AN-Ij8"/>
+                        <outlet property="InsNameLabel" destination="vZd-0C-7jn" id="7Q9-9b-UjK"/>
+                        <outlet property="InsPhoneLabel" destination="mAS-Zp-PVw" id="ehy-q4-Ldx"/>
+                        <outlet property="InsShelftypeLabel" destination="guW-3D-VUr" id="wQo-8t-tXJ"/>
+                        <outlet property="InsStartDateLabel" destination="xty-n3-WPB" id="dKa-qv-r3x"/>
+                        <outlet property="InsTonnageLabel" destination="f0A-QX-C1x" id="UfA-gV-sak"/>
+                        <outlet property="InsplaceLabel" destination="GC8-ce-iHD" id="zg4-bd-Qq5"/>
+                        <outlet property="RemarkLabel" destination="mht-vQ-2oz" id="Ruf-US-5ts"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N3-yk-y3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zuh-ol-zl6" userLabel="Exit" sceneMemberID="exit"/>
