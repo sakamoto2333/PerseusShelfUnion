@@ -16,6 +16,10 @@ class T_TakeOrdersTableViewController: UITableViewController {
         let headers = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(header))
         headers?.lastUpdatedTimeLabel.isHidden = true
         tableView.mj_header = headers
+        
+        
+        self.tableView.estimatedRowHeight = 129
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -45,18 +49,25 @@ class T_TakeOrdersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 3
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCellView", for: indexPath) as! T_OrderDetailTableViewCell
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCellView2", for: indexPath) as! T_OrderDetailTableViewCell
+        
+        cell.InsShelftypeLabel.text = "\(indexPath.row)"
+        cell2.InsShelftypeLabel.text = "\(indexPath.row)"
+        
+        if(indexPath.row == 0){
+            return cell2
+        }
+        else{
+            return cell
+        }
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
