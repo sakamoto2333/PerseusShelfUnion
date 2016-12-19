@@ -8,35 +8,32 @@
 
 import UIKit
 
-class U_MyInformationTableViewController: UITableViewController {
+class U_MyInformationTableViewController: UITableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var UserImageImgView: UIImageView!
     @IBOutlet weak var UserPhoneLabel: UILabel!
     @IBOutlet weak var UserRealNameLabel: UILabel!
     @IBOutlet weak var UserEmailLabel: UILabel!
-    
     @IBOutlet weak var CompanyNameLabel: UILabel!
     @IBOutlet weak var UserPositionLabel: UILabel!
-    
     @IBOutlet weak var CompanyStateLabel: UILabel!
+    let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+    var messages: String = ""
+    var picker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        message()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         switch section {
         case 0:
             return 4
@@ -49,111 +46,118 @@ class U_MyInformationTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if(indexPath.section == 0&&indexPath.row == 1)
-        {
-            let alert = UIAlertController(title: "手机号", message: "", preferredStyle: .alert)
-            alert.addTextField
+    func message() {
+        alert.addTextField
+            {
+                (UITextField) in
+                UITextField.becomeFirstResponder()
+                UITextField.returnKeyType = .done
+                UITextField.placeholder=""
+        }
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "确定", style: .default, handler:
+            { (UIAlertAction) in
+                if self.alert.textFields?.first?.text != ""
                 {
-                    (UITextField) in
-                    UITextField.becomeFirstResponder()
-                    UITextField.returnKeyType = .done
-                    UITextField.placeholder="请输入手机号"
-            }
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "确定", style: .default, handler:
-                { (UIAlertAction) in
-                    if alert.textFields?.first?.text != ""
-                    {
-                        let a="d"
-                    }
+                    self.messages = (self.alert.textFields?.first?.text!)!
+                }
+        }))
+    }
+    
+    func openCamera()
+    {
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
+        {
+            picker.sourceType = UIImagePickerControllerSourceType.camera
+            self.present(picker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alertwarning = UIAlertController(title: "警告", message: "你没有相机", preferredStyle: .alert)
+            alertwarning.addAction(UIAlertAction(title: "好的", style: .cancel, handler: nil))
+            self.present(alertwarning, animated: true, completion: nil)
+        }
+    }
+    func openGallary()
+    {
+        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker .dismiss(animated: true, completion: nil)
+        UserImageImgView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+//        print("picker cancel.")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.section == 0 && indexPath.row == 0) {
+            let alert:UIAlertController=UIAlertController(title: "选择图片", message: nil, preferredStyle: .actionSheet)
+            picker.delegate = self
+            alert.addAction(UIAlertAction(title: "相机拍摄", style: .default, handler: { (UIAlertAction) in
+                self.openCamera()
             }))
+            alert.addAction(UIAlertAction(title: "相册", style: .default, handler: { (UIAlertAction) in
+                self.openGallary()
+            }))
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
             
+        else if(indexPath.section == 0 && indexPath.row == 1)
+        {
+            alert.title = "手机号"
+            alert.textFields?.first?.placeholder = "请输入手机号"
+            alert.textFields?.first?.keyboardType = .numberPad
+            alert.textFields?.first?.text = ""
+            self.present(alert, animated: true, completion: nil)
+            print(messages)
+            messages = ""
+            
+        }
             
         else if(indexPath.section == 0&&indexPath.row == 2)
         {
-            let alert = UIAlertController(title: "姓名", message: "", preferredStyle: .alert)
-            alert.addTextField
-                {
-                    (UITextField) in
-                    UITextField.becomeFirstResponder()
-                    UITextField.returnKeyType = .done
-                    UITextField.placeholder="请输入姓名"
-            }
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "确定", style: .default, handler:
-                { (UIAlertAction) in
-                    if alert.textFields?.first?.text != ""
-                    {
-                        let a="d"
-                    }
-            }))
+            alert.title = "姓名"
+            alert.textFields?.first?.placeholder = "请输入姓名"
+            alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
+            print(messages)
+            messages = ""
         }
             
         else if(indexPath.section == 0&&indexPath.row == 3)
         {
-            let alert = UIAlertController(title: "邮箱", message: "", preferredStyle: .alert)
-            alert.addTextField
-                {
-                    (UITextField) in
-                    UITextField.becomeFirstResponder()
-                    UITextField.returnKeyType = .done
-                    UITextField.placeholder="请输入邮箱"
-            }
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "确定", style: .default, handler:
-                { (UIAlertAction) in
-                    if alert.textFields?.first?.text != ""
-                    {
-                        let a="d"
-                    }
-            }))
+            alert.title = "邮箱"
+            alert.textFields?.first?.placeholder = "请输入邮箱"
+            alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
+            print(messages)
+            messages = ""
         }
         else if(indexPath.section == 1&&indexPath.row == 0)
         {
-            let alert = UIAlertController(title: "公司", message: "", preferredStyle: .alert)
-            alert.addTextField
-                {
-                    (UITextField) in
-                    UITextField.becomeFirstResponder()
-                    UITextField.returnKeyType = .done
-                    UITextField.placeholder="请输入公司"
-            }
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "确定", style: .default, handler:
-                { (UIAlertAction) in
-                    if alert.textFields?.first?.text != ""
-                    {
-                        let a="d"
-                    }
-            }))
+            alert.title = "公司"
+            alert.textFields?.first?.placeholder = "请输入公司"
+            alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
+            print(messages)
+            messages = ""
         }
             
         else if(indexPath.section == 1&&indexPath.row == 1)
         {
-            let alert = UIAlertController(title: "职位", message: "", preferredStyle: .alert)
-            alert.addTextField
-                {
-                    (UITextField) in
-                    UITextField.becomeFirstResponder()
-                    UITextField.returnKeyType = .done
-                    UITextField.placeholder="请输入职位"
-            }
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "确定", style: .default, handler:
-                { (UIAlertAction) in
-                    if alert.textFields?.first?.text != ""
-                    {
-                        let a="d"
-                    }
-            }))
+            alert.title = "职位"
+            alert.textFields?.first?.placeholder = "请输入职位"
+            alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
+            print(messages)
+            messages = ""
         }
     }
     
