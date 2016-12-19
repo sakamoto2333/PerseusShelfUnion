@@ -10,6 +10,10 @@ import UIKit
 
 class U_MyDataTableViewController: UITableViewController {
 
+    @IBOutlet weak var UserImageImgVIew: UIImageView!
+    @IBOutlet weak var UserPhoneLabel: UILabel!
+    @IBOutlet weak var CompanyNameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
