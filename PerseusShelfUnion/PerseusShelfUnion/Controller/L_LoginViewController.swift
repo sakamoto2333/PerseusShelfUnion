@@ -12,7 +12,7 @@ class L_LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +23,12 @@ class L_LoginViewController: UIViewController {
     
     @IBAction func L_back(segue:UIStoryboardSegue) {
     }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
 
     /*
     // MARK: - Navigation
