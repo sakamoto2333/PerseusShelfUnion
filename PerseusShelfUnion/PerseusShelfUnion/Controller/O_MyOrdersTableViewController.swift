@@ -41,16 +41,35 @@ class O_MyOrdersTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 4
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyOrdersCellView", for: indexPath) as! T_OrderDetailTableViewCell
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "MyOrdersCellView2", for: indexPath) as! T_OrderDetailTableViewCell
+        
+        cell.InsShelftypeLabel.text = "\(indexPath.row)"
+        cell2.InsShelftypeLabel.text = "\(indexPath.row)"
+        
+        if(indexPath.row == 0){
+            cell2.ModeView.backgroundColor = UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0)
+            cell2.ModeView.text = "待安装"
+            return cell2
+        }
+        else if(indexPath.row == 1){
+            cell2.ModeView.backgroundColor = UIColor(red:0.00, green:0.50, blue:1.00, alpha:1.0)
+            cell2.ModeView.text = "在安装"
+            return cell2
+        }
+        else if(indexPath.row == 2){
+            cell2.ModeView.backgroundColor = UIColor(red:1.00, green:0.50, blue:0.00, alpha:1.0)
+            cell2.ModeView.text = "已完成"
+            return cell2
+        }
+        else{
+            return cell
+        }
     }
-    */
+
+    
 
     /*
     // Override to support conditional editing of the table view.

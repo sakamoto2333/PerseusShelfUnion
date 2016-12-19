@@ -48,15 +48,22 @@ class T_TakeOrdersTableViewController: UITableViewController {
         return 1
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCellView", for: indexPath) as! T_OrderDetailTableViewCell
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCellView2", for: indexPath) as! T_OrderDetailTableViewCell
+        
+        cell.InsShelftypeLabel.text = "\(indexPath.row)"
+        cell2.InsShelftypeLabel.text = "\(indexPath.row)"
+        
+        if(indexPath.row == 0){
+            return cell2
+        }
+        else{
+            return cell
+        }
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
