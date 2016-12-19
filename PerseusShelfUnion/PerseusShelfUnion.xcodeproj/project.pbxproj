@@ -452,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */,
+				47087BA91E077D3A00C2BE89 /* O_OrderInformationViewController.swift in Sources */,
 				9D2C740F1E02375D003F05CC /* MJRefreshStateHeader.m in Sources */,
 				47EC22D31E00DEA000BD439D /* ProgressHUD.m in Sources */,
 				476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */,
