@@ -170,7 +170,7 @@
                                 <rect key="frame" x="0.0" y="167" width="320" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yCd-ze-D3A" id="a64-NQ-Tgp">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekg-Uo-jT1" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -413,10 +413,10 @@
             </objects>
             <point key="canvasLocation" x="161" y="311"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Order Detail Table View Controller-->
         <scene sceneID="13e-Zh-ysc">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="2UK-su-c6o" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="2UK-su-c6o" customClass="O_OrderDetailTableViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bvP-gt-0h9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1195,6 +1195,21 @@
                             <outlet property="delegate" destination="2UK-su-c6o" id="zzq-4O-yS9"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="InsAtticLayerLabel" destination="Aud-Yr-Shn" id="ofY-Eg-5yw"/>
+                        <outlet property="InsBeamHghLabel" destination="Xgg-zW-YRn" id="Bii-8T-5NI"/>
+                        <outlet property="InsCycleLabel" destination="gJv-vd-G0m" id="cac-mc-D29"/>
+                        <outlet property="InsForkExtensionLabel" destination="ZU4-LI-GEE" id="8Y4-bP-o1L"/>
+                        <outlet property="InsHeightLabel" destination="zrJ-Kc-rWM" id="7KF-XS-koj"/>
+                        <outlet property="InsMoneyLabel" destination="XCu-dw-YgL" id="cGE-bB-IIg"/>
+                        <outlet property="InsNameLabel" destination="mtI-3F-mtp" id="yQH-Nb-u45"/>
+                        <outlet property="InsPhoneLabel" destination="vWU-Rj-mLk" id="Hpp-VP-v3r"/>
+                        <outlet property="InsShelftypeLabel" destination="Oph-BX-sXg" id="Ecx-6E-Pvo"/>
+                        <outlet property="InsStartDateLabel" destination="aZB-gV-pci" id="n2i-1c-vwy"/>
+                        <outlet property="InsTonnageLabel" destination="p0g-bi-UtW" id="7TW-kx-IOo"/>
+                        <outlet property="InsplaceLabel" destination="awn-VA-KaF" id="16X-ED-fbB"/>
+                        <outlet property="RemarkLabel" destination="yqx-zF-8IL" id="1No-AD-VQe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPx-di-gOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1252,10 +1267,10 @@
             </objects>
             <point key="canvasLocation" x="1969" y="1087"/>
         </scene>
-        <!--View Controller-->
+        <!--Evaluate View Controller-->
         <scene sceneID="EPA-LF-22e">
             <objects>
-                <viewController id="BO5-88-fgG" sceneMemberID="viewController">
+                <viewController id="BO5-88-fgG" customClass="O_EvaluateViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qOC-Uz-trF"/>
                         <viewControllerLayoutGuide type="bottom" id="0nv-Ff-Sqn"/>
@@ -1481,6 +1496,20 @@
                             <constraint firstItem="4N5-TF-yVp" firstAttribute="leading" secondItem="QRG-qE-kGv" secondAttribute="leading" constant="10" id="rrg-Pm-m4y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AverageLabel" destination="rjn-pP-Rzp" id="hFU-qK-WZj"/>
+                        <outlet property="EvalAccidentLabel" destination="EWS-tu-Heh" id="Ozb-lb-Nl5"/>
+                        <outlet property="EvalContentLabel" destination="HW3-Xh-isN" id="7SL-lJ-SqV"/>
+                        <outlet property="EvalManagementLabel" destination="OCs-hc-zdX" id="ebD-uF-WEW"/>
+                        <outlet property="EvalQualityLabel" destination="ztf-n1-hO9" id="RNa-TX-S6G"/>
+                        <outlet property="EvalReachRateLabel" destination="E2F-EZ-pBV" id="V2T-4r-Ny6"/>
+                        <outlet property="EvalSatisfiedLabel" destination="Q6a-7o-4nc" id="hbF-dW-NEW"/>
+                        <outlet property="Star1ImgView" destination="c8s-qW-xp8" id="NxB-5U-ZZc"/>
+                        <outlet property="Star2ImgView" destination="2wD-Sc-lvd" id="XwZ-ZR-2nn"/>
+                        <outlet property="Star3ImgView" destination="uvV-VD-jfh" id="uP5-MS-lam"/>
+                        <outlet property="Star4ImgView" destination="V0G-Sy-v3V" id="zcx-cj-YmX"/>
+                        <outlet property="Star5ImgView" destination="PvZ-FG-yRx" id="JML-rW-fAv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eb7-v5-ATX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
