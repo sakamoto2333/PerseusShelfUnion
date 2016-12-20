@@ -71,8 +71,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         self.present(alert, animated: true, completion: nil)
     }
     
-    func openCamera()
-    {
+    func openCamera() {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
         {
             picker.sourceType = UIImagePickerControllerSourceType.camera
