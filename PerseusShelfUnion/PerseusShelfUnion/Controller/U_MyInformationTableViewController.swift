@@ -125,6 +125,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         {
             alert.title = "姓名"
             alert.textFields?.first?.placeholder = "请输入姓名"
+            alert.textFields?.first?.keyboardType = .default
             alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
             print(messages)
@@ -135,6 +136,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         {
             alert.title = "邮箱"
             alert.textFields?.first?.placeholder = "请输入邮箱"
+            alert.textFields?.first?.keyboardType = .emailAddress
             alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
             print(messages)
@@ -144,6 +146,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         {
             alert.title = "公司"
             alert.textFields?.first?.placeholder = "请输入公司"
+            alert.textFields?.first?.keyboardType = .default
             alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
             print(messages)
@@ -154,6 +157,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         {
             alert.title = "职位"
             alert.textFields?.first?.placeholder = "请输入职位"
+            alert.textFields?.first?.keyboardType = .default
             alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
             print(messages)
