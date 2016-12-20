@@ -8,7 +8,7 @@
 
 import UIKit
 
-class L_RegistrationViewController: UIViewController,UITextFieldDelegate {
+class L_RegistrationViewController: UIViewController {
 
     
     /// 公司名称
@@ -31,6 +31,10 @@ class L_RegistrationViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         generateCodeView.CreateGenerateCodeAction()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        // Do any additional setup after loading the view.
     }
     
     func handleTap(sender: UITapGestureRecognizer) {
@@ -39,7 +43,7 @@ class L_RegistrationViewController: UIViewController,UITextFieldDelegate {
         }
         sender.cancelsTouchesInView = false
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -95,5 +99,14 @@ class L_RegistrationViewController: UIViewController,UITextFieldDelegate {
         self.view.endEditing(true)
     }
 
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

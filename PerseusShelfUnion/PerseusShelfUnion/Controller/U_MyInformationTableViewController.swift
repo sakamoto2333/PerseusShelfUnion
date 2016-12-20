@@ -122,6 +122,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             refresh(title: "手机号", place: "请输入手机号")
             print(messages)
             messages = ""
+            
         }
             
         else if(indexPath.section == 0&&indexPath.row == 2)
