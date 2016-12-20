@@ -80,6 +80,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="英仙座货架联盟" id="w8V-kD-tbA"/>
+                    <connections>
+                        <outlet property="id" destination="Dnv-RB-Ew5" id="rYK-Ak-aZb"/>
+                        <outlet property="password" destination="TlY-GS-Eez" id="wTp-4X-vWw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGx-cD-mIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

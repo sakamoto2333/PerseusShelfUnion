@@ -56,6 +56,8 @@ class O_OrderInformationViewController: UIViewController {
     }
     
 
+    @IBAction func back(segue:UIStoryboardSegue) {
+    }
     /*
     // MARK: - Navigation
 

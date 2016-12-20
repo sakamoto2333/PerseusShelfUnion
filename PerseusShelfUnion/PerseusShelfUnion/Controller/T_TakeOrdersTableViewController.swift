@@ -9,22 +9,20 @@
 import UIKit
 
 class T_TakeOrdersTableViewController: UITableViewController {
-
+    
+    let ha = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let headers = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(header))
         headers?.lastUpdatedTimeLabel.isHidden = true
         tableView.mj_header = headers
-        
-        
+        ha.text = "看来你不懂得生命的可贵"
+        ha.textColor = UIColor.gray
+        ha.textAlignment = .center
+        tableView.backgroundView = ha
+        ha.isHidden = false
         self.tableView.estimatedRowHeight = 129
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     func header() {
@@ -49,6 +47,9 @@ class T_TakeOrdersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if section == 0 {
+            ha.isHidden = true
+        }
         return 3
     }
 

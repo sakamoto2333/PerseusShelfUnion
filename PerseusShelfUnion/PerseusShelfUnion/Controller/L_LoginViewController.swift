@@ -10,6 +10,8 @@ import UIKit
 
 class L_LoginViewController: UIViewController {
 
+    @IBOutlet weak var id: TextFieldFrame!
+    @IBOutlet weak var password: TextFieldFrame!
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -64,8 +64,14 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         }))
     }
     
-    func openCamera()
-    {
+    func refresh(title: String, place: String) {
+        alert.title = "\(title)"
+        alert.textFields?.first?.placeholder = "\(place)"
+        alert.textFields?.first?.text = ""
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func openCamera() {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
         {
             picker.sourceType = UIImagePickerControllerSourceType.camera
@@ -78,8 +84,8 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             self.present(alertwarning, animated: true, completion: nil)
         }
     }
-    func openGallary()
-    {
+    
+    func openGallary() {
         picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(picker, animated: true, completion: nil)
     }
@@ -89,8 +95,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         UserImageImgView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
-    {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 //        print("picker cancel.")
         dismiss(animated: true, completion: nil)
     }
@@ -111,11 +116,8 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             
         else if(indexPath.section == 0 && indexPath.row == 1)
         {
-            alert.title = "手机号"
-            alert.textFields?.first?.placeholder = "请输入手机号"
             alert.textFields?.first?.keyboardType = .numberPad
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            refresh(title: "手机号", place: "请输入手机号")
             print(messages)
             messages = ""
             
@@ -123,39 +125,31 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             
         else if(indexPath.section == 0&&indexPath.row == 2)
         {
-            alert.title = "姓名"
-            alert.textFields?.first?.placeholder = "请输入姓名"
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            alert.textFields?.first?.keyboardType = .default
+            refresh(title: "姓名", place: "请输入姓名")
             print(messages)
             messages = ""
         }
             
         else if(indexPath.section == 0&&indexPath.row == 3)
         {
-            alert.title = "邮箱"
-            alert.textFields?.first?.placeholder = "请输入邮箱"
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            alert.textFields?.first?.keyboardType = .emailAddress
+            refresh(title: "邮箱", place: "请输入邮箱")
             print(messages)
             messages = ""
         }
         else if(indexPath.section == 1&&indexPath.row == 0)
         {
-            alert.title = "公司"
-            alert.textFields?.first?.placeholder = "请输入公司"
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            alert.textFields?.first?.keyboardType = .default
+            refresh(title: "公司", place: "请输入公司")
             print(messages)
             messages = ""
         }
             
         else if(indexPath.section == 1&&indexPath.row == 1)
         {
-            alert.title = "职位"
-            alert.textFields?.first?.placeholder = "请输入职位"
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            alert.textFields?.first?.keyboardType = .default
+            refresh(title: "职位", place: "请输入职位")
             print(messages)
             messages = ""
         }

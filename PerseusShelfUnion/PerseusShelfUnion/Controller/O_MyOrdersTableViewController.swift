@@ -12,7 +12,6 @@ class O_MyOrdersTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let headers = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(header))
         headers?.lastUpdatedTimeLabel.isHidden = true
         tableView.mj_header = headers
