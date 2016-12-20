@@ -21,6 +21,8 @@ class T_TakeOrdersTableViewController: UITableViewController {
         ha.textAlignment = .center
         tableView.backgroundView = ha
         ha.isHidden = false
+        self.tableView.estimatedRowHeight = 129
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func header() {

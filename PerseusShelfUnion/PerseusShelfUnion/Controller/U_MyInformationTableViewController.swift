@@ -64,6 +64,13 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         }))
     }
     
+    func refresh(title: String, place: String) {
+        alert.title = "\(title)"
+        alert.textFields?.first?.placeholder = "\(place)"
+        alert.textFields?.first?.text = ""
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func openCamera()
     {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
@@ -78,8 +85,8 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             self.present(alertwarning, animated: true, completion: nil)
         }
     }
-    func openGallary()
-    {
+    
+    func openGallary() {
         picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(picker, animated: true, completion: nil)
     }
@@ -89,17 +96,9 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         UserImageImgView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
-    {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 //        print("picker cancel.")
         dismiss(animated: true, completion: nil)
-    }
-    
-    func refresh(title: String, place: String) {
-        alert.title = "\(title)"
-        alert.textFields?.first?.placeholder = "\(place)"
-        alert.textFields?.first?.text = ""
-        self.present(alert, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
