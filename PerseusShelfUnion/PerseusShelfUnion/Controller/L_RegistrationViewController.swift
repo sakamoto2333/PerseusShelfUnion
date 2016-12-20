@@ -10,8 +10,23 @@ import UIKit
 
 class L_RegistrationViewController: UIViewController,UITextFieldDelegate {
 
-    @IBOutlet weak var generateCodeView: GenerateCodeView!
-    @IBOutlet weak var CodeTextField: UITextField!
+    
+    /// 公司名称
+    @IBOutlet var CompanyNameTextField: TextFieldFrame!
+    
+    /// 手机号
+    @IBOutlet var UserPhoneTextField: TextFieldFrame!
+    
+    /// 密码
+    @IBOutlet var UserPasswordTextField: TextFieldFrame!
+    @IBOutlet var UserPasswordAgainTextField: TextFieldFrame!
+    
+    @IBOutlet var generateCodeView: GenerateCodeView!
+    @IBOutlet var CodeTextField: UITextField!
+    
+    var KeyBoardMode:Bool = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
@@ -41,6 +56,43 @@ class L_RegistrationViewController: UIViewController,UITextFieldDelegate {
             self.present(alert, animated: true, completion: nil)
         }
         CodeTextField.resignFirstResponder()
+    }
+    
+    
+    func keyboardWillShow(notification:NSNotification) {
+        
+        if CodeTextField.isEditing {
+        }
+        else if UserPasswordAgainTextField.isEditing {
+        }
+        else{
+            return
+        }
+        var userInfo = notification.userInfo!
+        let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        if (( view.frame.height - keyboardFrame.height) < 320){
+            self.view.frame.origin.y -= keyboardFrame.height / 2
+        }
+        KeyBoardMode = true
+    }
+    
+    func keyboardWillHide(notification:NSNotification) {
+        if KeyBoardMode {
+            KeyBoardMode = false
+        }
+        else{
+            return
+        }
+        var userInfo = notification.userInfo!
+        let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        if (( view.frame.height - keyboardFrame.height) < 320){
+            self.view.frame.origin.y += keyboardFrame.height / 2
+        }
+    }
+
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     

@@ -161,7 +161,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即表示您已经同意了英仙座货架联盟协议" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwQ-21-KrV">
-                                <rect key="frame" x="67.5" y="360" width="204.5" height="12"/>
+                                <rect key="frame" x="67" y="360" width="205" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -179,7 +179,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码确认" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdu-Il-eAz">
-                                <rect key="frame" x="48" y="189" width="69.5" height="21"/>
+                                <rect key="frame" x="48" y="189" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -255,6 +255,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="CodeTextField" destination="QUM-LC-V1Q" id="Kgb-Tx-u97"/>
+                        <outlet property="CompanyNameTextField" destination="8oP-cG-dLu" id="v9E-Lp-EZB"/>
+                        <outlet property="UserPasswordAgainTextField" destination="m9D-lM-LdR" id="Kqd-Xy-zVy"/>
+                        <outlet property="UserPasswordTextField" destination="gTd-zf-tOP" id="r3P-6e-nOn"/>
+                        <outlet property="UserPhoneTextField" destination="CS1-R0-FqC" id="qIb-Kd-C5l"/>
                         <outlet property="generateCodeView" destination="LB3-2A-Ok2" id="EdL-A1-K9C"/>
                     </connections>
                 </viewController>
