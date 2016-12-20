@@ -95,6 +95,13 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         dismiss(animated: true, completion: nil)
     }
     
+    func refresh(title: String, place: String) {
+        alert.title = "\(title)"
+        alert.textFields?.first?.placeholder = "\(place)"
+        alert.textFields?.first?.text = ""
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section == 0 && indexPath.row == 0) {
             let alert:UIAlertController=UIAlertController(title: "选择图片", message: nil, preferredStyle: .actionSheet)
@@ -111,55 +118,39 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             
         else if(indexPath.section == 0 && indexPath.row == 1)
         {
-            alert.title = "手机号"
-            alert.textFields?.first?.placeholder = "请输入手机号"
             alert.textFields?.first?.keyboardType = .numberPad
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            refresh(title: "手机号", place: "请输入手机号")
             print(messages)
             messages = ""
-            
         }
             
         else if(indexPath.section == 0&&indexPath.row == 2)
         {
-            alert.title = "姓名"
-            alert.textFields?.first?.placeholder = "请输入姓名"
             alert.textFields?.first?.keyboardType = .default
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            refresh(title: "姓名", place: "请输入姓名")
             print(messages)
             messages = ""
         }
             
         else if(indexPath.section == 0&&indexPath.row == 3)
         {
-            alert.title = "邮箱"
-            alert.textFields?.first?.placeholder = "请输入邮箱"
             alert.textFields?.first?.keyboardType = .emailAddress
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            refresh(title: "邮箱", place: "请输入邮箱")
             print(messages)
             messages = ""
         }
         else if(indexPath.section == 1&&indexPath.row == 0)
         {
-            alert.title = "公司"
-            alert.textFields?.first?.placeholder = "请输入公司"
             alert.textFields?.first?.keyboardType = .default
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            refresh(title: "公司", place: "请输入公司")
             print(messages)
             messages = ""
         }
             
         else if(indexPath.section == 1&&indexPath.row == 1)
         {
-            alert.title = "职位"
-            alert.textFields?.first?.placeholder = "请输入职位"
             alert.textFields?.first?.keyboardType = .default
-            alert.textFields?.first?.text = ""
-            self.present(alert, animated: true, completion: nil)
+            refresh(title: "职位", place: "请输入职位")
             print(messages)
             messages = ""
         }
