@@ -34,6 +34,9 @@ class L_RegistrationViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
+        LoginUser(UserName: "3", UserPassword: "333")
         // Do any additional setup after loading the view.
     }
     

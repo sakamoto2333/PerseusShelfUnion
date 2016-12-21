@@ -9,25 +9,25 @@
 import Foundation
 import Alamofire
 
-var BaseUrl2 = "172.16.101.49:8082/LoginApp"
+var BaseUrl = "172.16.101.110:8000/LoginApp"
+
 
 func LoginUser(UserName:String, UserPassword:String){
-    let urlStr = NSString(format: "http://%@/%@", BaseUrl2 , "LoginIn") as String
-    
+    var request = URLRequest(url: URL(string: NSString(format: "http://%@/%@", BaseUrl , "login") as String)!)
+    request.httpMethod = "POST"
     let parameters = [
         "UserName":UserName,
         "UserPassword":UserPassword
     ]
-    Alamofire.request(urlStr, parameters: parameters).responseJSON { response in
-        print(response.request!)  // original URL request
-        print(response.response!) // URL response
-        
-        if let JSON = response.result.value {
-            print("JSON: \(JSON)") //具体如何解析json内容可看下方“响应处理”部分
-        }
-        else{
-            print("无连接")
-        }
+    request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+    Alamofire.request(request as URLRequestConvertible)
+        .responseJSON { response in
+            if response.result.value != nil {
+                print(response.result.value as Any) //具体如何解析json内容可看下方“响应处理”部分
+            }
+            else{
+                print("错误")
+            }
     }
     
 }
