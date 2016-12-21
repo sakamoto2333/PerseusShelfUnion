@@ -71,6 +71,7 @@
 		9D2C74131E02375D003F05CC /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C73FD1E02375D003F05CC /* UIScrollView+MJExtension.m */; };
 		9D2C74141E02375D003F05CC /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C73FF1E02375D003F05CC /* UIScrollView+MJRefresh.m */; };
 		9D2C74151E02375D003F05CC /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C74011E02375D003F05CC /* UIView+MJExtension.m */; };
+		CB874CB01E0905960015B49F /* O_OrderAddPlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +235,7 @@
 		9D2C73FF1E02375D003F05CC /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		9D2C74001E02375D003F05CC /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		9D2C74011E02375D003F05CC /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = O_OrderAddPlanTableViewController.swift; path = Controller/O_OrderAddPlanTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +334,7 @@
 				47087BAC1E07E43600C2BE89 /* O_EvaluateViewController.swift */,
 				47087BAD1E07E43600C2BE89 /* O_OrderDetailTableViewController.swift */,
 				47087BB01E08B81300C2BE89 /* O_StepListTableViewController.swift */,
+				CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				9D2C74151E02375D003F05CC /* UIView+MJExtension.m in Sources */,
 				9D2C74141E02375D003F05CC /* UIScrollView+MJRefresh.m in Sources */,
 				47EC22CC1E00C65800BD439D /* Messages.swift in Sources */,
+				CB874CB01E0905960015B49F /* O_OrderAddPlanTableViewController.swift in Sources */,
 				9D2C74031E02375D003F05CC /* MJRefreshBackFooter.m in Sources */,
 				470706C11DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift in Sources */,
 				47093A0A1E090E41004118DF /* SwiftyJSON.swift in Sources */,
