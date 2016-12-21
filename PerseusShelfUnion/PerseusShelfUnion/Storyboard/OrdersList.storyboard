@@ -1928,7 +1928,7 @@
         <!--添加进度-->
         <scene sceneID="lAr-AZ-Wal">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="v3x-VP-Po2" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="v3x-VP-Po2" customClass="O_OrderAddPlanTableViewController" customModule="PerseusShelfUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bfR-sy-Rrs">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2188,6 +2188,12 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="StepArtificialLabel" destination="k7I-s5-5Eh" id="Obz-tK-AHO"/>
+                        <outlet property="StepLiableLabel" destination="xJ2-10-HOs" id="G50-Xa-dam"/>
+                        <outlet property="StepNameLabel" destination="3uK-5J-TeD" id="qDN-c4-qVR"/>
+                        <outlet property="ToolLabel" destination="eeL-lt-Aoa" id="xOj-Mt-0Hb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V6O-VQ-Ez3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LMJ-BH-Por" userLabel="Exit" sceneMemberID="exit"/>
