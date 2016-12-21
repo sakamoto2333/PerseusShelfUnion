@@ -15,6 +15,8 @@ class L_LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        LoginUser(UserName: "lkc", UserPassword: "123456")
+        
         // Do any additional setup after loading the view.
     }
 
