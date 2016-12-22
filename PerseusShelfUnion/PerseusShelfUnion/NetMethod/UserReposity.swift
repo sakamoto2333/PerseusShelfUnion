@@ -10,24 +10,37 @@ import Foundation
 import Alamofire
 
 var BaseUrl = "172.16.101.110:8000/LoginApp"
+var httpMethod = "POST"
+var timeoutInterval = 10.0
 
-
-func LoginUser(UserName:String, UserPassword:String){
-    var request = URLRequest(url: URL(string: NSString(format: "http://%@/%@", BaseUrl , "login") as String)!)
-    request.httpMethod = "POST"
-    let parameters = [
-        "UserName":UserName,
-        "UserPassword":UserPassword
-    ]
-    request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
-    Alamofire.request(request as URLRequestConvertible)
-        .responseJSON { response in
-            if response.result.value != nil {
-                print(response.result.value as Any) //具体如何解析json内容可看下方“响应处理”部分
-            }
-            else{
-                print("错误")
-            }
+class UserReposity: NSObject, IUserReposity {
+    func LoginUser(Requesting: Model_LoginUser.Requesting){
+        var request =  requestTo(url: "login") //接口名称
+        let Response = Model_LoginUser.Response(Code: nil, IsProved: nil, UserID: nil, UserName: nil)
+        let parameters = [
+            "UserName":Requesting.UserName,
+            "Password":Requesting.Password
+        ] //传输JSON
+        
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+        Alamofire.request(request as URLRequestConvertible)
+            .responseJSON { response in
+                if response.result.value != nil {
+                    print(response.result.value as Any) //打印内容
+                    
+                    let json = JSON(data: response.data!)
+                    Response.Code = Model_LoginUser.CodeType(rawValue: json["Code"].int!)
+                    Response.IsProved = json["IsProved"].int
+                    Response.UserID = json["UserID"].string
+                    Response.UserName = json["UserName"].string
+                }
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "LoginUser"), object: Response)
+        }
     }
     
+    private func requestTo(url: String) -> URLRequest {
+        return URLRequest(url: URL(string: NSString(format: "http://%@/%@", BaseUrl , url) as String)!)
+    }
 }
