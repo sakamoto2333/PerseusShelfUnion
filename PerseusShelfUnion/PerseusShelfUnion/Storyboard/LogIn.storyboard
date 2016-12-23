@@ -42,7 +42,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IVm-cE-q2r" kind="presentation" modalTransitionStyle="flipHorizontal" id="Scm-xF-TVV"/>
+                                    <action selector="LoginButtonTouch:" destination="Aek-cJ-cUO" eventType="touchUpInside" id="W8R-A4-Oo3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6r2-ja-uVT" customClass="ButtonWhite" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -83,6 +83,7 @@
                     <connections>
                         <outlet property="id" destination="Dnv-RB-Ew5" id="rYK-Ak-aZb"/>
                         <outlet property="password" destination="TlY-GS-Eez" id="wTp-4X-vWw"/>
+                        <segue destination="IVm-cE-q2r" kind="presentation" identifier="ToMainView" modalTransitionStyle="flipHorizontal" id="84W-ms-nIP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGx-cD-mIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,130 +120,142 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  输入公司名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8oP-cG-dLu" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="48" y="30" width="224" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8Z-IK-F90">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  输入公司名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8oP-cG-dLu" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
+                                        <rect key="frame" x="48" y="30" width="224" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1ww-nj-Z0R"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CS1-R0-FqC" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
+                                        <rect key="frame" x="48" y="90" width="224" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTH-Dq-Mkx">
+                                        <rect key="frame" x="48" y="69" width="52" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTd-zf-tOP" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
+                                        <rect key="frame" x="48" y="150" width="224" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geS-t2-p5C">
+                                        <rect key="frame" x="48" y="129" width="35" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  再次输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m9D-lM-LdR" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
+                                        <rect key="frame" x="48" y="210" width="224" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码确认" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdu-Il-eAz">
+                                        <rect key="frame" x="48" y="189" width="70" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QUM-LC-V1Q" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
+                                        <rect key="frame" x="158" y="270" width="114" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LB3-2A-Ok2" customClass="GenerateCodeView" customModule="PerseusShelfUnion" customModuleProvider="target">
+                                        <rect key="frame" x="48" y="270" width="100" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="M4e-0I-Rp0"/>
+                                            <constraint firstAttribute="width" constant="100" id="fsr-vp-aaB"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOs-tt-Xup">
+                                        <rect key="frame" x="158" y="249" width="52" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYc-cc-lOn" customClass="ButtonRed" customModule="PerseusShelfUnion" customModuleProvider="target">
+                                        <rect key="frame" x="48" y="330" width="224" height="30"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="注册">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="register:" destination="ND9-BQ-bfs" eventType="touchUpInside" id="NvC-yv-RrD"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即表示您已经同意了英仙座货架联盟协议" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwQ-21-KrV">
+                                        <rect key="frame" x="48" y="365" width="224" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="1ww-nj-Z0R"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CS1-R0-FqC" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="48" y="90" width="224" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTd-zf-tOP" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="48" y="150" width="224" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  再次输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m9D-lM-LdR" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="48" y="210" width="224" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYc-cc-lOn" customClass="ButtonRed" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="48" y="320" width="224" height="30"/>
-                                <color key="backgroundColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="注册">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="register:" destination="ND9-BQ-bfs" eventType="touchUpInside" id="NvC-yv-RrD"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即表示您已经同意了英仙座货架联盟协议" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwQ-21-KrV">
-                                <rect key="frame" x="67" y="360" width="205" height="12"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTH-Dq-Mkx">
-                                <rect key="frame" x="48" y="69" width="52" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geS-t2-p5C">
-                                <rect key="frame" x="48" y="129" width="35" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码确认" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdu-Il-eAz">
-                                <rect key="frame" x="48" y="189" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QUM-LC-V1Q" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="158" y="270" width="114" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOs-tt-Xup">
-                                <rect key="frame" x="158" y="249" width="52" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LB3-2A-Ok2" customClass="GenerateCodeView" customModule="PerseusShelfUnion" customModuleProvider="target">
-                                <rect key="frame" x="48" y="270" width="100" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="M4e-0I-Rp0"/>
-                                    <constraint firstAttribute="width" constant="100" id="fsr-vp-aaB"/>
+                                    <constraint firstItem="nwQ-21-KrV" firstAttribute="width" secondItem="uYc-cc-lOn" secondAttribute="width" id="0gE-2y-bew"/>
+                                    <constraint firstItem="CS1-R0-FqC" firstAttribute="height" secondItem="8oP-cG-dLu" secondAttribute="height" id="1CH-MZ-3qg"/>
+                                    <constraint firstItem="QUM-LC-V1Q" firstAttribute="top" secondItem="NOs-tt-Xup" secondAttribute="bottom" id="3qi-dL-mkH"/>
+                                    <constraint firstItem="CS1-R0-FqC" firstAttribute="leading" secondItem="pTH-Dq-Mkx" secondAttribute="leading" id="57C-Gj-kzm"/>
+                                    <constraint firstItem="CS1-R0-FqC" firstAttribute="top" secondItem="pTH-Dq-Mkx" secondAttribute="bottom" id="6tB-T0-zxq"/>
+                                    <constraint firstItem="uYc-cc-lOn" firstAttribute="height" secondItem="m9D-lM-LdR" secondAttribute="height" id="70I-4z-OYg"/>
+                                    <constraint firstItem="LB3-2A-Ok2" firstAttribute="leading" secondItem="m9D-lM-LdR" secondAttribute="leading" id="9GN-tv-yvw"/>
+                                    <constraint firstItem="CS1-R0-FqC" firstAttribute="width" secondItem="8oP-cG-dLu" secondAttribute="width" id="DTC-zf-ct0"/>
+                                    <constraint firstItem="QUM-LC-V1Q" firstAttribute="top" secondItem="m9D-lM-LdR" secondAttribute="bottom" constant="30" id="E9p-U7-LPM"/>
+                                    <constraint firstItem="gTd-zf-tOP" firstAttribute="top" secondItem="CS1-R0-FqC" secondAttribute="bottom" constant="30" id="K5z-G7-jWk"/>
+                                    <constraint firstItem="QUM-LC-V1Q" firstAttribute="height" secondItem="m9D-lM-LdR" secondAttribute="height" id="L31-BW-0wK"/>
+                                    <constraint firstItem="8oP-cG-dLu" firstAttribute="centerX" secondItem="K8Z-IK-F90" secondAttribute="centerX" id="LZg-Jg-FAM"/>
+                                    <constraint firstItem="8oP-cG-dLu" firstAttribute="width" secondItem="K8Z-IK-F90" secondAttribute="width" multiplier="0.7" id="Lbe-Nj-WPu"/>
+                                    <constraint firstItem="uYc-cc-lOn" firstAttribute="top" secondItem="LB3-2A-Ok2" secondAttribute="bottom" constant="30" id="MK6-C7-W2z"/>
+                                    <constraint firstItem="m9D-lM-LdR" firstAttribute="width" secondItem="gTd-zf-tOP" secondAttribute="width" id="Ov1-ZG-4et"/>
+                                    <constraint firstItem="nwQ-21-KrV" firstAttribute="top" secondItem="uYc-cc-lOn" secondAttribute="bottom" constant="5" id="Plb-N7-yJ0"/>
+                                    <constraint firstItem="m9D-lM-LdR" firstAttribute="top" secondItem="tdu-Il-eAz" secondAttribute="bottom" id="QcI-uE-ybi"/>
+                                    <constraint firstItem="QUM-LC-V1Q" firstAttribute="leading" secondItem="NOs-tt-Xup" secondAttribute="leading" id="QpB-6R-Lfb"/>
+                                    <constraint firstItem="uYc-cc-lOn" firstAttribute="width" secondItem="m9D-lM-LdR" secondAttribute="width" id="RSH-n4-abL"/>
+                                    <constraint firstItem="m9D-lM-LdR" firstAttribute="centerX" secondItem="K8Z-IK-F90" secondAttribute="centerX" id="af5-we-gdj"/>
+                                    <constraint firstItem="nwQ-21-KrV" firstAttribute="leading" secondItem="uYc-cc-lOn" secondAttribute="leading" id="bWu-8A-Odo"/>
+                                    <constraint firstItem="uYc-cc-lOn" firstAttribute="centerX" secondItem="K8Z-IK-F90" secondAttribute="centerX" id="c0L-yM-TuS"/>
+                                    <constraint firstItem="QUM-LC-V1Q" firstAttribute="leading" secondItem="LB3-2A-Ok2" secondAttribute="trailing" constant="10" id="c6t-PN-uot"/>
+                                    <constraint firstItem="gTd-zf-tOP" firstAttribute="leading" secondItem="geS-t2-p5C" secondAttribute="leading" id="c8N-bX-GBM"/>
+                                    <constraint firstItem="8oP-cG-dLu" firstAttribute="top" secondItem="K8Z-IK-F90" secondAttribute="top" constant="30" id="cxQ-hK-Ll2"/>
+                                    <constraint firstItem="CS1-R0-FqC" firstAttribute="top" secondItem="8oP-cG-dLu" secondAttribute="bottom" constant="30" id="eMW-mz-IaM"/>
+                                    <constraint firstItem="m9D-lM-LdR" firstAttribute="leading" secondItem="tdu-Il-eAz" secondAttribute="leading" id="gR0-KM-Mcm"/>
+                                    <constraint firstItem="QUM-LC-V1Q" firstAttribute="trailing" secondItem="m9D-lM-LdR" secondAttribute="trailing" id="iOq-xj-Csu"/>
+                                    <constraint firstItem="CS1-R0-FqC" firstAttribute="centerX" secondItem="K8Z-IK-F90" secondAttribute="centerX" id="kQa-AL-kv4"/>
+                                    <constraint firstItem="m9D-lM-LdR" firstAttribute="top" secondItem="gTd-zf-tOP" secondAttribute="bottom" constant="30" id="lBx-Dd-EAe"/>
+                                    <constraint firstItem="gTd-zf-tOP" firstAttribute="top" secondItem="geS-t2-p5C" secondAttribute="bottom" id="mgt-Yr-udy"/>
+                                    <constraint firstItem="QUM-LC-V1Q" firstAttribute="bottom" secondItem="LB3-2A-Ok2" secondAttribute="bottom" id="oiC-1v-INd"/>
+                                    <constraint firstItem="gTd-zf-tOP" firstAttribute="width" secondItem="CS1-R0-FqC" secondAttribute="width" id="pKI-g0-7vp"/>
+                                    <constraint firstItem="gTd-zf-tOP" firstAttribute="centerX" secondItem="K8Z-IK-F90" secondAttribute="centerX" id="sb9-dx-pGT"/>
+                                    <constraint firstItem="gTd-zf-tOP" firstAttribute="height" secondItem="CS1-R0-FqC" secondAttribute="height" id="vH7-p5-0bu"/>
+                                    <constraint firstItem="m9D-lM-LdR" firstAttribute="height" secondItem="gTd-zf-tOP" secondAttribute="height" id="yit-8b-TvV"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="gTd-zf-tOP" firstAttribute="width" secondItem="8oP-cG-dLu" secondAttribute="width" id="17U-iC-Q56"/>
-                            <constraint firstItem="QUM-LC-V1Q" firstAttribute="height" secondItem="m9D-lM-LdR" secondAttribute="height" id="8V5-Ez-7jd"/>
-                            <constraint firstItem="CS1-R0-FqC" firstAttribute="width" secondItem="8oP-cG-dLu" secondAttribute="width" id="9Xw-XB-byc"/>
-                            <constraint firstItem="gTd-zf-tOP" firstAttribute="top" secondItem="CS1-R0-FqC" secondAttribute="bottom" constant="30" id="9Xx-Vg-0qS"/>
-                            <constraint firstItem="8oP-cG-dLu" firstAttribute="width" secondItem="4IC-fU-yNU" secondAttribute="width" multiplier="0.7" id="AiK-2Z-TH2"/>
-                            <constraint firstItem="uYc-cc-lOn" firstAttribute="centerX" secondItem="4IC-fU-yNU" secondAttribute="centerX" id="B8N-V9-9vu"/>
-                            <constraint firstItem="LB3-2A-Ok2" firstAttribute="leading" secondItem="m9D-lM-LdR" secondAttribute="leading" id="CMi-kM-7A1"/>
-                            <constraint firstItem="nwQ-21-KrV" firstAttribute="top" secondItem="uYc-cc-lOn" secondAttribute="bottom" constant="10" id="F4K-jU-QkP"/>
-                            <constraint firstItem="NOs-tt-Xup" firstAttribute="leading" secondItem="LB3-2A-Ok2" secondAttribute="trailing" constant="10" id="HIr-Sg-Gf5"/>
-                            <constraint firstItem="m9D-lM-LdR" firstAttribute="centerX" secondItem="4IC-fU-yNU" secondAttribute="centerX" id="KE2-Cb-Mxm"/>
-                            <constraint firstItem="nwQ-21-KrV" firstAttribute="trailing" secondItem="uYc-cc-lOn" secondAttribute="trailing" id="LjB-xb-PuW"/>
-                            <constraint firstItem="m9D-lM-LdR" firstAttribute="top" secondItem="tdu-Il-eAz" secondAttribute="bottom" id="O0c-wC-upt"/>
-                            <constraint firstItem="QUM-LC-V1Q" firstAttribute="trailing" secondItem="m9D-lM-LdR" secondAttribute="trailing" id="Soh-Hm-9xS"/>
-                            <constraint firstItem="8oP-cG-dLu" firstAttribute="top" secondItem="Tnm-a3-FlD" secondAttribute="bottom" constant="30" id="VLt-3Q-TEM"/>
-                            <constraint firstItem="CS1-R0-FqC" firstAttribute="height" secondItem="8oP-cG-dLu" secondAttribute="height" id="Xs5-UK-SPK"/>
-                            <constraint firstItem="CS1-R0-FqC" firstAttribute="top" secondItem="pTH-Dq-Mkx" secondAttribute="bottom" id="ZbA-vk-myo"/>
-                            <constraint firstItem="gTd-zf-tOP" firstAttribute="top" secondItem="geS-t2-p5C" secondAttribute="bottom" id="ZzU-Lr-5ze"/>
-                            <constraint firstItem="m9D-lM-LdR" firstAttribute="height" secondItem="8oP-cG-dLu" secondAttribute="height" id="c9w-FN-hHs"/>
-                            <constraint firstItem="gTd-zf-tOP" firstAttribute="leading" secondItem="geS-t2-p5C" secondAttribute="leading" id="cHq-RA-P5D"/>
-                            <constraint firstItem="m9D-lM-LdR" firstAttribute="top" secondItem="gTd-zf-tOP" secondAttribute="bottom" constant="30" id="cxw-x0-LmM"/>
-                            <constraint firstItem="CS1-R0-FqC" firstAttribute="top" secondItem="8oP-cG-dLu" secondAttribute="bottom" constant="30" id="dSP-zJ-QLh"/>
-                            <constraint firstItem="uYc-cc-lOn" firstAttribute="width" secondItem="8oP-cG-dLu" secondAttribute="width" id="eUp-Ie-P0G"/>
-                            <constraint firstItem="CS1-R0-FqC" firstAttribute="centerX" secondItem="4IC-fU-yNU" secondAttribute="centerX" id="eqY-A1-OL5"/>
-                            <constraint firstItem="uYc-cc-lOn" firstAttribute="top" secondItem="LB3-2A-Ok2" secondAttribute="bottom" constant="20" id="fid-xi-fPv"/>
-                            <constraint firstItem="QUM-LC-V1Q" firstAttribute="bottom" secondItem="LB3-2A-Ok2" secondAttribute="bottom" id="gXu-ls-Ez0"/>
-                            <constraint firstItem="gTd-zf-tOP" firstAttribute="centerX" secondItem="4IC-fU-yNU" secondAttribute="centerX" id="kJx-Xf-GSw"/>
-                            <constraint firstItem="uYc-cc-lOn" firstAttribute="height" secondItem="8oP-cG-dLu" secondAttribute="height" id="l0c-et-H1c"/>
-                            <constraint firstItem="m9D-lM-LdR" firstAttribute="leading" secondItem="tdu-Il-eAz" secondAttribute="leading" id="nW8-I3-uL9"/>
-                            <constraint firstItem="QUM-LC-V1Q" firstAttribute="leading" secondItem="NOs-tt-Xup" secondAttribute="leading" id="pRF-bl-TbR"/>
-                            <constraint firstItem="LB3-2A-Ok2" firstAttribute="top" secondItem="m9D-lM-LdR" secondAttribute="bottom" constant="30" id="s2a-u2-PXs"/>
-                            <constraint firstItem="m9D-lM-LdR" firstAttribute="width" secondItem="8oP-cG-dLu" secondAttribute="width" id="umW-qK-LA0"/>
-                            <constraint firstItem="CS1-R0-FqC" firstAttribute="leading" secondItem="pTH-Dq-Mkx" secondAttribute="leading" id="vcL-Iq-9yv"/>
-                            <constraint firstItem="gTd-zf-tOP" firstAttribute="height" secondItem="8oP-cG-dLu" secondAttribute="height" id="xsN-cc-ZM2"/>
-                            <constraint firstItem="QUM-LC-V1Q" firstAttribute="top" secondItem="NOs-tt-Xup" secondAttribute="bottom" id="yKd-PC-aLr"/>
-                            <constraint firstItem="8oP-cG-dLu" firstAttribute="centerX" secondItem="4IC-fU-yNU" secondAttribute="centerX" id="ysQ-dt-0uU"/>
+                            <constraint firstItem="K8Z-IK-F90" firstAttribute="top" secondItem="Tnm-a3-FlD" secondAttribute="bottom" id="BZT-6R-a3z"/>
+                            <constraint firstItem="BQR-Ht-zXh" firstAttribute="top" secondItem="K8Z-IK-F90" secondAttribute="bottom" id="Vnj-sr-NIk"/>
+                            <constraint firstAttribute="trailing" secondItem="K8Z-IK-F90" secondAttribute="trailing" id="cjO-Ee-RW4"/>
+                            <constraint firstItem="K8Z-IK-F90" firstAttribute="leading" secondItem="4IC-fU-yNU" secondAttribute="leading" id="xiX-2p-Lf5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="注册" id="924-A1-Np0">
@@ -256,6 +269,7 @@
                     <connections>
                         <outlet property="CodeTextField" destination="QUM-LC-V1Q" id="Kgb-Tx-u97"/>
                         <outlet property="CompanyNameTextField" destination="8oP-cG-dLu" id="v9E-Lp-EZB"/>
+                        <outlet property="MainView" destination="K8Z-IK-F90" id="Pc8-UC-lK0"/>
                         <outlet property="UserPasswordAgainTextField" destination="m9D-lM-LdR" id="Kqd-Xy-zVy"/>
                         <outlet property="UserPasswordTextField" destination="gTd-zf-tOP" id="r3P-6e-nOn"/>
                         <outlet property="UserPhoneTextField" destination="CS1-R0-FqC" id="qIb-Kd-C5l"/>
@@ -265,7 +279,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ld-Tw-4OC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Bva-4M-DFr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="661.875" y="71.25"/>
+            <point key="canvasLocation" x="661.875" y="70.774647887323951"/>
         </scene>
         <!--Main-->
         <scene sceneID="ZqZ-Hf-bNh">

@@ -10,6 +10,7 @@ import UIKit
 
 class L_RegistrationViewController: UIViewController {
 
+    @IBOutlet var MainView: UIView!
     
     /// 公司名称
     @IBOutlet var CompanyNameTextField: TextFieldFrame!
@@ -34,6 +35,7 @@ class L_RegistrationViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -74,8 +76,8 @@ class L_RegistrationViewController: UIViewController {
         }
         var userInfo = notification.userInfo!
         let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        if (( view.frame.height - keyboardFrame.height) < 320){
-            self.view.frame.origin.y -= keyboardFrame.height / 2
+        if (( MainView.frame.height - keyboardFrame.height) < 320){
+            self.MainView.frame.origin.y -= keyboardFrame.height / 2
         }
         KeyBoardMode = true
     }
@@ -89,8 +91,8 @@ class L_RegistrationViewController: UIViewController {
         }
         var userInfo = notification.userInfo!
         let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        if (( view.frame.height - keyboardFrame.height) < 320){
-            self.view.frame.origin.y += keyboardFrame.height / 2
+        if (( MainView.frame.height - keyboardFrame.height) < 320){
+            self.MainView.frame.origin.y += keyboardFrame.height / 2
         }
     }
 
