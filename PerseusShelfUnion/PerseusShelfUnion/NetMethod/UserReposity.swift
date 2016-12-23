@@ -48,6 +48,34 @@ class UserReposity: NSObject, IUserReposity {
         }
     }
     
+    func RegistrationUser(Requesting: Model_RegistrationUser.Requesting) {
+        var request =  requestTo(url: "Reg") //接口名称
+        let Response = Model_RegistrationUser.Response(Code: nil, UserName: nil)
+        let parameters = [
+            "UserName":Requesting.UserName,
+            "Password":Requesting.Password,
+            "UnitName":Requesting.UnitName
+        ] //传输JSON
+        print(request)
+        
+        
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON { response in
+            if response.result.value != nil {
+                //当收到JSON相应时
+                print(response.request as Any)
+                print(response.result.value as Any) //打印内容
+                let json = JSON(data: response.data!) //JSON解析
+                Response.Code = Model_RegistrationUser.CodeType(rawValue: json["Code"].int!)
+                Response.UserName = json["UserName"].string
+            }
+            //激活通知
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "RegistrationUser"), object: Response)
+        }
+    }
+    
     private func requestTo(url: String) -> URLRequest {
         return URLRequest(url: URL(string: NSString(format: "http://%@/%@", BaseUrl , url) as String)!)
     }
