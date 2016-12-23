@@ -14,4 +14,10 @@ protocol IUserReposity {
     ///
     /// - Parameter Requesting: LoginUser数据模型
     func LoginUser(Requesting: Model_LoginUser.Requesting)
+    
+    
+    /// 注册
+    ///
+    /// - Parameter Requesting: RegistrationUser数据模型
+    func RegistrationUser(Requesting: Model_RegistrationUser.Requesting)
 }

@@ -16,7 +16,7 @@ class L_RegistrationViewController: UIViewController {
     @IBOutlet var CompanyNameTextField: TextFieldFrame!
     
     /// 手机号
-    @IBOutlet var UserPhoneTextField: TextFieldFrame!
+    @IBOutlet var UserNameTextField: TextFieldFrame!
     
     /// 密码
     @IBOutlet var UserPasswordTextField: TextFieldFrame!
@@ -35,8 +35,18 @@ class L_RegistrationViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegistrationUser(_:)), name: NSNotification.Name(rawValue: "RegistrationUser"), object: nil)
         
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func again(_ sender: Any) {
+        if UserPasswordTextField.text != UserPasswordAgainTextField.text {
+            UserPasswordAgainTextField.layer.borderColor = UIColor.red.cgColor
+        }
+        else {
+            UserPasswordAgainTextField.layer.borderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0).cgColor
+        }
     }
     
     func handleTap(sender: UITapGestureRecognizer) {
@@ -52,18 +62,51 @@ class L_RegistrationViewController: UIViewController {
     }
     
     @IBAction func register(_ sender: AnyObject) {
-        if generateCodeView.codeString.lowercased() == CodeTextField.text?.lowercased() {
-            let alert = UIAlertController(title: "提示", message: "验证码错误", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "好的", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }else {
-            let alert = UIAlertController(title: "提示", message: "excuse me?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "好的", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if generateCodeView.codeString.lowercased() != CodeTextField.text?.lowercased() {
+            Messages().showError(code: 0x3003)
         }
-        CodeTextField.resignFirstResponder()
+        else if CompanyNameTextField.text == "" {
+            Messages().showError(code: 0x3002)
+        }
+        else if UserNameTextField.text == "" {
+            Messages().showError(code: 0x3000)
+        }
+        else if UserPasswordTextField.text == "" {
+            Messages().showError(code: 0x3001)
+        }
+        else if UserPasswordAgainTextField.text != UserPasswordTextField.text {
+            Messages().showError(code: 0x3004)
+        }
+        else {
+            Messages().showNow(code: 0x1008)
+            let Requesting = Model_RegistrationUser.Requesting(UserName: UserNameTextField.text!, Password: UserPasswordTextField.text!, UnitName: CompanyNameTextField.text!)
+            UserReposity().RegistrationUser(Requesting: Requesting)
+        }
     }
     
+    func RegistrationUser(_ notification:Notification) {
+        if let Response:Model_RegistrationUser.Response = notification.object as! Model_RegistrationUser.Response?{
+            if (Response.Code == Model_RegistrationUser.CodeType.注册成功){
+                Messages().show(code: 0x1009)
+                self.performSegue(withIdentifier: "ToLogin", sender: self)
+            }
+            else if(Response.Code == Model_RegistrationUser.CodeType.请输入公司名){
+                Messages().showError(code: 0x3002)
+            }
+            else if(Response.Code == Model_RegistrationUser.CodeType.请输入用户名){
+                Messages().showError(code: 0x3000)
+            }
+            else if(Response.Code == Model_RegistrationUser.CodeType.请输入密码){
+                Messages().showError(code: 0x3001)
+            }
+            else if(Response.Code == Model_RegistrationUser.CodeType.用户名已存在){
+                Messages().showError(code: 0x1010)
+            }
+            else{
+                Messages().showError(code: 0x1002)
+            }
+        }
+    }
     
     func keyboardWillShow(notification:NSNotification) {
         

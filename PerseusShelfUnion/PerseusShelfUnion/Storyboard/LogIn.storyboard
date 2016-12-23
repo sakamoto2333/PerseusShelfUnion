@@ -133,7 +133,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CS1-R0-FqC" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CS1-R0-FqC" customClass="TextFieldFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
                                         <rect key="frame" x="48" y="90" width="224" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
@@ -165,6 +165,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="again:" destination="ND9-BQ-bfs" eventType="editingChanged" id="3Mf-sE-rJm"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码确认" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdu-Il-eAz">
                                         <rect key="frame" x="48" y="189" width="70" height="21"/>
@@ -262,7 +265,7 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_white" id="pAP-tC-3iO">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Bva-4M-DFr" kind="unwind" unwindAction="L_backWithSegue:" id="HW0-fR-3e1"/>
+                                <segue destination="Bva-4M-DFr" kind="unwind" identifier="ToLogin" unwindAction="L_backWithSegue:" id="bvM-oA-NMf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -270,9 +273,9 @@
                         <outlet property="CodeTextField" destination="QUM-LC-V1Q" id="Kgb-Tx-u97"/>
                         <outlet property="CompanyNameTextField" destination="8oP-cG-dLu" id="v9E-Lp-EZB"/>
                         <outlet property="MainView" destination="K8Z-IK-F90" id="Pc8-UC-lK0"/>
+                        <outlet property="UserNameTextField" destination="CS1-R0-FqC" id="GDD-DQ-trb"/>
                         <outlet property="UserPasswordAgainTextField" destination="m9D-lM-LdR" id="Kqd-Xy-zVy"/>
                         <outlet property="UserPasswordTextField" destination="gTd-zf-tOP" id="r3P-6e-nOn"/>
-                        <outlet property="UserPhoneTextField" destination="CS1-R0-FqC" id="qIb-Kd-C5l"/>
                         <outlet property="generateCodeView" destination="LB3-2A-Ok2" id="EdL-A1-K9C"/>
                     </connections>
                 </viewController>
