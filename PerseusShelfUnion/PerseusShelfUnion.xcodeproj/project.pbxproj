@@ -28,8 +28,10 @@
 		4721AD811DF7B8E4000CD963 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4721AD7F1DF7B8E4000CD963 /* LaunchScreen.storyboard */; };
 		472587411E025DC700B9D108 /* HasOrderedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472587401E025DC700B9D108 /* HasOrderedLabel.swift */; };
 		472587431E03B9E200B9D108 /* T_OrderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472587421E03B9E200B9D108 /* T_OrderDetailTableViewCell.swift */; };
-		47444E351E0B787A0028A705 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47444E341E0B787A0028A705 /* LoginUser.swift */; };
 		47444E3E1E0B901D0028A705 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47444E3D1E0B901D0028A705 /* MD5.swift */; };
+		4763B9FC1E0CB37800AC1D94 /* IOrdersReposity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763B9FB1E0CB37800AC1D94 /* IOrdersReposity.swift */; };
+		4763BA061E0CC84500AC1D94 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763BA051E0CC84500AC1D94 /* LoginUser.swift */; };
+		4763BA0F1E0CC86500AC1D94 /* RegistrationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763BA0E1E0CC86500AC1D94 /* RegistrationUser.swift */; };
 		476AC81A1DF9340D00093B38 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 476AC8191DF9340D00093B38 /* Icons.xcassets */; };
 		476AC82E1DFA715900093B38 /* TableViewCellFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC82D1DFA715900093B38 /* TableViewCellFrame.swift */; };
 		476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */; };
@@ -172,8 +174,10 @@
 		4721AD821DF7B8E4000CD963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		472587401E025DC700B9D108 /* HasOrderedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HasOrderedLabel.swift; path = View/HasOrderedLabel.swift; sourceTree = "<group>"; };
 		472587421E03B9E200B9D108 /* T_OrderDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = T_OrderDetailTableViewCell.swift; path = View/T_OrderDetailTableViewCell.swift; sourceTree = "<group>"; };
-		47444E341E0B787A0028A705 /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginUser.swift; path = NetMethod/LoginUser.swift; sourceTree = "<group>"; };
 		47444E3D1E0B901D0028A705 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = Other/MD5.swift; sourceTree = "<group>"; };
+		4763B9FB1E0CB37800AC1D94 /* IOrdersReposity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IOrdersReposity.swift; path = Protocal/IOrdersReposity.swift; sourceTree = "<group>"; };
+		4763BA051E0CC84500AC1D94 /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginUser.swift; path = Model/LoginUser.swift; sourceTree = "<group>"; };
+		4763BA0E1E0CC86500AC1D94 /* RegistrationUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationUser.swift; sourceTree = "<group>"; };
 		476AC8191DF9340D00093B38 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		476AC82D1DFA715900093B38 /* TableViewCellFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame.swift; path = View/TableViewCellFrame.swift; sourceTree = "<group>"; };
 		476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldFrame.swift; path = View/TextFieldFrame.swift; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				47093A2D1E09129A004118DF /* IUserReposity.swift */,
+				4763B9FB1E0CB37800AC1D94 /* IOrdersReposity.swift */,
 			);
 			name = Protocal;
 			sourceTree = "<group>";
@@ -365,7 +370,8 @@
 		4721AD8A1DF7CB9E000CD963 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				47444E341E0B787A0028A705 /* LoginUser.swift */,
+				4763BA051E0CC84500AC1D94 /* LoginUser.swift */,
+				4763BA0E1E0CC86500AC1D94 /* RegistrationUser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -650,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */,
+				4763BA0F1E0CC86500AC1D94 /* RegistrationUser.swift in Sources */,
 				47087BA91E077D3A00C2BE89 /* O_OrderInformationViewController.swift in Sources */,
 				9D2C740F1E02375D003F05CC /* MJRefreshStateHeader.m in Sources */,
 				47EC22D31E00DEA000BD439D /* ProgressHUD.m in Sources */,
@@ -686,7 +693,6 @@
 				9D2C740C1E02375D003F05CC /* MJRefreshBackStateFooter.m in Sources */,
 				4721AD741DF7B8E4000CD963 /* AppDelegate.swift in Sources */,
 				476AC82E1DFA715900093B38 /* TableViewCellFrame.swift in Sources */,
-				47444E351E0B787A0028A705 /* LoginUser.swift in Sources */,
 				9D0718131E0133860071C352 /* U_MyCreditTableViewController.swift in Sources */,
 				9D2C74121E02375D003F05CC /* NSBundle+MJRefresh.m in Sources */,
 				9D2C74071E02375D003F05CC /* MJRefreshAutoGifFooter.m in Sources */,
@@ -696,12 +702,14 @@
 				47EC22CC1E00C65800BD439D /* Messages.swift in Sources */,
 				CB874CB01E0905960015B49F /* O_OrderAddPlanTableViewController.swift in Sources */,
 				9D2C74031E02375D003F05CC /* MJRefreshBackFooter.m in Sources */,
+				4763B9FC1E0CB37800AC1D94 /* IOrdersReposity.swift in Sources */,
 				470706C11DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift in Sources */,
 				47093A0A1E090E41004118DF /* SwiftyJSON.swift in Sources */,
 				470706C31DFF8BA300F27AAF /* ButtonRed.swift in Sources */,
 				9D0718141E0133860071C352 /* U_MyDataTableViewController.swift in Sources */,
 				9D2C74051E02375D003F05CC /* MJRefreshFooter.m in Sources */,
 				470706CB1DFFA11E00F27AAF /* TableButton_White.swift in Sources */,
+				4763BA061E0CC84500AC1D94 /* LoginUser.swift in Sources */,
 				9D2C74021E02375D003F05CC /* MJRefreshAutoFooter.m in Sources */,
 				476AC8361DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift in Sources */,
 			);

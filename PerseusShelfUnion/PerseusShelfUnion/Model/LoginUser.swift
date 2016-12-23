@@ -46,6 +46,7 @@ class Model_LoginUser: NSObject {
         case 该用户尚未启动 = 3
         case 用户名密码不正确 = 4
         case 没有该用户 = 5
+        case 用户名不清真 = 6
     }
 }
 

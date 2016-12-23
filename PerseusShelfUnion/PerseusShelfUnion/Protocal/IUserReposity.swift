@@ -12,8 +12,6 @@ protocol IUserReposity {
     
     /// 登录
     ///
-    /// - Parameters:
-    ///   - UserName: 用户名
-    ///   - UserPassword: 密码
+    /// - Parameter Requesting: LoginUser数据模型
     func LoginUser(Requesting: Model_LoginUser.Requesting)
 }

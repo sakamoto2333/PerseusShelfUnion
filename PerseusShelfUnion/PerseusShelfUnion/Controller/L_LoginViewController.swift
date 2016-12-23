@@ -16,6 +16,7 @@ class L_LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //建立通知
         NotificationCenter.default.addObserver(self, selector: #selector(self.LoginUser(_:)), name: NSNotification.Name(rawValue: "LoginUser"), object: nil)
         
         // Do any additional setup after loading the view.
