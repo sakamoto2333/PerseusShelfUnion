@@ -10,4 +10,6 @@ import Foundation
 
 protocol IOrdersReposity{
     
+    /// 抢单列表
+    func TakeOrders()
 }

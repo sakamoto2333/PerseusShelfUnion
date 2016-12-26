@@ -25,6 +25,8 @@ class T_OrderDetailTableViewCell: UITableViewCell {
     /// 安装地点
     @IBOutlet var InsplaceLabel: UILabel!
     
+    @IBOutlet var State: UILabel!
+    
     @IBOutlet var ModeView: UILabel!
     
     override func awakeFromNib() {
