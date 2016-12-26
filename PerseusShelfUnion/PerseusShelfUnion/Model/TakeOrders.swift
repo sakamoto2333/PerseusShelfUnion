@@ -42,10 +42,7 @@ class Model_TakeOrders: NSObject {
     }
     
     enum CodeType: Int {
-        case 请输入公司名 = 0
-        case 请输入用户名 = 1
-        case 请输入密码 = 2
-        case 注册成功 = 3
-        case 用户名已存在 = 4
+        case 未抢 = 0
+        case 已抢 = 1
     }
 }

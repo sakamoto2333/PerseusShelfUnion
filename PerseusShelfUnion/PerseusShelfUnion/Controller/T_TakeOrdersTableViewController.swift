@@ -12,6 +12,7 @@ class T_TakeOrdersTableViewController: UITableViewController {
     
     let ha = UILabel()
     var tablelist = [Model_TakeOrders.Response(InstallCycle: nil, InstallPlace: nil, RobOrderID: nil, StartTime: nil, Code: nil, Title: nil, Tonnage: nil)]
+    var isRefresh: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         let headers = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(header))
@@ -33,6 +34,11 @@ class T_TakeOrdersTableViewController: UITableViewController {
         if let Response: [Model_TakeOrders.Response] = notification.object as! [Model_TakeOrders.Response]?{
             tablelist = Response
             tableView.reloadData()
+            tableView.mj_header.endRefreshing()
+            if isRefresh == true {
+                Messages().show(code: 0x2002)
+                isRefresh = !isRefresh
+            }
 //            if (Response.Code == Model_LoginUser.CodeType.登录成功){
 //                Messages().show(code: 0x1005)
 //                self.performSegue(withIdentifier: "ToMainView", sender: self)
@@ -60,8 +66,8 @@ class T_TakeOrdersTableViewController: UITableViewController {
 
     
     func header() {
-        tableView.mj_header.endRefreshing()
-        ProgressHUD.showSuccess("滑稽?")
+        OrdersReposity().TakeOrders()
+        isRefresh = !isRefresh
     }
     
     @IBAction func T_back(segue:UIStoryboardSegue) {
@@ -81,7 +87,7 @@ class T_TakeOrdersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
+        if tablelist.count != 0 {
             ha.isHidden = true
             return tablelist.count
         }
@@ -100,6 +106,9 @@ class T_TakeOrdersTableViewController: UITableViewController {
         cell.InsCycleLabel.text = list.InstallCycle
         cell.InsStartDateLabel.text = list.StartTime
         cell.InsTonLabel.text = list.Tonnage
+        if list.Code != Model_TakeOrders.CodeType.已抢 {
+            cell.State.isHidden = false
+        }
         return cell
     }
     
