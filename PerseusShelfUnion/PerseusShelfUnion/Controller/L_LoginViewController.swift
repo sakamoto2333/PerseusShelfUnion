@@ -51,8 +51,11 @@ class L_LoginViewController: UIViewController {
             else if(Response.Code == Model_LoginUser.CodeType.该用户尚未启动){
                 Messages().showError(code: 0x1007)
             }
-            else if(Response.Code == Model_LoginUser.CodeType.请输入密码 || Response.Code == Model_LoginUser.CodeType.请输入用户名){
-                Messages().showError(code: 0x1000)
+            else if(Response.Code == Model_LoginUser.CodeType.请输入密码){
+                Messages().showError(code: 0x3001)
+            }
+            else if(Response.Code == Model_LoginUser.CodeType.请输入用户名) {
+                Messages().showError(code: 0x3000)
             }
             else{
                 Messages().showError(code: 0x1002)

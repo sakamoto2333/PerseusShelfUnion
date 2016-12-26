@@ -31,7 +31,7 @@
                                         <segue destination="s5D-ID-FhZ" kind="show" id="x5v-Ix-LcS"/>
                                     </connections>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="滑稽" translatesAutoresizingMaskIntoConstraints="NO" id="dFp-PY-y1V">
+                                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="滑稽" translatesAutoresizingMaskIntoConstraints="NO" id="dFp-PY-y1V">
                                     <rect key="frame" x="30" y="10" width="69" height="69"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="dFp-PY-y1V" secondAttribute="height" multiplier="1:1" id="pdD-nW-kKy"/>
@@ -1348,7 +1348,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="滑稽" translatesAutoresizingMaskIntoConstraints="NO" id="nV8-vS-kd3">
+                                                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="滑稽" translatesAutoresizingMaskIntoConstraints="NO" id="nV8-vS-kd3">
                                                             <rect key="frame" x="200.5" y="8" width="71.5" height="71.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="nV8-vS-kd3" secondAttribute="height" multiplier="1:1" id="8bx-oe-yz3"/>
