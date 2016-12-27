@@ -27,6 +27,9 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
     @IBOutlet weak var InsMoneyLabel: UILabel!
     @IBOutlet weak var InsNameLabel: UILabel!
     @IBOutlet weak var InsPhoneLabel: UILabel!
+    
+    @IBOutlet weak var textField: UITextField!
+    
     var RobOrderID: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
