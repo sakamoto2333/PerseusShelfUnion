@@ -8,7 +8,7 @@
 
 import UIKit
 
-class T_OrderDetailTableViewController: UITableViewController {
+class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var InsShelftypeLabel: UILabel!
     @IBOutlet weak var InsTonnageLabel: UILabel!
     @IBOutlet weak var InsplaceLabel: UILabel!
@@ -74,6 +74,55 @@ class T_OrderDetailTableViewController: UITableViewController {
         default:
             return 1
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1{
+            touchButton()
+        }
+    }
+    
+    func touchButton() {
+        let alertController = UIAlertController(title: "报价\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let margin:CGFloat = 10.0
+        let alertViewHeight:CGFloat = 100
+        let alertView = UIView(frame: CGRect(x: margin, y: margin + 40, width: alertController.view.bounds.size.width - margin * 4.0, height: alertViewHeight))
+        let textFieldHeight:CGFloat = 30.0
+        textField = UITextField(frame: CGRect(x: 0, y: (alertView.bounds.size.height / 2.0) -  (textFieldHeight / 2), width: alertView.bounds.size.width / 2.0, height: textFieldHeight))
+        textField.borderStyle = .roundedRect
+        textField.returnKeyType = .done
+        textField.keyboardType = .numberPad
+        alertView.addSubview(textField)
+        
+        let pickerView = UIPickerView(frame: CGRect(x: textField.frame.width + 5, y: 0, width: alertView.bounds.size.width / 4.0, height: alertViewHeight))
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.selectedRow(inComponent: 0)
+        alertView.addSubview(pickerView)
+        
+        let cancelAction = UIAlertAction(title: "放弃", style: UIAlertActionStyle.cancel, handler: nil)
+        let okAction = UIAlertAction(title: "提交", style: UIAlertActionStyle.destructive, handler: nil)
+        alertController.view.addSubview(alertView)
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return String(row)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        textField.resignFirstResponder()
     }
 
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
