@@ -70,4 +70,11 @@ class Model_TakeOrderDetails: NSObject {
         case 未抢 = 0
         case 已抢 = 1
     }
+    
+    var PriceUnitType:[Int:String] = [0:"元／吨",
+                                      1:"元／千克",
+                                      2:"元／克",
+                                      3:"元／斤",
+                                      4:"元／加仑"
+    ]
 }

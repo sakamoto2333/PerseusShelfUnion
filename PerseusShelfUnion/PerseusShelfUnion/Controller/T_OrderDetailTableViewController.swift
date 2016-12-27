@@ -50,7 +50,7 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
             InsBeamHghLabel.text = Response.InsBeamHgh
             InsAtticLayerLabel.text = Response.InsAtticLayer
             InsForkExtensionLabel.text = Response.InsFork
-            RemarkLabel.text = Response.InsRemarks! + "666666666666666666666666666666666666666666666666666666666666666"
+            RemarkLabel.text = Response.InsRemarks!
             InsMoneyLabel.text = Response.InsMoney
             InsNameLabel.text = Response.InsName
             InsPhoneLabel.text = Response.InsPhone
@@ -89,7 +89,7 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
         let alertController = UIAlertController(title: "报价\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         let margin:CGFloat = 10.0
         let alertViewHeight:CGFloat = 100
-        let alertView = UIView(frame: CGRect(x: margin, y: margin + 40, width: alertController.view.bounds.size.width - margin * 4.0, height: alertViewHeight))
+        let alertView = UIView(frame: CGRect(x: margin, y: margin + 40, width: alertController.view.bounds.size.width - margin * 7.0, height: alertViewHeight))
         let textFieldHeight:CGFloat = 30.0
         textField = UITextField(frame: CGRect(x: 0, y: (alertView.bounds.size.height / 2.0) -  (textFieldHeight / 2), width: alertView.bounds.size.width / 2.0, height: textFieldHeight))
         textField.borderStyle = .roundedRect
@@ -97,7 +97,7 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
         textField.keyboardType = .numberPad
         alertView.addSubview(textField)
         
-        let pickerView = UIPickerView(frame: CGRect(x: textField.frame.width + 5, y: 0, width: alertView.bounds.size.width / 4.0, height: alertViewHeight))
+        let pickerView = UIPickerView(frame: CGRect(x: textField.frame.width + 5, y: 0, width: alertView.bounds.size.width / 2.0, height: alertViewHeight))
         pickerView.dataSource = self
         pickerView.delegate = self
         pickerView.selectedRow(inComponent: 0)
@@ -116,12 +116,13 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
+        
+        return Model_TakeOrderDetails().PriceUnitType.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return String(row)
+        return Model_TakeOrderDetails().PriceUnitType[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
