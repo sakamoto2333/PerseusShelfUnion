@@ -78,6 +78,8 @@
 		9DFA466A1E10BB38009373D8 /* OrdersReposity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA46691E10BB38009373D8 /* OrdersReposity.swift */; };
 		9DFA466C1E10BB99009373D8 /* RegistrationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA466B1E10BB99009373D8 /* RegistrationUser.swift */; };
 		9DFA467F1E10F2C8009373D8 /* TakeOrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA467E1E10F2C8009373D8 /* TakeOrderDetails.swift */; };
+		CB1334481E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1334471E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift */; };
+		CB5B276D1E1213C300975B24 /* O_OrderPlanDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B276C1E1213C300975B24 /* O_OrderPlanDateViewController.swift */; };
 		CB874CB01E0905960015B49F /* O_OrderAddPlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -249,6 +251,8 @@
 		9DFA46691E10BB38009373D8 /* OrdersReposity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersReposity.swift; path = NetMethod/OrdersReposity.swift; sourceTree = "<group>"; };
 		9DFA466B1E10BB99009373D8 /* RegistrationUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationUser.swift; path = Model/RegistrationUser.swift; sourceTree = "<group>"; };
 		9DFA467E1E10F2C8009373D8 /* TakeOrderDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeOrderDetails.swift; path = Model/TakeOrderDetails.swift; sourceTree = "<group>"; };
+		CB1334471E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = O_OrderPlanTimeCollectionViewController.swift; path = Controller/O_OrderPlanTimeCollectionViewController.swift; sourceTree = "<group>"; };
+		CB5B276C1E1213C300975B24 /* O_OrderPlanDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = O_OrderPlanDateViewController.swift; path = Controller/O_OrderPlanDateViewController.swift; sourceTree = "<group>"; };
 		CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = O_OrderAddPlanTableViewController.swift; path = Controller/O_OrderAddPlanTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -351,6 +355,8 @@
 				47087BAD1E07E43600C2BE89 /* O_OrderDetailTableViewController.swift */,
 				47087BB01E08B81300C2BE89 /* O_StepListTableViewController.swift */,
 				CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */,
+				CB1334471E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift */,
+				CB5B276C1E1213C300975B24 /* O_OrderPlanDateViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -664,6 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5B276D1E1213C300975B24 /* O_OrderPlanDateViewController.swift in Sources */,
 				476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */,
 				47087BA91E077D3A00C2BE89 /* O_OrderInformationViewController.swift in Sources */,
 				9D2C740F1E02375D003F05CC /* MJRefreshStateHeader.m in Sources */,
@@ -715,6 +722,7 @@
 				9D2C74031E02375D003F05CC /* MJRefreshBackFooter.m in Sources */,
 				4763B9FC1E0CB37800AC1D94 /* IOrdersReposity.swift in Sources */,
 				470706C11DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift in Sources */,
+				CB1334481E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift in Sources */,
 				47093A0A1E090E41004118DF /* SwiftyJSON.swift in Sources */,
 				470706C31DFF8BA300F27AAF /* ButtonRed.swift in Sources */,
 				9DFA46611E10BB00009373D8 /* TakeOrders.swift in Sources */,
