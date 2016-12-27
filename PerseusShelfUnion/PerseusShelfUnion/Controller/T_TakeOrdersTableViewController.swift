@@ -11,108 +11,98 @@ import UIKit
 class T_TakeOrdersTableViewController: UITableViewController {
     
     let ha = UILabel()
+    var tablelist = [Model_TakeOrders.Response(InstallCycle: nil, InstallPlace: nil, RobOrderID: nil, StartTime: nil, Code: nil, Title: nil, Tonnage: nil)]
+    var isRefresh: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         let headers = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(header))
         headers?.lastUpdatedTimeLabel.isHidden = true
         tableView.mj_header = headers
-        ha.text = "看来你不懂得生命的可贵"
+        ha.text = "暂无数据"
         ha.textColor = UIColor.gray
         ha.textAlignment = .center
         tableView.backgroundView = ha
         ha.isHidden = false
         self.tableView.estimatedRowHeight = 129
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        Messages().showNow(code: 0x1004)
+        OrdersReposity().TakeOrders()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.TakeOrders(_:)), name: NSNotification.Name(rawValue: "TakeOrders"), object: nil)
     }
     
+    func TakeOrders(_ notification:Notification) {
+        if let Response: [Model_TakeOrders.Response] = notification.object as! [Model_TakeOrders.Response]?{
+            tablelist = Response
+            tableView.reloadData()
+            tableView.mj_header.endRefreshing()
+            if isRefresh == true {
+                Messages().show(code: 0x2002)
+                isRefresh = !isRefresh
+            }
+        }
+        else {
+            Messages().showError(code: 0x1002)
+        }
+    }
+
+    
     func header() {
-        tableView.mj_header.endRefreshing()
-        ProgressHUD.showSuccess("滑稽?")
+        OrdersReposity().TakeOrders()
+        isRefresh = !isRefresh
     }
     
     @IBAction func T_back(segue:UIStoryboardSegue) {
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
+        if tablelist.count != 0 {
             ha.isHidden = true
+            return tablelist.count
         }
-        return 3
+        else {
+            ha.isHidden = false
+            return 0
+        }
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCellView", for: indexPath) as! T_OrderDetailTableViewCell
-        let cell2 = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCellView2", for: indexPath) as! T_OrderDetailTableViewCell
-        
-        cell.InsShelftypeLabel.text = "\(indexPath.row)"
-        cell2.InsShelftypeLabel.text = "\(indexPath.row)"
-        
-        if(indexPath.row == 0){
-            return cell2
+        let list = tablelist[indexPath.row] as Model_TakeOrders.Response
+        cell.InsShelftypeLabel.text = list.Title
+        cell.InsplaceLabel.text = list.InstallPlace
+        cell.InsCycleLabel.text = list.InstallCycle
+        cell.InsStartDateLabel.text = list.StartTime
+        cell.InsTonLabel.text = list.Tonnage
+        if list.Code == Model_TakeOrders.CodeType.已抢 {
+            cell.State.isHidden = false
         }
-        else{
-            return cell
-        }
+        return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "OrderDetails" {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)
+            let Controller = segue.destination as! T_OrderDetailTableViewController
+            Controller.RobOrderID = (tablelist[Int((indexPath?.row)!)] as Model_TakeOrders.Response).RobOrderID
+        }
     }
-    */
-
 }
