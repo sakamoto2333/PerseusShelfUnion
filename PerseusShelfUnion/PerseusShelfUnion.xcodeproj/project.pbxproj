@@ -31,7 +31,6 @@
 		47444E3E1E0B901D0028A705 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47444E3D1E0B901D0028A705 /* MD5.swift */; };
 		4763B9FC1E0CB37800AC1D94 /* IOrdersReposity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763B9FB1E0CB37800AC1D94 /* IOrdersReposity.swift */; };
 		4763BA061E0CC84500AC1D94 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763BA051E0CC84500AC1D94 /* LoginUser.swift */; };
-		4763BA0F1E0CC86500AC1D94 /* RegistrationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763BA0E1E0CC86500AC1D94 /* RegistrationUser.swift */; };
 		476AC81A1DF9340D00093B38 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 476AC8191DF9340D00093B38 /* Icons.xcassets */; };
 		476AC82E1DFA715900093B38 /* TableViewCellFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC82D1DFA715900093B38 /* TableViewCellFrame.swift */; };
 		476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */; };
@@ -75,6 +74,10 @@
 		9D2C74131E02375D003F05CC /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C73FD1E02375D003F05CC /* UIScrollView+MJExtension.m */; };
 		9D2C74141E02375D003F05CC /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C73FF1E02375D003F05CC /* UIScrollView+MJRefresh.m */; };
 		9D2C74151E02375D003F05CC /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C74011E02375D003F05CC /* UIView+MJExtension.m */; };
+		9DFA46611E10BB00009373D8 /* TakeOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA46601E10BB00009373D8 /* TakeOrders.swift */; };
+		9DFA466A1E10BB38009373D8 /* OrdersReposity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA46691E10BB38009373D8 /* OrdersReposity.swift */; };
+		9DFA466C1E10BB99009373D8 /* RegistrationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA466B1E10BB99009373D8 /* RegistrationUser.swift */; };
+		9DFA467F1E10F2C8009373D8 /* TakeOrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA467E1E10F2C8009373D8 /* TakeOrderDetails.swift */; };
 		CB874CB01E0905960015B49F /* O_OrderAddPlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -177,7 +180,6 @@
 		47444E3D1E0B901D0028A705 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = Other/MD5.swift; sourceTree = "<group>"; };
 		4763B9FB1E0CB37800AC1D94 /* IOrdersReposity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IOrdersReposity.swift; path = Protocal/IOrdersReposity.swift; sourceTree = "<group>"; };
 		4763BA051E0CC84500AC1D94 /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginUser.swift; path = Model/LoginUser.swift; sourceTree = "<group>"; };
-		4763BA0E1E0CC86500AC1D94 /* RegistrationUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationUser.swift; sourceTree = "<group>"; };
 		476AC8191DF9340D00093B38 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		476AC82D1DFA715900093B38 /* TableViewCellFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame.swift; path = View/TableViewCellFrame.swift; sourceTree = "<group>"; };
 		476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldFrame.swift; path = View/TextFieldFrame.swift; sourceTree = "<group>"; };
@@ -243,6 +245,10 @@
 		9D2C73FF1E02375D003F05CC /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		9D2C74001E02375D003F05CC /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		9D2C74011E02375D003F05CC /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		9DFA46601E10BB00009373D8 /* TakeOrders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeOrders.swift; path = Model/TakeOrders.swift; sourceTree = "<group>"; };
+		9DFA46691E10BB38009373D8 /* OrdersReposity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersReposity.swift; path = NetMethod/OrdersReposity.swift; sourceTree = "<group>"; };
+		9DFA466B1E10BB99009373D8 /* RegistrationUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationUser.swift; path = Model/RegistrationUser.swift; sourceTree = "<group>"; };
+		9DFA467E1E10F2C8009373D8 /* TakeOrderDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeOrderDetails.swift; path = Model/TakeOrderDetails.swift; sourceTree = "<group>"; };
 		CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = O_OrderAddPlanTableViewController.swift; path = Controller/O_OrderAddPlanTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				47093A2F1E091771004118DF /* UserReposity.swift */,
+				9DFA46691E10BB38009373D8 /* OrdersReposity.swift */,
 			);
 			name = NetMethod;
 			sourceTree = "<group>";
@@ -371,7 +378,9 @@
 			isa = PBXGroup;
 			children = (
 				4763BA051E0CC84500AC1D94 /* LoginUser.swift */,
-				4763BA0E1E0CC86500AC1D94 /* RegistrationUser.swift */,
+				9DFA466B1E10BB99009373D8 /* RegistrationUser.swift */,
+				9DFA46601E10BB00009373D8 /* TakeOrders.swift */,
+				9DFA467E1E10F2C8009373D8 /* TakeOrderDetails.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -656,7 +665,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */,
-				4763BA0F1E0CC86500AC1D94 /* RegistrationUser.swift in Sources */,
 				47087BA91E077D3A00C2BE89 /* O_OrderInformationViewController.swift in Sources */,
 				9D2C740F1E02375D003F05CC /* MJRefreshStateHeader.m in Sources */,
 				47EC22D31E00DEA000BD439D /* ProgressHUD.m in Sources */,
@@ -679,6 +687,7 @@
 				9D07180F1E0133860071C352 /* O_MyOrdersTableViewController.swift in Sources */,
 				47444E3E1E0B901D0028A705 /* MD5.swift in Sources */,
 				9D0718151E0133860071C352 /* U_MyInformationTableViewController.swift in Sources */,
+				9DFA466A1E10BB38009373D8 /* OrdersReposity.swift in Sources */,
 				47087BAF1E07E43600C2BE89 /* O_OrderDetailTableViewController.swift in Sources */,
 				9D2C740A1E02375D003F05CC /* MJRefreshBackGifFooter.m in Sources */,
 				9D2C740E1E02375D003F05CC /* MJRefreshNormalHeader.m in Sources */,
@@ -695,8 +704,10 @@
 				476AC82E1DFA715900093B38 /* TableViewCellFrame.swift in Sources */,
 				9D0718131E0133860071C352 /* U_MyCreditTableViewController.swift in Sources */,
 				9D2C74121E02375D003F05CC /* NSBundle+MJRefresh.m in Sources */,
+				9DFA467F1E10F2C8009373D8 /* TakeOrderDetails.swift in Sources */,
 				9D2C74071E02375D003F05CC /* MJRefreshAutoGifFooter.m in Sources */,
 				47093A301E091771004118DF /* UserReposity.swift in Sources */,
+				9DFA466C1E10BB99009373D8 /* RegistrationUser.swift in Sources */,
 				9D2C74151E02375D003F05CC /* UIView+MJExtension.m in Sources */,
 				9D2C74141E02375D003F05CC /* UIScrollView+MJRefresh.m in Sources */,
 				47EC22CC1E00C65800BD439D /* Messages.swift in Sources */,
@@ -706,6 +717,7 @@
 				470706C11DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift in Sources */,
 				47093A0A1E090E41004118DF /* SwiftyJSON.swift in Sources */,
 				470706C31DFF8BA300F27AAF /* ButtonRed.swift in Sources */,
+				9DFA46611E10BB00009373D8 /* TakeOrders.swift in Sources */,
 				9D0718141E0133860071C352 /* U_MyDataTableViewController.swift in Sources */,
 				9D2C74051E02375D003F05CC /* MJRefreshFooter.m in Sources */,
 				470706CB1DFFA11E00F27AAF /* TableButton_White.swift in Sources */,
