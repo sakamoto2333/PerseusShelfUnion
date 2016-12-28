@@ -103,6 +103,7 @@ class T_TakeOrdersTableViewController: UITableViewController {
             let indexPath = tableView.indexPath(for: cell)
             let Controller = segue.destination as! T_OrderDetailTableViewController
             Controller.RobOrderID = (tablelist[Int((indexPath?.row)!)] as Model_TakeOrders.Response).RobOrderID
+            Controller.Code = (tablelist[Int((indexPath?.row)!)] as Model_TakeOrders.Response).Code
         }
     }
 }

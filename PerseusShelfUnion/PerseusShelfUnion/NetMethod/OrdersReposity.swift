@@ -24,6 +24,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
             if response.result.value != nil {
                 //当收到JSON相应时
                 print(response.request as Any)
+//                print(response.result.value as Any)
                 Response.removeAll()
                 
                 let json = JSON(data: response.data!) //JSON解析
@@ -99,6 +100,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
     
     func GetOrder(Requesting: Model_GetOrder.Requesting) {
         var request =  requestTo(crotroller: BaseOrderUrl, url: "RobOrderSubmit") //接口名称
+        var Response: Model_TakeOrders.CodeType!
         let parameters = [
             "RobOrderID":Requesting.RobOrderID,
             "OfferMoney":Requesting.OfferMoney,
@@ -112,9 +114,13 @@ class OrdersReposity: NSObject, IOrdersReposity {
                 //当收到JSON相应时
                 print(response.request as Any)
                 print(response.result.value as Any)
+                
+                let json = JSON(data: response.data!) //JSON解析
+                Response = Model_TakeOrders.CodeType(rawValue: json["Code"].int!)!
             }
             //激活通知
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "GetOrder"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "GetOrder"), object: Response)
+
         }
     }
     
