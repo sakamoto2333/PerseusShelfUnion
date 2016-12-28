@@ -12,10 +12,15 @@ class L_LoginViewController: UIViewController {
 
     @IBOutlet weak var id: TextFieldFrame!
     @IBOutlet weak var password: TextFieldFrame!
-    
+    let loginmodel = LoginModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loginmodel.loadData()
+        if loginmodel.LoginList.count > 0 {
+            id.text = loginmodel.LoginList.first?.Name
+            password.text = loginmodel.LoginList.first?.Password
+            LoginButtonTouch(Any.self)
+        }
         //建立通知
         NotificationCenter.default.addObserver(self, selector: #selector(self.LoginUser(_:)), name: NSNotification.Name(rawValue: "LoginUser"), object: nil)
         
@@ -40,6 +45,9 @@ class L_LoginViewController: UIViewController {
         if let Response:Model_LoginUser.Response = notification.object as! Model_LoginUser.Response?{
             if (Response.Code == Model_LoginUser.CodeType.登录成功){
                 Messages().show(code: 0x1005)
+                loginmodel.loadData()
+                loginmodel.LoginList.append(LoginPassword(Name: id.text!, Password: password.text!))
+                loginmodel.saveData()
                 self.performSegue(withIdentifier: "ToMainView", sender: self)
             }
             else if(Response.Code == Model_LoginUser.CodeType.没有该用户){

@@ -1759,9 +1759,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="Ldp-yh-R6Y" kind="presentation" modalTransitionStyle="flipHorizontal" id="dz6-oI-kNc"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1787,6 +1784,7 @@
                         <outlet property="UserPhoneLabel" destination="hQ9-ir-4hb" id="ywG-2Q-5Pk"/>
                         <outlet property="UserPositionLabel" destination="UC3-zY-50G" id="2v0-9y-B8K"/>
                         <outlet property="UserRealNameLabel" destination="kOn-OP-A6M" id="Rnz-4b-bjD"/>
+                        <segue destination="Ldp-yh-R6Y" kind="presentation" identifier="out" modalTransitionStyle="flipHorizontal" id="ec8-d4-HPQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7K-Vn-abU" userLabel="First Responder" sceneMemberID="firstResponder"/>

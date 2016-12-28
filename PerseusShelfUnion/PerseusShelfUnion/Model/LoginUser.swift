@@ -50,3 +50,28 @@ class Model_LoginUser: NSObject {
     }
 }
 
+class LoginPassword: NSObject, NSCoding{
+    var Name: String
+    var Password: String
+    
+    //构造方法
+    init(Name: String,
+         Password: String){
+        self.Name = Name
+        self.Password = Password
+        super.init()
+    }
+    
+    //从nsobject解析回来
+    required init(coder aDecoder:NSCoder){
+        self.Name=aDecoder.decodeObject(forKey: "Name") as! String
+        self.Password=aDecoder.decodeObject(forKey: "Password") as! String
+    }
+    
+    //编码成object
+    func encode(with aCoder:NSCoder){
+        aCoder.encode(Name,forKey:"Name")
+        aCoder.encode(Password,forKey:"Password")
+    }
+}
+

@@ -16,7 +16,7 @@ var BaseOrderUrl = "172.16.101.110:8000/RequireApp"
 class OrdersReposity: NSObject, IOrdersReposity {
     
     func TakeOrders(){
-        var request =  requestTo(url: "RobOrderList") //接口名称
+        var request =  requestTo(crotroller: BaseOrderUrl, url: "RobOrderList") //接口名称
         var Response = [Model_TakeOrders.Response(InstallCycle: nil, InstallPlace: nil, RobOrderID: nil, StartTime: nil, Code: nil, Title: nil, Tonnage: nil)]
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
@@ -45,7 +45,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
     }
     
     func TakeOrderDetails(Requesting: Model_TakeOrderDetails.Requesting) {
-        var request =  requestTo(url: "RobOrderInfo") //接口名称
+        var request =  requestTo(crotroller: BaseOrderUrl, url: "RobOrderInfo") //接口名称
         let Response = Model_TakeOrderDetails.Response(InsAtticLayer: nil, InsBeamHgh: nil, InsHeight: nil, InsName: nil, InsFork: nil, InsCycle: nil, InsPlace: nil, InsMoney: nil, Weight: nil, InsPhone: nil, InsRemarks: nil, StartTime: nil, Structure: nil, Tonnage: nil, InsType: nil)
         let parameters = [
             "RobOrderID":Requesting.RobOrderID
@@ -79,12 +79,47 @@ class OrdersReposity: NSObject, IOrdersReposity {
         }
     }
     
+    //占时废弃
     func MyOrders() {
+        var request =  requestTo(crotroller: BaseOrderUrl, url: "Order") //接口名称
+        print(request)
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        Alamofire.request(request).responseJSON { response in
+            if response.result.value != nil {
+                //当收到JSON相应时
+                print(response.request as Any)
+                print(response.result.value as Any)
+            }
+            //激活通知
+            NotificationCenter.default.post(name: Notification.Name(rawValue: ""), object: nil)
+        }
         
     }
     
-    private func requestTo(url: String) -> URLRequest {
-        return URLRequest(url: URL(string: NSString(format: "http://%@/%@", BaseOrderUrl , url) as String)!)
+    func GetOrder(Requesting: Model_GetOrder.Requesting) {
+        var request =  requestTo(crotroller: BaseOrderUrl, url: "RobOrderSubmit") //接口名称
+        let parameters = [
+            "RobOrderID":Requesting.RobOrderID,
+            "OfferMoney":Requesting.OfferMoney,
+            "OfferWeight":Requesting.OfferWeight
+        ]
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON { response in
+            if response.result.value != nil {
+                //当收到JSON相应时
+                print(response.request as Any)
+                print(response.result.value as Any)
+            }
+            //激活通知
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "GetOrder"), object: nil)
+        }
+    }
+    
+    private func requestTo(crotroller: String, url: String) -> URLRequest {
+        return URLRequest(url: URL(string: NSString(format: "http://%@/%@", crotroller , url) as String)!)
     }
     
     private func dateTo(datetime: String) -> String {

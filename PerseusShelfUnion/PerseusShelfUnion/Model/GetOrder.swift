@@ -1,18 +1,25 @@
 //
-//  TakeOrderDetails.swift
+//  GetOrder.swift
 //  PerseusShelfUnion
 //
-//  Created by 123 on 16/12/26.
+//  Created by 123 on 16/12/27.
 //  Copyright © 2016年 XHVolunteeriOS. All rights reserved.
 //
 
 import Foundation
-class Model_TakeOrderDetails: NSObject {
+class Model_GetOrder: NSObject {
     // 请求
     class Requesting: NSObject {
-        var RobOrderID: Int?
-        init(RobOrderID: Int?) {
+        var RobOrderID: String
+        var OfferMoney: String
+        var OfferWeight: String
+        
+        init(RobOrderID: String,
+             OfferMoney: String,
+             OfferWeight: String) {
             self.RobOrderID = RobOrderID
+            self.OfferMoney = OfferMoney
+            self.OfferWeight = OfferWeight
         }
     }
     
@@ -70,11 +77,4 @@ class Model_TakeOrderDetails: NSObject {
         case 未抢 = 0
         case 已抢 = 1
     }
-    
-    var PriceUnitType:[Int:String] = [0:"元／吨",
-                                      1:"元／千克",
-                                      2:"元／克",
-                                      3:"元／斤",
-                                      4:"元／加仑"
-    ]
 }
