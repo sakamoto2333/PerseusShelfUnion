@@ -10,20 +10,32 @@ import UIKit
 
 class O_MyOrdersTableViewController: UITableViewController {
 
+    var isRefresh: Bool = false
+    var tablelist = [Model_TakeOrders.Response(InstallCycle: nil, InstallPlace: nil, RobOrderID: nil, StartTime: nil, Code: nil, Title: nil, Tonnage: nil)]
     override func viewDidLoad() {
         super.viewDidLoad()
         let headers = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(header))
         headers?.lastUpdatedTimeLabel.isHidden = true
         tableView.mj_header = headers
-        
-        
         self.tableView.estimatedRowHeight = 139
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        OrdersReposity().MyOrders()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrders(_:)), name: NSNotification.Name(rawValue: "MyOrders"), object: nil)
+    }
+    
+    func MyOrders(_ notification:Notification) {
+//        if let Response: [Model_TakeOrders.Response] = notification.object as! [Model_TakeOrders.Response]?{
+//            tablelist = Response
+//            tableView.reloadData()
+//            tableView.mj_header.endRefreshing()
+//            if isRefresh == true {
+//                Messages().show(code: 0x2002)
+//                isRefresh = !isRefresh
+//            }
+//        }
+//        else {
+//            Messages().showError(code: 0x1002)
+//        }
     }
     
     func header() {

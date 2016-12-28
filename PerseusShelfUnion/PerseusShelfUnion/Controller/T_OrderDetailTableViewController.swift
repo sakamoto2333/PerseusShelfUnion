@@ -31,6 +31,7 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
     @IBOutlet weak var textField: UITextField!
     
     var RobOrderID: Int!
+    var select: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         OrdersReposity().TakeOrderDetails(Requesting: Model_TakeOrderDetails.Requesting(RobOrderID: RobOrderID))
@@ -50,7 +51,7 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
             InsBeamHghLabel.text = Response.InsBeamHgh
             InsAtticLayerLabel.text = Response.InsAtticLayer
             InsForkExtensionLabel.text = Response.InsFork
-            RemarkLabel.text = Response.InsRemarks!
+            RemarkLabel.text = Response.InsRemarks
             InsMoneyLabel.text = Response.InsMoney
             InsNameLabel.text = Response.InsName
             InsPhoneLabel.text = Response.InsPhone
@@ -102,9 +103,17 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
         pickerView.delegate = self
         pickerView.selectedRow(inComponent: 0)
         alertView.addSubview(pickerView)
+        select = Model_TakeOrderDetails().PriceUnitType[0]
         
         let cancelAction = UIAlertAction(title: "放弃", style: UIAlertActionStyle.cancel, handler: nil)
-        let okAction = UIAlertAction(title: "提交", style: UIAlertActionStyle.destructive, handler: nil)
+        let okAction = UIAlertAction(title: "提交", style: .destructive) { (UIAlertAction) in
+            if self.textField.text != "" {
+                OrdersReposity().GetOrder(Requesting: Model_GetOrder.Requesting(RobOrderID: String(self.RobOrderID), OfferMoney: self.textField.text!, OfferWeight: self.select))
+            }
+            else {
+                ProgressHUD.showError("请输入金额")
+            }
+        }
         alertController.view.addSubview(alertView)
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
@@ -126,6 +135,7 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        select = Model_TakeOrderDetails().PriceUnitType[row]
         textField.resignFirstResponder()
     }
 

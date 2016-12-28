@@ -14,7 +14,14 @@ protocol IOrdersReposity{
     func TakeOrders()
     
     /// 抢单详细
+    ///
+    /// - Parameter Requesting: 单子ID
     func TakeOrderDetails(Requesting : Model_TakeOrderDetails.Requesting)
+    
+    /// 申请抢单
+    ///
+    /// - Parameter Requesting: 单子ID和用户ID
+    func GetOrder(Requesting : Model_GetOrder.Requesting)
     
     /// 我的订单
     func MyOrders()

@@ -153,6 +153,18 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             print(messages)
             messages = ""
         }
+        else if(indexPath.section == 3) {
+            let alertout = UIAlertController(title: "警告", message: "确定要注销么", preferredStyle: .alert)
+            alertout.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alertout.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { (UIAlertAction) in
+                let loginmodel = LoginModel()
+                loginmodel.loadData()
+                loginmodel.LoginList.removeAll()
+                loginmodel.saveData()
+                self.performSegue(withIdentifier: "out", sender: self)
+            }))
+            self.present(alertout, animated: true, completion: nil)
+        }
     }
     
 }
