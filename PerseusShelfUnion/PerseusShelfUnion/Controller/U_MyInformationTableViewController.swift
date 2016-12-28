@@ -100,71 +100,55 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         dismiss(animated: true, completion: nil)
     }
     
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.section == 0 && indexPath.row == 0) {
-            let alert:UIAlertController=UIAlertController(title: "选择图片", message: nil, preferredStyle: .actionSheet)
-            picker.delegate = self
-            alert.addAction(UIAlertAction(title: "相机拍摄", style: .default, handler: { (UIAlertAction) in
-                self.openCamera()
-            }))
-            alert.addAction(UIAlertAction(title: "相册", style: .default, handler: { (UIAlertAction) in
-                self.openGallary()
-            }))
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-            
-        else if(indexPath.section == 0 && indexPath.row == 1)
-        {
-            alert.textFields?.first?.keyboardType = .numberPad
-            refresh(title: "手机号", place: "请输入手机号")
-            print(messages)
-            messages = ""
-            
-        }
-            
-        else if(indexPath.section == 0&&indexPath.row == 2)
-        {
-            alert.textFields?.first?.keyboardType = .default
-            refresh(title: "姓名", place: "请输入姓名")
-            print(messages)
-            messages = ""
-        }
-            
-        else if(indexPath.section == 0&&indexPath.row == 3)
-        {
-            alert.textFields?.first?.keyboardType = .emailAddress
-            refresh(title: "邮箱", place: "请输入邮箱")
-            print(messages)
-            messages = ""
-        }
-        else if(indexPath.section == 1&&indexPath.row == 0)
-        {
-            alert.textFields?.first?.keyboardType = .default
-            refresh(title: "公司", place: "请输入公司")
-            print(messages)
-            messages = ""
-        }
-            
-        else if(indexPath.section == 1&&indexPath.row == 1)
-        {
-            alert.textFields?.first?.keyboardType = .default
-            refresh(title: "职位", place: "请输入职位")
-            print(messages)
-            messages = ""
-        }
-        else if(indexPath.section == 3) {
-            let alertout = UIAlertController(title: "警告", message: "确定要注销么", preferredStyle: .alert)
-            alertout.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            alertout.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { (UIAlertAction) in
-                let loginmodel = LoginModel()
-                loginmodel.loadData()
-                loginmodel.LoginList.removeAll()
-                loginmodel.saveData()
-                self.performSegue(withIdentifier: "out", sender: self)
-            }))
-            self.present(alertout, animated: true, completion: nil)
-        }
+        messages = ""
     }
+    
+    @IBAction func 头像(_ sender: Any) {
+        let alert:UIAlertController=UIAlertController(title: "选择图片", message: nil, preferredStyle: .actionSheet)
+        picker.delegate = self
+        alert.addAction(UIAlertAction(title: "相机拍摄", style: .default, handler: { (UIAlertAction) in
+            self.openCamera()
+        }))
+        alert.addAction(UIAlertAction(title: "相册", style: .default, handler: { (UIAlertAction) in
+            self.openGallary()
+        }))
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    @IBAction func 手机号(_ sender: Any) {
+        alert.textFields?.first?.keyboardType = .numberPad
+        refresh(title: "手机号", place: "请输入手机号")
+    }
+    @IBAction func 姓名(_ sender: Any) {
+        alert.textFields?.first?.keyboardType = .default
+        refresh(title: "姓名", place: "请输入姓名")
+    }
+    @IBAction func 邮箱(_ sender: Any) {
+        alert.textFields?.first?.keyboardType = .emailAddress
+        refresh(title: "邮箱", place: "请输入邮箱")
+    }
+    @IBAction func 公司(_ sender: Any) {
+        alert.textFields?.first?.keyboardType = .default
+        refresh(title: "公司", place: "请输入公司")
+    }
+    @IBAction func 职位(_ sender: Any) {
+        alert.textFields?.first?.keyboardType = .default
+        refresh(title: "职位", place: "请输入职位")
+    }
+    @IBAction func 注销(_ sender: Any) {
+        let alertout = UIAlertController(title: "警告", message: "确定要注销么", preferredStyle: .alert)
+        alertout.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        alertout.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { (UIAlertAction) in
+            let loginmodel = LoginModel()
+            loginmodel.loadData()
+            loginmodel.LoginList.removeAll()
+            loginmodel.saveData()
+            self.performSegue(withIdentifier: "out", sender: self)
+        }))
+        self.present(alertout, animated: true, completion: nil)
+    }
+    
     
 }
