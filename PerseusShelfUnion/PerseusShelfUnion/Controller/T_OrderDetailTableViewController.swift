@@ -28,16 +28,32 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
     @IBOutlet weak var InsNameLabel: UILabel!
     @IBOutlet weak var InsPhoneLabel: UILabel!
     
+    @IBOutlet weak var GetTheOrder: UITableViewCell!
     @IBOutlet weak var textField: UITextField!
     
     var RobOrderID: Int!
+    var Code: Model_TakeOrders.CodeType!
     var select: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         OrdersReposity().TakeOrderDetails(Requesting: Model_TakeOrderDetails.Requesting(RobOrderID: RobOrderID))
         NotificationCenter.default.addObserver(self, selector: #selector(self.OrderDetails(_:)), name: NSNotification.Name(rawValue: "OrderDetails"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.GetOrder(_:)), name: NSNotification.Name(rawValue: "GetOrder"), object: nil)
         RemarkLabel.lineBreakMode = NSLineBreakMode.byCharWrapping
         RemarkLabel.sizeToFit()
+    }
+    
+    func GetOrder(_ notification:Notification) {
+        if let Response: Model_TakeOrders.CodeType = notification.object as? Model_TakeOrders.CodeType{
+            if Response == Model_TakeOrders.CodeType.已抢 {
+                Messages().show(code: 0x1011)
+                dismiss(animated: true, completion: nil)
+            }
+            else {
+                Messages().showError(code: 0x1002)
+                dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     func OrderDetails(_ notification:Notification) {
@@ -55,6 +71,9 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
             InsMoneyLabel.text = Response.InsMoney
             InsNameLabel.text = Response.InsName
             InsPhoneLabel.text = Response.InsPhone
+            if Code == Model_TakeOrders.CodeType.已抢 {
+                GetTheOrder.contentView.backgroundColor = UIColor.gray
+            }
             tableView.reloadData()
         }
         else {
@@ -81,7 +100,7 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1{
+        if indexPath.section == 1 && Code != Model_TakeOrders.CodeType.已抢 {
             touchButton()
         }
     }

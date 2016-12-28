@@ -42,10 +42,7 @@ class Model_TakeOrders: NSObject {
     }
     
     enum CodeType: Int {
-        case 未抢1 = 1
-        case 未抢2 = 2
-        case 未抢3 = 3
-        case 未抢4 = 4
-        case 已抢 = 5
+        case 未抢 = 0
+        case 已抢 = 1
     }
 }

@@ -102,6 +102,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         messages = ""
     }
     
