@@ -1330,6 +1330,12 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tw-ly-9MG" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="87.5"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Va2-25-Uy2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="87.5"/>
+                                                            <connections>
+                                                                <action selector="头像:" destination="s5D-ID-FhZ" eventType="touchUpInside" id="4nP-ay-3AN"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uy6-uI-0vv">
                                                             <rect key="frame" x="8" y="8" width="69.5" height="71.5"/>
                                                             <constraints>
@@ -1348,8 +1354,9 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="滑稽" translatesAutoresizingMaskIntoConstraints="NO" id="nV8-vS-kd3">
-                                                            <rect key="frame" x="200.5" y="8" width="71.5" height="71.5"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="滑稽" translatesAutoresizingMaskIntoConstraints="NO" id="nV8-vS-kd3">
+                                                            <rect key="frame" x="194.5" y="5" width="77.5" height="77.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="nV8-vS-kd3" secondAttribute="height" multiplier="1:1" id="8bx-oe-yz3"/>
                                                             </constraints>
@@ -1358,13 +1365,17 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="uy6-uI-0vv" firstAttribute="bottom" secondItem="4tw-ly-9MG" secondAttribute="bottomMargin" id="9sX-Cr-JsS"/>
+                                                        <constraint firstItem="Va2-25-Uy2" firstAttribute="leading" secondItem="4tw-ly-9MG" secondAttribute="leading" id="Koo-po-UGw"/>
                                                         <constraint firstItem="WgJ-0w-LhZ" firstAttribute="centerY" secondItem="4tw-ly-9MG" secondAttribute="centerY" constant="3" id="M8d-3H-sJR"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="WgJ-0w-LhZ" secondAttribute="trailing" id="QBO-4U-4GM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Va2-25-Uy2" secondAttribute="trailing" id="QDi-6h-Zc6"/>
                                                         <constraint firstItem="uy6-uI-0vv" firstAttribute="leading" secondItem="4tw-ly-9MG" secondAttribute="leadingMargin" id="SJq-Na-FVc"/>
                                                         <constraint firstItem="uy6-uI-0vv" firstAttribute="top" secondItem="4tw-ly-9MG" secondAttribute="topMargin" id="U8h-LT-c0D"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="nV8-vS-kd3" secondAttribute="bottom" id="c2b-TV-5hd"/>
-                                                        <constraint firstItem="nV8-vS-kd3" firstAttribute="top" secondItem="4tw-ly-9MG" secondAttribute="topMargin" id="gEu-3W-QTy"/>
+                                                        <constraint firstAttribute="bottom" secondItem="nV8-vS-kd3" secondAttribute="bottom" constant="5" id="c2b-TV-5hd"/>
+                                                        <constraint firstItem="nV8-vS-kd3" firstAttribute="topMargin" secondItem="4tw-ly-9MG" secondAttribute="topMargin" constant="5" id="gEu-3W-QTy"/>
                                                         <constraint firstItem="WgJ-0w-LhZ" firstAttribute="leading" secondItem="nV8-vS-kd3" secondAttribute="trailing" id="gk3-Md-wBi"/>
+                                                        <constraint firstItem="Va2-25-Uy2" firstAttribute="top" secondItem="4tw-ly-9MG" secondAttribute="top" id="nkU-jb-Qdp"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Va2-25-Uy2" secondAttribute="bottom" id="uMY-R5-pdI"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1387,6 +1398,12 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBt-Qf-prb" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="44"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ill-dR-1yr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                            <connections>
+                                                                <action selector="手机号:" destination="s5D-ID-FhZ" eventType="touchUpInside" id="vMr-xX-pi5"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rq-CO-y9b">
                                                             <rect key="frame" x="8" y="8" width="69.5" height="28"/>
                                                             <constraints>
@@ -1417,11 +1434,15 @@
                                                         <constraint firstItem="8Rq-CO-y9b" firstAttribute="top" secondItem="sBt-Qf-prb" secondAttribute="topMargin" id="3GK-TX-xS2"/>
                                                         <constraint firstItem="hQ9-ir-4hb" firstAttribute="leading" secondItem="8Rq-CO-y9b" secondAttribute="trailing" constant="5" id="Aag-ge-f8z"/>
                                                         <constraint firstItem="4B5-HG-7QZ" firstAttribute="leading" secondItem="hQ9-ir-4hb" secondAttribute="trailing" id="HZa-cs-uYt"/>
+                                                        <constraint firstItem="ill-dR-1yr" firstAttribute="leading" secondItem="sBt-Qf-prb" secondAttribute="leading" id="NAW-dE-3gp"/>
                                                         <constraint firstItem="hQ9-ir-4hb" firstAttribute="top" secondItem="sBt-Qf-prb" secondAttribute="topMargin" id="O0W-oM-Zby"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="4B5-HG-7QZ" secondAttribute="trailing" id="Rhg-dl-xb6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ill-dR-1yr" secondAttribute="trailing" id="YX4-r4-00T"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="hQ9-ir-4hb" secondAttribute="bottom" id="asI-Jd-JRJ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ill-dR-1yr" secondAttribute="bottom" id="f1p-zk-1Im"/>
                                                         <constraint firstItem="4B5-HG-7QZ" firstAttribute="centerY" secondItem="sBt-Qf-prb" secondAttribute="centerY" constant="3" id="jnL-MJ-0Oa"/>
                                                         <constraint firstItem="8Rq-CO-y9b" firstAttribute="bottom" secondItem="sBt-Qf-prb" secondAttribute="bottomMargin" id="jxk-nU-WwM"/>
+                                                        <constraint firstItem="ill-dR-1yr" firstAttribute="top" secondItem="sBt-Qf-prb" secondAttribute="top" id="kuB-tE-Ypz"/>
                                                         <constraint firstItem="8Rq-CO-y9b" firstAttribute="leading" secondItem="sBt-Qf-prb" secondAttribute="leadingMargin" id="nw3-b3-2a3"/>
                                                     </constraints>
                                                 </view>
@@ -1445,6 +1466,12 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgG-kQ-ZTA" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="44"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDp-CY-cyR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                            <connections>
+                                                                <action selector="姓名:" destination="s5D-ID-FhZ" eventType="touchUpInside" id="UOa-5Q-eYz"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If8-bQ-HRG">
                                                             <rect key="frame" x="8" y="8" width="69.5" height="28"/>
                                                             <constraints>
@@ -1472,13 +1499,17 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="PDp-CY-cyR" secondAttribute="trailing" id="3fy-Qi-oij"/>
                                                         <constraint firstItem="kOn-OP-A6M" firstAttribute="leading" secondItem="If8-bQ-HRG" secondAttribute="trailing" constant="5" id="4T6-1T-mUH"/>
+                                                        <constraint firstItem="PDp-CY-cyR" firstAttribute="leading" secondItem="hgG-kQ-ZTA" secondAttribute="leading" id="4WI-OY-DqF"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="kOn-OP-A6M" secondAttribute="bottom" id="CCc-hl-x83"/>
                                                         <constraint firstItem="If8-bQ-HRG" firstAttribute="top" secondItem="hgG-kQ-ZTA" secondAttribute="topMargin" id="FuY-Xk-bFT"/>
                                                         <constraint firstItem="If8-bQ-HRG" firstAttribute="bottom" secondItem="hgG-kQ-ZTA" secondAttribute="bottomMargin" id="GWS-nv-Ack"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="DuL-9y-U6k" secondAttribute="trailing" id="Gq6-DT-5kF"/>
+                                                        <constraint firstItem="PDp-CY-cyR" firstAttribute="top" secondItem="hgG-kQ-ZTA" secondAttribute="top" id="Moh-em-i3c"/>
                                                         <constraint firstItem="DuL-9y-U6k" firstAttribute="leading" secondItem="kOn-OP-A6M" secondAttribute="trailing" id="azI-8s-f9Z"/>
                                                         <constraint firstItem="kOn-OP-A6M" firstAttribute="top" secondItem="hgG-kQ-ZTA" secondAttribute="topMargin" id="oKu-Zy-Vf7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PDp-CY-cyR" secondAttribute="bottom" id="wQ5-k6-FI3"/>
                                                         <constraint firstItem="DuL-9y-U6k" firstAttribute="centerY" secondItem="hgG-kQ-ZTA" secondAttribute="centerY" constant="3" id="wt2-gN-fgJ"/>
                                                         <constraint firstItem="If8-bQ-HRG" firstAttribute="leading" secondItem="hgG-kQ-ZTA" secondAttribute="leadingMargin" id="zoE-qM-anF"/>
                                                     </constraints>
@@ -1503,6 +1534,12 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ea-eb-c78" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="44"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zj7-bE-7G4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                            <connections>
+                                                                <action selector="邮箱:" destination="s5D-ID-FhZ" eventType="touchUpInside" id="ibl-Zl-IWT"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮箱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNA-w6-r1I">
                                                             <rect key="frame" x="8" y="8" width="69.5" height="28"/>
                                                             <constraints>
@@ -1531,12 +1568,16 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="GNA-w6-r1I" firstAttribute="leading" secondItem="7Ea-eb-c78" secondAttribute="leadingMargin" id="59j-MW-vag"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Zj7-bE-7G4" secondAttribute="trailing" id="Egu-Wv-f2a"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Zj7-bE-7G4" secondAttribute="bottom" id="Mf8-yL-dEM"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="8Cj-wr-vbx" secondAttribute="trailing" id="PqD-Lp-6V7"/>
                                                         <constraint firstItem="8Cj-wr-vbx" firstAttribute="leading" secondItem="mxi-Xu-ZyY" secondAttribute="trailing" id="QLD-qD-Jxp"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="mxi-Xu-ZyY" secondAttribute="bottom" id="Rdu-B4-zsA"/>
                                                         <constraint firstItem="mxi-Xu-ZyY" firstAttribute="leading" secondItem="GNA-w6-r1I" secondAttribute="trailing" constant="5" id="SqY-l1-rKa"/>
                                                         <constraint firstItem="GNA-w6-r1I" firstAttribute="bottom" secondItem="7Ea-eb-c78" secondAttribute="bottomMargin" id="aqL-s7-njO"/>
+                                                        <constraint firstItem="Zj7-bE-7G4" firstAttribute="top" secondItem="7Ea-eb-c78" secondAttribute="top" id="bha-aN-cgQ"/>
                                                         <constraint firstItem="8Cj-wr-vbx" firstAttribute="centerY" secondItem="7Ea-eb-c78" secondAttribute="centerY" constant="3" id="fTF-b2-fDp"/>
+                                                        <constraint firstItem="Zj7-bE-7G4" firstAttribute="leading" secondItem="7Ea-eb-c78" secondAttribute="leading" id="ia6-Zo-pzW"/>
                                                         <constraint firstItem="GNA-w6-r1I" firstAttribute="top" secondItem="7Ea-eb-c78" secondAttribute="topMargin" id="vG3-bc-VVE"/>
                                                         <constraint firstItem="mxi-Xu-ZyY" firstAttribute="top" secondItem="7Ea-eb-c78" secondAttribute="topMargin" id="wvQ-y8-Cjp"/>
                                                     </constraints>
@@ -1565,6 +1606,12 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhM-Sa-Fc3" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="44"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U37-4m-mvB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                            <connections>
+                                                                <action selector="公司:" destination="s5D-ID-FhZ" eventType="touchUpInside" id="Ku9-Mj-vKd"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDF-7b-y9w">
                                                             <rect key="frame" x="8" y="8" width="69.5" height="28"/>
                                                             <constraints>
@@ -1592,6 +1639,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="U37-4m-mvB" firstAttribute="leading" secondItem="nhM-Sa-Fc3" secondAttribute="leading" id="HBf-12-Zs3"/>
+                                                        <constraint firstItem="U37-4m-mvB" firstAttribute="top" secondItem="nhM-Sa-Fc3" secondAttribute="top" id="Iao-Mh-dGf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="U37-4m-mvB" secondAttribute="bottom" id="NYB-1K-Tbv"/>
                                                         <constraint firstItem="FDF-7b-y9w" firstAttribute="leading" secondItem="nhM-Sa-Fc3" secondAttribute="leadingMargin" id="VUV-EN-4Rq"/>
                                                         <constraint firstItem="u0E-M4-GDi" firstAttribute="leading" secondItem="FDF-7b-y9w" secondAttribute="trailing" constant="5" id="WKe-ud-9ya"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="dfX-6P-X76" secondAttribute="trailing" id="fNx-NI-JEw"/>
@@ -1600,6 +1650,7 @@
                                                         <constraint firstItem="u0E-M4-GDi" firstAttribute="top" secondItem="nhM-Sa-Fc3" secondAttribute="topMargin" id="orC-Eu-91q"/>
                                                         <constraint firstItem="FDF-7b-y9w" firstAttribute="top" secondItem="nhM-Sa-Fc3" secondAttribute="topMargin" id="p9g-Zr-0ov"/>
                                                         <constraint firstItem="FDF-7b-y9w" firstAttribute="bottom" secondItem="nhM-Sa-Fc3" secondAttribute="bottomMargin" id="tkv-W7-RbT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="U37-4m-mvB" secondAttribute="trailing" id="v7J-q5-UWe"/>
                                                         <constraint firstItem="dfX-6P-X76" firstAttribute="leading" secondItem="u0E-M4-GDi" secondAttribute="trailing" id="wcX-cX-m7l"/>
                                                     </constraints>
                                                 </view>
@@ -1623,6 +1674,12 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DfL-nC-fzJ" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="44"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agu-LW-Fhc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                            <connections>
+                                                                <action selector="职位:" destination="s5D-ID-FhZ" eventType="touchUpInside" id="bu4-UX-rd3"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilz-b1-toz">
                                                             <rect key="frame" x="8" y="8" width="69.5" height="28"/>
                                                             <constraints>
@@ -1650,9 +1707,13 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="agu-LW-Fhc" secondAttribute="bottom" id="EcB-mX-Ylp"/>
+                                                        <constraint firstItem="agu-LW-Fhc" firstAttribute="top" secondItem="DfL-nC-fzJ" secondAttribute="top" id="EnG-us-jWX"/>
+                                                        <constraint firstAttribute="trailing" secondItem="agu-LW-Fhc" secondAttribute="trailing" id="N6D-j4-iWK"/>
                                                         <constraint firstItem="ilz-b1-toz" firstAttribute="top" secondItem="DfL-nC-fzJ" secondAttribute="topMargin" id="NIK-ii-bLS"/>
                                                         <constraint firstItem="XeC-za-FME" firstAttribute="leading" secondItem="UC3-zY-50G" secondAttribute="trailing" id="Nps-5x-KSn"/>
                                                         <constraint firstItem="XeC-za-FME" firstAttribute="centerY" secondItem="DfL-nC-fzJ" secondAttribute="centerY" constant="3" id="QkX-Lf-sq5"/>
+                                                        <constraint firstItem="agu-LW-Fhc" firstAttribute="leading" secondItem="DfL-nC-fzJ" secondAttribute="leading" id="ZEL-3W-YfP"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="XeC-za-FME" secondAttribute="trailing" id="hJN-8U-s9S"/>
                                                         <constraint firstItem="ilz-b1-toz" firstAttribute="bottom" secondItem="DfL-nC-fzJ" secondAttribute="bottomMargin" id="hoR-dH-elo"/>
                                                         <constraint firstItem="ilz-b1-toz" firstAttribute="leading" secondItem="DfL-nC-fzJ" secondAttribute="leadingMargin" id="ieh-jr-Ymn"/>
@@ -1744,6 +1805,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdK-ON-kqD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <connections>
+                                                        <action selector="注销:" destination="s5D-ID-FhZ" eventType="touchUpInside" id="Zca-23-cU2"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注销" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfX-BA-gCJ">
                                                     <rect key="frame" x="8" y="8" width="304" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1753,9 +1820,13 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="RfX-BA-gCJ" firstAttribute="leading" secondItem="t2p-yt-Hvj" secondAttribute="leadingMargin" id="HL9-wk-nMX"/>
+                                                <constraint firstItem="zdK-ON-kqD" firstAttribute="leading" secondItem="t2p-yt-Hvj" secondAttribute="leading" id="Oej-5x-4Fp"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="RfX-BA-gCJ" secondAttribute="trailing" id="PbB-Pg-vtH"/>
                                                 <constraint firstItem="RfX-BA-gCJ" firstAttribute="top" secondItem="t2p-yt-Hvj" secondAttribute="topMargin" id="XXx-iR-Wuc"/>
+                                                <constraint firstAttribute="bottom" secondItem="zdK-ON-kqD" secondAttribute="bottom" id="Yt1-ju-7Ri"/>
                                                 <constraint firstItem="RfX-BA-gCJ" firstAttribute="bottom" secondItem="t2p-yt-Hvj" secondAttribute="bottomMargin" id="aU7-hE-pe6"/>
+                                                <constraint firstAttribute="trailing" secondItem="zdK-ON-kqD" secondAttribute="trailing" id="gXb-oQ-zDu"/>
+                                                <constraint firstItem="zdK-ON-kqD" firstAttribute="top" secondItem="t2p-yt-Hvj" secondAttribute="top" id="jNG-Db-Pa3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
