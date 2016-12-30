@@ -34,51 +34,40 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
     var RobOrderID: Int!
     var Code: Model_TakeOrders.CodeType!
     var select: String!
+    var tablelist: Model_TakeOrderDetails.Response!
     override func viewDidLoad() {
         super.viewDidLoad()
-        OrdersReposity().TakeOrderDetails(Requesting: Model_TakeOrderDetails.Requesting(RobOrderID: RobOrderID))
-        NotificationCenter.default.addObserver(self, selector: #selector(self.OrderDetails(_:)), name: NSNotification.Name(rawValue: "OrderDetails"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.GetOrder(_:)), name: NSNotification.Name(rawValue: "GetOrder"), object: nil)
         RemarkLabel.lineBreakMode = NSLineBreakMode.byCharWrapping
         RemarkLabel.sizeToFit()
+        InsShelftypeLabel.text = tablelist.InsType
+        InsTonnageLabel.text = tablelist.Tonnage
+        InsplaceLabel.text = tablelist.InsPlace
+        InsStartDateLabel.text = tablelist.StartTime
+        InsCycleLabel.text = tablelist.InsCycle
+        InsHeightLabel.text = tablelist.InsHeight
+        InsBeamHghLabel.text = tablelist.InsBeamHgh
+        InsAtticLayerLabel.text = tablelist.InsAtticLayer
+        InsForkExtensionLabel.text = tablelist.InsFork
+        RemarkLabel.text = tablelist.InsRemarks
+        InsMoneyLabel.text = tablelist.InsMoney
+        InsNameLabel.text = tablelist.InsName
+        InsPhoneLabel.text = tablelist.InsPhone
+        tableView.reloadData()
+        ProgressHUD.dismiss()
     }
     
     func GetOrder(_ notification:Notification) {
-        if let Response: Model_TakeOrders.CodeType = notification.object as? Model_TakeOrders.CodeType{
-            if Response == Model_TakeOrders.CodeType.已抢 {
+        if let Response: Model_TakeOrderDetails.CodeType = notification.object as? Model_TakeOrderDetails.CodeType{
+            if Response == Model_TakeOrderDetails.CodeType.抢单成功 {
                 Messages().show(code: 0x1011)
-                dismiss(animated: true, completion: nil)
+//                OrderBack
+                self.performSegue(withIdentifier: "OrderBack", sender: self)
+                NotificationCenter.default.removeObserver(self)
             }
+            else if Response == Model_TakeOrderDetails.CodeType.已抢 {}
             else {
                 Messages().showError(code: 0x1002)
-                dismiss(animated: true, completion: nil)
             }
-        }
-    }
-    
-    func OrderDetails(_ notification:Notification) {
-        if let Response: Model_TakeOrderDetails.Response = notification.object as? Model_TakeOrderDetails.Response{
-            InsShelftypeLabel.text = Response.InsType
-            InsTonnageLabel.text = Response.Tonnage
-            InsplaceLabel.text = Response.InsPlace
-            InsStartDateLabel.text = Response.StartTime
-            InsCycleLabel.text = Response.InsCycle
-            InsHeightLabel.text = Response.InsHeight
-            InsBeamHghLabel.text = Response.InsBeamHgh
-            InsAtticLayerLabel.text = Response.InsAtticLayer
-            InsForkExtensionLabel.text = Response.InsFork
-            RemarkLabel.text = Response.InsRemarks
-            InsMoneyLabel.text = Response.InsMoney
-            InsNameLabel.text = Response.InsName
-            InsPhoneLabel.text = Response.InsPhone
-            if Code == Model_TakeOrders.CodeType.已抢 {
-                GetTheOrder.contentView.backgroundColor = UIColor.gray
-            }
-            tableView.reloadData()
-        }
-        else {
-            Messages().showError(code: 0x1002)
-            dismiss(animated: true, completion: nil)
         }
     }
 
@@ -128,6 +117,7 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
         let okAction = UIAlertAction(title: "提交", style: .destructive) { (UIAlertAction) in
             if self.textField.text != "" {
                 OrdersReposity().GetOrder(Requesting: Model_GetOrder.Requesting(RobOrderID: String(self.RobOrderID), OfferMoney: self.textField.text!, OfferWeight: self.select))
+                NotificationCenter.default.addObserver(self, selector: #selector(self.GetOrder(_:)), name: NSNotification.Name(rawValue: "GetOrder"), object: nil)
             }
             else {
                 ProgressHUD.showError("请输入金额")

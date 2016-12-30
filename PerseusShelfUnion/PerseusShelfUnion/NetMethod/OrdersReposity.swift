@@ -23,7 +23,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.request as Any)
+//                print(response.request as Any)
 //                print(response.result.value as Any)
                 Response.removeAll()
                 
@@ -57,7 +57,8 @@ class OrdersReposity: NSObject, IOrdersReposity {
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.request as Any)
+//                print(response.request as Any)
+//                print(response.result.value as Any)
                 
                 let json = JSON(data: response.data!) //JSON解析
                 Response.InsAtticLayer = json["Attic"].string! + "层"
@@ -80,27 +81,39 @@ class OrdersReposity: NSObject, IOrdersReposity {
         }
     }
     
-    //占时废弃
     func MyOrders() {
         var request =  requestTo(crotroller: BaseOrderUrl, url: "Order") //接口名称
-        print(request)
+        var Response = [Model_MyOrders.Response(InsCycle: nil, InsPlace: nil, MyOrderID: nil, Title: nil, StartTime: nil, StateCode: nil, Tonnage: nil)]
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.request as Any)
-                print(response.result.value as Any)
+//                print(response.request as Any)
+//                print(response.result.value as Any)
+                Response.removeAll()
+                
+                let json = JSON(data: response.data!) //JSON解析
+                for i in 0..<json.count {
+                    Response.append(Model_MyOrders.Response(
+                        InsCycle: json[i]["InstallCycle"].string,
+                        InsPlace: json[i]["InstallPlace"].string,
+                        MyOrderID: json[i]["MyOrderID"].string,
+                        Title: json[i]["Title"].string,
+                        StartTime: self.dateTo2(datetime: json[i]["StartTime"].string!),
+                        StateCode: Model_MyOrders.CodeType(rawValue: json[i]["StateCode"].int!),
+                        Tonnage: json[i]["Tonnage"].string))
+                }
             }
             //激活通知
-            NotificationCenter.default.post(name: Notification.Name(rawValue: ""), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "MyOrders"), object: Response)
         }
         
     }
     
     func GetOrder(Requesting: Model_GetOrder.Requesting) {
         var request =  requestTo(crotroller: BaseOrderUrl, url: "RobOrderSubmit") //接口名称
-        var Response: Model_TakeOrders.CodeType!
+        var Response: Model_TakeOrderDetails.CodeType!
         let parameters = [
             "RobOrderID":Requesting.RobOrderID,
             "OfferMoney":Requesting.OfferMoney,
@@ -116,11 +129,11 @@ class OrdersReposity: NSObject, IOrdersReposity {
                 print(response.result.value as Any)
                 
                 let json = JSON(data: response.data!) //JSON解析
-                Response = Model_TakeOrders.CodeType(rawValue: json["Code"].int!)!
+                Response = Model_TakeOrderDetails.CodeType(rawValue: json["Code"].int!)!
             }
             //激活通知
             NotificationCenter.default.post(name: Notification.Name(rawValue: "GetOrder"), object: Response)
-
+            
         }
     }
     
@@ -131,6 +144,15 @@ class OrdersReposity: NSObject, IOrdersReposity {
     private func dateTo(datetime: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        let a = datetime.replacingOccurrences(of: "T", with: " ")
+        let data = dateFormatter.date(from: a)
+        let datestring = DateFormatter.localizedString(from: data!, dateStyle: .short, timeStyle: .none)
+        return datestring
+    }
+    
+    private func dateTo2(datetime: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let a = datetime.replacingOccurrences(of: "T", with: " ")
         let data = dateFormatter.date(from: a)
         let datestring = DateFormatter.localizedString(from: data!, dateStyle: .short, timeStyle: .none)

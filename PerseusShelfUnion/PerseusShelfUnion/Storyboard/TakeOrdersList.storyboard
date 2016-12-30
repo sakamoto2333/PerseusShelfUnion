@@ -184,7 +184,6 @@
                                     <outlet property="InsTonLabel" destination="gSm-rR-iaz" id="AiV-mG-iRy"/>
                                     <outlet property="InsplaceLabel" destination="h37-1H-hTp" id="uOZ-25-WQV"/>
                                     <outlet property="State" destination="s0U-KL-G83" id="Tfz-Jq-ZrB"/>
-                                    <segue destination="Ewn-Yh-GN0" kind="showDetail" identifier="OrderDetails" action="showViewController:sender:" id="K2w-jW-mtg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -195,6 +194,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="抢单" id="VoB-H4-Liu"/>
+                    <connections>
+                        <segue destination="Ewn-Yh-GN0" kind="show" identifier="OrderDetails" id="yQj-i5-Aen"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eX-5V-NNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1012,7 +1014,7 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_white" id="5DY-9F-iHT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="zuh-ol-zl6" kind="unwind" unwindAction="T_backWithSegue:" id="Nxl-Jp-J60"/>
+                                <segue destination="zuh-ol-zl6" kind="unwind" identifier="OrderBack" unwindAction="T_backWithSegue:" id="Nxl-Jp-J60"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

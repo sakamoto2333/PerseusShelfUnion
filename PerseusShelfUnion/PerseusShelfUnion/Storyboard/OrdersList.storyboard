@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="139"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UbZ-35-I4p" id="BTr-e1-fMy">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyM-Vo-LJo" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -50,12 +50,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.05.12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi0-ai-fjM">
-                                                    <rect key="frame" x="70" y="8" width="62" height="20"/>
+                                                    <rect key="frame" x="70" y="8" width="77" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="77" id="e52-JH-TJx"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="完成时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfz-cn-a7w">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安装周期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfz-cn-a7w">
                                                     <rect key="frame" x="147" y="8" width="62" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,7 +77,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1J-Gm-aLz">
-                                                    <rect key="frame" x="70" y="70" width="62" height="20"/>
+                                                    <rect key="frame" x="70" y="70" width="77" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -123,7 +126,7 @@
                                                 <constraint firstItem="dfz-cn-a7w" firstAttribute="leading" secondItem="aoo-0e-ll1" secondAttribute="leading" id="W5K-op-bOP"/>
                                                 <constraint firstItem="Y1J-Gm-aLz" firstAttribute="bottom" secondItem="iyM-Vo-LJo" secondAttribute="bottomMargin" id="Wu5-AW-iND"/>
                                                 <constraint firstItem="Dd8-Dc-gGC" firstAttribute="trailing" secondItem="iyM-Vo-LJo" secondAttribute="trailingMargin" id="XHM-c7-JFU"/>
-                                                <constraint firstItem="dfz-cn-a7w" firstAttribute="leading" secondItem="Wi0-ai-fjM" secondAttribute="trailing" constant="15" id="Xzc-y7-Nvz"/>
+                                                <constraint firstItem="dfz-cn-a7w" firstAttribute="leading" secondItem="Wi0-ai-fjM" secondAttribute="trailing" id="Xzc-y7-Nvz"/>
                                                 <constraint firstItem="Wi0-ai-fjM" firstAttribute="top" secondItem="iyM-Vo-LJo" secondAttribute="topMargin" id="azV-0R-Hej"/>
                                                 <constraint firstItem="GXS-QC-6pQ" firstAttribute="top" secondItem="iyM-Vo-LJo" secondAttribute="topMargin" id="c6a-Bf-Hly"/>
                                                 <constraint firstItem="nRM-m6-rPG" firstAttribute="top" secondItem="iyM-Vo-LJo" secondAttribute="topMargin" id="dlf-P7-xQg"/>
@@ -163,14 +166,13 @@
                                     <outlet property="InsTonLabel" destination="Y1J-Gm-aLz" id="ulz-2d-uUE"/>
                                     <outlet property="InsplaceLabel" destination="TvO-a8-kjS" id="fQw-3L-qgP"/>
                                     <outlet property="ModeView" destination="6eJ-oy-Uqk" id="sby-1u-ZCh"/>
-                                    <segue destination="1bR-ni-RNW" kind="show" id="6i1-dY-pVJ"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MyOrdersCellView" rowHeight="125" id="yCd-ze-D3A" customClass="T_OrderDetailTableViewCell" customModule="PerseusShelfUnion" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="167" width="320" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yCd-ze-D3A" id="a64-NQ-Tgp">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekg-Uo-jT1" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -192,12 +194,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.05.12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3Y-yq-J2N">
-                                                    <rect key="frame" x="70" y="8" width="62" height="20"/>
+                                                    <rect key="frame" x="70" y="8" width="77" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="77" id="RdI-uC-Mfh"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安装周期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-AO-g2M">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="完成时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-AO-g2M">
                                                     <rect key="frame" x="147" y="8" width="62" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -216,7 +221,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vy8-rZ-IQV">
-                                                    <rect key="frame" x="70" y="76" width="62" height="20"/>
+                                                    <rect key="frame" x="70" y="76" width="77" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -249,7 +254,7 @@
                                                 <constraint firstItem="uhi-lQ-B3f" firstAttribute="centerY" secondItem="t2g-A9-mC2" secondAttribute="centerY" id="0fL-hI-aA1"/>
                                                 <constraint firstItem="t2g-A9-mC2" firstAttribute="top" secondItem="Ekg-Uo-jT1" secondAttribute="top" constant="30" id="265-MT-ayJ"/>
                                                 <constraint firstItem="Fao-AO-g2M" firstAttribute="top" secondItem="Ekg-Uo-jT1" secondAttribute="topMargin" id="3HH-q3-TtD"/>
-                                                <constraint firstItem="Fao-AO-g2M" firstAttribute="leading" secondItem="v3Y-yq-J2N" secondAttribute="trailing" constant="15" id="3Xg-lo-yUC"/>
+                                                <constraint firstItem="Fao-AO-g2M" firstAttribute="leading" secondItem="v3Y-yq-J2N" secondAttribute="trailing" id="3Xg-lo-yUC"/>
                                                 <constraint firstItem="Usz-ED-wbM" firstAttribute="top" secondItem="Ekg-Uo-jT1" secondAttribute="topMargin" id="5KY-SJ-4BD"/>
                                                 <constraint firstAttribute="height" constant="104" id="5mb-dW-0vN"/>
                                                 <constraint firstItem="aNp-mz-Q9A" firstAttribute="bottom" secondItem="Ekg-Uo-jT1" secondAttribute="bottomMargin" id="6Bo-JP-D1t"/>
@@ -304,6 +309,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="订单" id="PWW-rU-MdP"/>
+                    <connections>
+                        <segue destination="1bR-ni-RNW" kind="show" identifier="OrderDetail" id="8hp-R0-FW5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SB0-d4-caC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1580,7 +1588,7 @@
                                 <rect key="frame" x="0.0" y="56" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8zw-ii-Zag" id="8r5-Nn-3jv">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNK-gs-e8y" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -1642,7 +1650,7 @@
                                 <rect key="frame" x="0.0" y="100" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a0H-M9-gA0" id="JRD-Tq-6et">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kj9-Rd-qPd" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -1704,7 +1712,7 @@
                                 <rect key="frame" x="0.0" y="144" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pfa-qO-CEf" id="gmu-Cv-Rc9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dB-zQ-iqi" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -1766,7 +1774,7 @@
                                 <rect key="frame" x="0.0" y="188" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uMA-tN-IsC" id="oiQ-fL-5JN">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPc-9h-U6a" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -1828,7 +1836,7 @@
                                 <rect key="frame" x="0.0" y="232" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ogq-tj-aK9" id="AnP-P7-q3x">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9m-Sp-lvW" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -1885,7 +1893,7 @@
                                 <rect key="frame" x="0.0" y="276" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ry8-Yj-mtW" id="WhG-bG-cPw">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDz-t4-BMn" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -1924,7 +1932,7 @@
                                 <rect key="frame" x="0.0" y="320" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UKy-YS-sRg" id="0X1-Aa-23i">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbe-Lh-udj" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -1992,7 +2000,7 @@
                                         <rect key="frame" x="0.0" y="35" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uDi-jR-riU" id="RIQ-IS-YoS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qey-r7-LAH" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -2050,7 +2058,7 @@
                                         <rect key="frame" x="0.0" y="79" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iuZ-0X-jIM" id="FLQ-rx-uUF">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vVh-6X-xFe" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -2108,7 +2116,7 @@
                                         <rect key="frame" x="0.0" y="123" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2IQ-O4-3qv" id="36T-PT-WW7">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kkc-t9-TWh" customClass="TableViewCellFrame_Top" customModule="PerseusShelfUnion" customModuleProvider="target">
@@ -2166,7 +2174,7 @@
                                         <rect key="frame" x="0.0" y="167" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Da-X1-f2M" id="hDb-T2-QQO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUM-yQ-TcR" customClass="TableViewCellFrame" customModule="PerseusShelfUnion" customModuleProvider="target">
