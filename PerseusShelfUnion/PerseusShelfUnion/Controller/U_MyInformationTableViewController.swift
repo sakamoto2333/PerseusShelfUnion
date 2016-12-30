@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class U_MyInformationTableViewController: UITableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
@@ -125,8 +126,58 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        picker .dismiss(animated: true, completion: nil)
-        UserImageImgView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        picker.dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "提示", message: "是否上传", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { (UIAlertAction) in
+            Messages().showNow(code: 0x2005)
+            //获取选择的原图
+            let pickedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let fileManager = FileManager.default
+            let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
+            let filePath = "\(rootPath)/img.jpg"
+            let imageData = UIImageJPEGRepresentation(pickedImage, 1.0)
+            fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
+            //上传图片
+            if (fileManager.fileExists(atPath: filePath)){
+                let strData = "UserImage".data(using: String.Encoding.utf8)
+                let file = imageData
+                Alamofire.upload(multipartFormData: { MultipartFormData in
+                    MultipartFormData.append(strData!, withName: "value")
+                    MultipartFormData.append(file!, withName: "UserImage")
+                }, to: "http://172.16.101.110:8000/Ashx/UploadPicture.ashx", encodingCompletion: { encodingResult in
+                    switch encodingResult {
+                        case .success(let upload, _, _):
+                            upload.responseJSON { response in
+                                print("成功")
+                                print(response.request as Any)
+                                print(response.result.value as Any)
+                            }
+                        case .failure(let encodingError):
+                            print("失败")
+                            print(encodingError)
+                    }
+                })
+            }
+            
+//            let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+//            let dformatter = DateFormatter()
+//            dformatter.dateFormat = "yyyyMMddHHmmss"
+//            let filePath = "\(rootPath)/\(dformatter.string(from: NSDate() as Date)).jpg"
+//            print(filePath)
+//            let imageData = UIImageJPEGRepresentation(pickedImage, 1.0)
+//            fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
+//            if (fileManager.fileExists(atPath: filePath)){
+//                //取得NSURL
+//                let imageNSURL:NSURL = NSURL.init(fileURLWithPath: filePath)
+//                UserReposity().upload(Requesting: imageNSURL)
+//            }
+            
+            
+        }))
+        
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

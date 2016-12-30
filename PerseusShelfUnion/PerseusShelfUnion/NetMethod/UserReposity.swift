@@ -139,6 +139,23 @@ class UserReposity: NSObject, IUserReposity {
 
     }
     
+    func upload(Requesting: String) {
+        var request = requestTo(url: "UserCenters")
+        
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        //上传图片
+        Alamofire.upload(URL(string:Requesting)!, to: "phpurlhere", method: .post, headers:nil)
+            .responseString { response in
+                print("Success: \(response.result.isSuccess)")
+                print("Response String: \(response.result.value)")
+                Messages().show(code: 0x2006)
+        }
+        
+//        Alamofire.upload(URL(, to: request, method: .post, headers: nil)
+        
+    }
+    
     private func requestTo(url: String) -> URLRequest {
         return URLRequest(url: URL(string: NSString(format: "http://%@/%@", BaseUrl , url) as String)!)
     }
