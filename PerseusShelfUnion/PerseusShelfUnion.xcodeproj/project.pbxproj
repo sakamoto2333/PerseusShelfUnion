@@ -82,6 +82,8 @@
 		9DFA46A01E1252E8009373D8 /* GetOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA469F1E1252E8009373D8 /* GetOrder.swift */; };
 		9DFA46B01E1342CF009373D8 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA46AF1E1342CF009373D8 /* LoginModel.swift */; };
 		CB1334481E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1334471E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift */; };
+		CB2365321E139B1D004512AE /* MyInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2365311E139B1D004512AE /* MyInformation.swift */; };
+		CB51AD2B1E14D9350000E0BF /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB51AD2A1E14D9350000E0BF /* MyData.swift */; };
 		CB5B276D1E1213C300975B24 /* O_OrderPlanDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B276C1E1213C300975B24 /* O_OrderPlanDateViewController.swift */; };
 		CB874CB01E0905960015B49F /* O_OrderAddPlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -258,6 +260,8 @@
 		9DFA469F1E1252E8009373D8 /* GetOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetOrder.swift; path = Model/GetOrder.swift; sourceTree = "<group>"; };
 		9DFA46AF1E1342CF009373D8 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModel.swift; path = Model/LoginModel.swift; sourceTree = "<group>"; };
 		CB1334471E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = O_OrderPlanTimeCollectionViewController.swift; path = Controller/O_OrderPlanTimeCollectionViewController.swift; sourceTree = "<group>"; };
+		CB2365311E139B1D004512AE /* MyInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyInformation.swift; path = Model/MyInformation.swift; sourceTree = "<group>"; };
+		CB51AD2A1E14D9350000E0BF /* MyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyData.swift; path = Model/MyData.swift; sourceTree = "<group>"; };
 		CB5B276C1E1213C300975B24 /* O_OrderPlanDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = O_OrderPlanDateViewController.swift; path = Controller/O_OrderPlanDateViewController.swift; sourceTree = "<group>"; };
 		CB874CAF1E0905960015B49F /* O_OrderAddPlanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = O_OrderAddPlanTableViewController.swift; path = Controller/O_OrderAddPlanTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -396,6 +400,8 @@
 				9DFA467E1E10F2C8009373D8 /* TakeOrderDetails.swift */,
 				9DFA46941E124ED5009373D8 /* MyOrders.swift */,
 				9DFA469F1E1252E8009373D8 /* GetOrder.swift */,
+				CB2365311E139B1D004512AE /* MyInformation.swift */,
+				CB51AD2A1E14D9350000E0BF /* MyData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -711,10 +717,12 @@
 				9D0718111E0133860071C352 /* T_TakeOrdersTableViewController.swift in Sources */,
 				9D2C74091E02375D003F05CC /* MJRefreshAutoStateFooter.m in Sources */,
 				9DFA46A01E1252E8009373D8 /* GetOrder.swift in Sources */,
+				CB2365321E139B1D004512AE /* MyInformation.swift in Sources */,
 				47093A2E1E09129A004118DF /* IUserReposity.swift in Sources */,
 				9D2C74111E02375D003F05CC /* MJRefreshConst.m in Sources */,
 				9D0718121E0133860071C352 /* U_MyCertificateTableViewController.swift in Sources */,
 				472587411E025DC700B9D108 /* HasOrderedLabel.swift in Sources */,
+				CB51AD2B1E14D9350000E0BF /* MyData.swift in Sources */,
 				47087BAE1E07E43600C2BE89 /* O_EvaluateViewController.swift in Sources */,
 				47087BB31E08B98900C2BE89 /* O_StepListTableViewCell.swift in Sources */,
 				9D2C740C1E02375D003F05CC /* MJRefreshBackStateFooter.m in Sources */,

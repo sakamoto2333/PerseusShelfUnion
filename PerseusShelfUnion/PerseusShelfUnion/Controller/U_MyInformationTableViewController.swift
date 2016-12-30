@@ -10,19 +10,50 @@ import UIKit
 
 class U_MyInformationTableViewController: UITableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
-    @IBOutlet weak var UserImageImgView: UIImageView!
-    @IBOutlet weak var UserPhoneLabel: UILabel!
-    @IBOutlet weak var UserRealNameLabel: UILabel!
-    @IBOutlet weak var UserEmailLabel: UILabel!
-    @IBOutlet weak var CompanyNameLabel: UILabel!
-    @IBOutlet weak var UserPositionLabel: UILabel!
-    @IBOutlet weak var CompanyStateLabel: UILabel!
+    @IBOutlet var UserImageImgView: UIImageView!
+    @IBOutlet var UserPhoneLabel: UILabel!
+    @IBOutlet var UserRealNameLabel: UILabel!
+    @IBOutlet var UserEmailLabel: UILabel!
+    @IBOutlet var CompanyNameLabel: UILabel!
+    @IBOutlet var UserPositionLabel: UILabel!
+    @IBOutlet var CompanyStateLabel: UILabel!
     let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
     var messages: String = ""
     var picker = UIImagePickerController()
+    var Username: String! = ""
+    let loginmodel = LoginModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         message()
+        loginmodel.loadData()
+        Username = loginmodel.LoginList.first?.Name
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformation(_:)), name: NSNotification.Name(rawValue: "UserCenters1"), object: nil)
+        
+        UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
+        Messages().showNow(code: 0x4001)
+    }
+    
+    func MyInformation(_ notification:NSNotification){
+        if let Response: Model_MyInformation.Response = notification.object as? Model_MyInformation.Response{
+            if let userpic = Response.UserPic
+            {
+                let data = NSData(contentsOf: NSURL(string: userpic) as! URL)
+                UserImageImgView.image = UIImage(data: data as! Data)
+                
+            }
+            UserRealNameLabel.text = Response.UserName
+            UserEmailLabel.text = Response.UserMail
+            UserPhoneLabel.text = Response.PhoneNum
+            CompanyNameLabel.text = Response.Unit
+            UserPositionLabel.text = Response.Job
+            CompanyStateLabel.text = Response.Code
+            tableView.reloadData()
+            ProgressHUD.dismiss()
+        }
+        else{
+            Messages().showError(code: 0x1002)
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,6 +136,8 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         
         messages = ""
     }
+    
+    
     
     @IBAction func 头像(_ sender: Any) {
         let alert:UIAlertController=UIAlertController(title: "选择图片", message: nil, preferredStyle: .actionSheet)

@@ -42,8 +42,6 @@ class O_OrderInformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         information.isHidden = false
         plan.isHidden = true
         evaluation.isHidden = true
