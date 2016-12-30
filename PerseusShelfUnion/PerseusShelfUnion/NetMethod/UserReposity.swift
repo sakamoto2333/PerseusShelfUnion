@@ -12,7 +12,7 @@ import Alamofire
 var BaseUrl = "172.16.101.110:8000/LoginApp"
 var httpMethod = "POST"
 var timeoutInterval = 10.0 //超时时间
-
+var imgurl = "http://172.16.101.110:8000"
 class UserReposity: NSObject, IUserReposity {
     
     func LoginUser(Requesting: Model_LoginUser.Requesting){
@@ -74,6 +74,69 @@ class UserReposity: NSObject, IUserReposity {
             //激活通知
             NotificationCenter.default.post(name: Notification.Name(rawValue: "RegistrationUser"), object: Response)
         }
+    }
+    
+    
+    func MyInformation(Requesting: Model_MyInformation.Requesting) {
+        var request = requestTo(url: "UserCenters")
+        var Response:Model_MyInformation.Response? = Model_MyInformation.Response(UserPic: nil, PhoneNum: nil, UserName: nil, UserMail: nil, Unit: nil, Job: nil, Code: nil)
+        let parameters = [
+            "UserName":Requesting.UserName
+        ]
+        print(request)
+        
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON{response in
+            if response.result.value != nil{
+                print(response.request as Any)
+                print(response.result.value as Any)
+                let json = JSON(data: response.data!)
+                if  let Userpic = json["UserPic"].string{
+                    Response?.UserPic = imgurl + Userpic}
+                Response?.UserMail = json["UserMail"].string
+                Response?.Job = json["Job"].string
+                Response?.PhoneNum = json["PhoneNum"].string
+                Response?.Unit = json["Unit"].string
+                Response?.UserName = json["UserName"].string
+                if Response?.Code != "已认证"{
+                    Response?.Code = "未认证"
+                }
+            }
+            else{
+                Response = nil
+            }
+            NotificationCenter.default.post(name:Notification.Name(rawValue: "UserCenters1"), object:Response)
+            
+        }
+    }
+    
+    
+    func MyData(Requesting: Model_MyData.Requesting) {
+        var request = requestTo(url: "UserCenters")
+        let Response = Model_MyData.Response(UserPic: nil, PhoneNum: nil, Unit: nil)
+        let parameters = [
+            "UserName":Requesting.UserName
+        ]
+        print(request)
+        
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON{response in
+            if response.result.value != nil{
+                print(response.request as Any)
+                print(response.result.value as Any)
+                let json = JSON(data: response.data!)
+                if  let Userpic = json["UserPic"].string{
+                    Response.UserPic = imgurl + Userpic}
+                Response.Unit = json["Unit"].string
+                Response.PhoneNum = json["PhoneNum"].string
+            }
+            NotificationCenter.default.post(name:Notification.Name(rawValue: "MyData"), object:Response)
+        }
+
     }
     
     private func requestTo(url: String) -> URLRequest {

@@ -20,4 +20,9 @@ protocol IUserReposity {
     ///
     /// - Parameter Requesting: RegistrationUser数据模型
     func RegistrationUser(Requesting: Model_RegistrationUser.Requesting)
+    
+    
+    func MyInformation(Requesting: Model_MyInformation.Requesting)
+    
+    func MyData(Requesting: Model_MyData.Requesting)
 }

@@ -34,6 +34,7 @@ class O_MyOrdersTableViewController: UITableViewController {
     }
     
     func MyOrders(_ notification:Notification) {
+        tableView.mj_header.endRefreshing()
         if let Response: [Model_MyOrders.Response] = notification.object as! [Model_MyOrders.Response]?{
             tablelist = Response
             tableView.reloadData()
@@ -43,7 +44,6 @@ class O_MyOrdersTableViewController: UITableViewController {
             else {
                 ha.isHidden = true
             }
-            tableView.mj_header.endRefreshing()
             if isRefresh == false {
                 ProgressHUD.dismiss()
             }

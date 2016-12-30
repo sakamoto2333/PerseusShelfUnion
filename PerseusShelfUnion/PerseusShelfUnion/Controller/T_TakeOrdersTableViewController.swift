@@ -36,6 +36,7 @@ class T_TakeOrdersTableViewController: UITableViewController {
     }
     
     func TakeOrders(_ notification:Notification) {
+        tableView.mj_header.endRefreshing()
         if let Response: [Model_TakeOrders.Response] = notification.object as! [Model_TakeOrders.Response]?{
             tablelist = Response
             tableView.reloadData()
@@ -45,7 +46,6 @@ class T_TakeOrdersTableViewController: UITableViewController {
             else {
                 ha.isHidden = true
             }
-            tableView.mj_header.endRefreshing()
             if isRefresh == false {
                 ProgressHUD.dismiss()
             }

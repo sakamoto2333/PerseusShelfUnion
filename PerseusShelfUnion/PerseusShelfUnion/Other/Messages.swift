@@ -58,6 +58,8 @@ class Messages: NSObject {
         Code[0x3002] = "请输入公司名"
         Code[0x3003] = "验证码错误"
         Code[0x3004] = "请确认密码"
+        
+        Code[0x4001] = "正在连接"
     }
     
     
