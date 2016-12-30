@@ -21,9 +21,12 @@ class U_MyDataTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          NotificationCenter.default.addObserver(self, selector: #selector(self.MyData(_:)), name: NSNotification.Name(rawValue: "MyData"), object: nil)
-        UserReposity().MyData(Requesting: Model_MyData.Requesting(UserName: Username))
         
         Messages().showNow(code: 0x4001)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UserReposity().MyData(Requesting: Model_MyData.Requesting(UserName: Username))
     }
     
     @IBAction func U_back(segue:UIStoryboardSegue) {

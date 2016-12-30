@@ -29,8 +29,11 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         Username = loginmodel.LoginList.first?.Name
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformation(_:)), name: NSNotification.Name(rawValue: "UserCenters1"), object: nil)
         
-        UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
         Messages().showNow(code: 0x4001)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
     }
     
     func MyInformation(_ notification:NSNotification){

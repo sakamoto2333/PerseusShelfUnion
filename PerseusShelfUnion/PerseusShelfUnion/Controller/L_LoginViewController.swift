@@ -13,6 +13,7 @@ class L_LoginViewController: UIViewController {
     @IBOutlet weak var id: TextFieldFrame!
     @IBOutlet weak var password: TextFieldFrame!
     let loginmodel = LoginModel()
+    let Loginmodel = LoginModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         loginmodel.loadData()
@@ -34,7 +35,9 @@ class L_LoginViewController: UIViewController {
     }
     
     @IBAction func LoginButtonTouch(_ sender: Any) {
-        //建立通知
+        loginmodel.loadData()
+        loginmodel.LoginList.removeAll()
+        loginmodel.saveData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.LoginUser(_:)), name: NSNotification.Name(rawValue: "LoginUser"), object: nil)
         Messages().showNow(code: 0x1004)
         let Requesting = Model_LoginUser.Requesting(UserName: id.text!, Password: password.text!)
