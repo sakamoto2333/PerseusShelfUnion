@@ -29,12 +29,12 @@ class OrdersReposity: NSObject, IOrdersReposity {
                 
                 let json = JSON(data: response.data!) //JSON解析
                 for i in 0..<json.count {
-                    let date = self.dateTo(datetime: json[i]["StartTime"].string!)
+//                    let date = self.dateTo(datetime: json[i]["StartTime"].string!)
                     Response?.append(Model_TakeOrders.Response(
                         InstallCycle: json[i]["InstallCycle"].string,
                         InstallPlace: json[i]["InstallPlace"].string,
                         RobOrderID: Int(json[i]["RobOrderID"].string!),
-                        StartTime: date,
+                        StartTime: json[i]["StartTime"].string,
                         Code: Model_TakeOrders.CodeType(rawValue: json[i]["StateCode"].int!),
                         Title: json[i]["Title"].string,
                         Tonnage: json[i]["Tonnage"].string))

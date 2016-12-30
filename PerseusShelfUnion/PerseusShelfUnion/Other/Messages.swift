@@ -52,6 +52,9 @@ class Messages: NSObject {
         Code[0x2002] = "刷新成功"
         Code[0x2003] = "刷新失败"
         Code[0x2004] = "加载中"
+        Code[0x2005] = "上传中"
+        Code[0x2006] = "上传成功"
+        Code[0x2007] = "上传失败"
         
         Code[0x3000] = "请输入用户名"
         Code[0x3001] = "请输入密码"
