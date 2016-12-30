@@ -35,7 +35,6 @@ class L_RegistrationViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(RegistrationUser(_:)), name: NSNotification.Name(rawValue: "RegistrationUser"), object: nil)
         
         // Do any additional setup after loading the view.
     }
@@ -62,26 +61,27 @@ class L_RegistrationViewController: UIViewController {
     }
     
     @IBAction func register(_ sender: AnyObject) {
-        if generateCodeView.codeString.lowercased() != CodeTextField.text?.lowercased() {
-            Messages().showError(code: 0x3003)
-        }
-        else if CompanyNameTextField.text == "" {
-            Messages().showError(code: 0x3002)
-        }
-        else if UserNameTextField.text == "" {
-            Messages().showError(code: 0x3000)
-        }
-        else if UserPasswordTextField.text == "" {
-            Messages().showError(code: 0x3001)
-        }
-        else if UserPasswordAgainTextField.text != UserPasswordTextField.text {
-            Messages().showError(code: 0x3004)
-        }
-        else {
+//        if generateCodeView.codeString.lowercased() != CodeTextField.text?.lowercased() {
+//            Messages().showError(code: 0x3003)
+//        }
+//        else if CompanyNameTextField.text == "" {
+//            Messages().showError(code: 0x3002)
+//        }
+//        else if UserNameTextField.text == "" {
+//            Messages().showError(code: 0x3000)
+//        }
+//        else if UserPasswordTextField.text == "" {
+//            Messages().showError(code: 0x3001)
+//        }
+//        else if UserPasswordAgainTextField.text != UserPasswordTextField.text {
+//            Messages().showError(code: 0x3004)
+//        }
+//        else {
             Messages().showNow(code: 0x1008)
             let Requesting = Model_RegistrationUser.Requesting(UserName: UserNameTextField.text!, Password: UserPasswordTextField.text!, UnitName: CompanyNameTextField.text!)
             UserReposity().RegistrationUser(Requesting: Requesting)
-        }
+            NotificationCenter.default.addObserver(self, selector: #selector(RegistrationUser(_:)), name: NSNotification.Name(rawValue: "RegistrationUser"), object: nil)
+//        }
     }
     
     func RegistrationUser(_ notification:Notification) {
@@ -106,6 +106,7 @@ class L_RegistrationViewController: UIViewController {
                 Messages().showError(code: 0x1002)
             }
         }
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "RegistrationUser"), object: self)
     }
     
     func keyboardWillShow(notification:NSNotification) {

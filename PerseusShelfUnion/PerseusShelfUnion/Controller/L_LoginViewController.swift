@@ -21,8 +21,6 @@ class L_LoginViewController: UIViewController {
             password.text = loginmodel.LoginList.first?.Password
             LoginButtonTouch(Any.self)
         }
-        //建立通知
-        NotificationCenter.default.addObserver(self, selector: #selector(self.LoginUser(_:)), name: NSNotification.Name(rawValue: "LoginUser"), object: nil)
         
         // Do any additional setup after loading the view.
     }
@@ -36,6 +34,8 @@ class L_LoginViewController: UIViewController {
     }
     
     @IBAction func LoginButtonTouch(_ sender: Any) {
+        //建立通知
+        NotificationCenter.default.addObserver(self, selector: #selector(self.LoginUser(_:)), name: NSNotification.Name(rawValue: "LoginUser"), object: nil)
         Messages().showNow(code: 0x1004)
         let Requesting = Model_LoginUser.Requesting(UserName: id.text!, Password: password.text!)
         UserReposity().LoginUser(Requesting: Requesting)
@@ -69,6 +69,7 @@ class L_LoginViewController: UIViewController {
                 Messages().showError(code: 0x1002)
             }
         }
+        NotificationCenter.default.removeObserver(self)
     }
     
     

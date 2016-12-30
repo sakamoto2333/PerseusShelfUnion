@@ -11,8 +11,10 @@ import UIKit
 class T_TakeOrdersTableViewController: UITableViewController {
     
     let ha = UILabel()
-    var tablelist = [Model_TakeOrders.Response(InstallCycle: nil, InstallPlace: nil, RobOrderID: nil, StartTime: nil, Code: nil, Title: nil, Tonnage: nil)]
+    var tablelist: [Model_TakeOrders.Response] = []
     var isRefresh: Bool = false
+    var onetable: Model_TakeOrderDetails.Response!
+    var index: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         let headers = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(header))
@@ -25,16 +27,28 @@ class T_TakeOrdersTableViewController: UITableViewController {
         ha.isHidden = false
         self.tableView.estimatedRowHeight = 129
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        Messages().showNow(code: 0x1004)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         OrdersReposity().TakeOrders()
         NotificationCenter.default.addObserver(self, selector: #selector(self.TakeOrders(_:)), name: NSNotification.Name(rawValue: "TakeOrders"), object: nil)
+        Messages().showNow(code: 0x2004)
     }
     
     func TakeOrders(_ notification:Notification) {
         if let Response: [Model_TakeOrders.Response] = notification.object as! [Model_TakeOrders.Response]?{
             tablelist = Response
             tableView.reloadData()
+            if tablelist.count == 0 {
+                ha.isHidden = false
+            }
+            else {
+                ha.isHidden = true
+            }
             tableView.mj_header.endRefreshing()
+            if isRefresh == false {
+                ProgressHUD.dismiss()
+            }
             if isRefresh == true {
                 Messages().show(code: 0x2002)
                 isRefresh = !isRefresh
@@ -43,11 +57,13 @@ class T_TakeOrdersTableViewController: UITableViewController {
         else {
             Messages().showError(code: 0x1002)
         }
+        NotificationCenter.default.removeObserver(self)
     }
 
     
     func header() {
         OrdersReposity().TakeOrders()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.TakeOrders(_:)), name: NSNotification.Name(rawValue: "TakeOrders"), object: nil)
         isRefresh = !isRefresh
     }
     
@@ -56,28 +72,27 @@ class T_TakeOrdersTableViewController: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if tablelist.count != 0 {
-            ha.isHidden = true
-            return tablelist.count
-        }
-        else {
-            ha.isHidden = false
-            return 0
-        }
+        return tablelist.count
     }
     
+    func OrderDetails(_ notification:Notification) {
+        if let Response: Model_TakeOrderDetails.Response = notification.object as? Model_TakeOrderDetails.Response{
+            onetable = Response
+            self.performSegue(withIdentifier: "OrderDetails", sender: self)
+            NotificationCenter.default.removeObserver(self)
+            tableView.reloadData()
+        }
+        else {
+            Messages().showError(code: 0x1002)
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCellView", for: indexPath) as! T_OrderDetailTableViewCell
@@ -94,16 +109,18 @@ class T_TakeOrdersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        OrdersReposity().TakeOrderDetails(Requesting: Model_TakeOrderDetails.Requesting(RobOrderID: tablelist[indexPath.row].RobOrderID))
+        NotificationCenter.default.addObserver(self, selector: #selector(self.OrderDetails(_:)), name: NSNotification.Name(rawValue: "OrderDetails"), object: nil)
+        Messages().showNow(code: 0x2004)
+        index = indexPath.row
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OrderDetails" {
-            let cell = sender as! UITableViewCell
-            let indexPath = tableView.indexPath(for: cell)
             let Controller = segue.destination as! T_OrderDetailTableViewController
-            Controller.RobOrderID = (tablelist[Int((indexPath?.row)!)] as Model_TakeOrders.Response).RobOrderID
-            Controller.Code = (tablelist[Int((indexPath?.row)!)] as Model_TakeOrders.Response).Code
+            Controller.RobOrderID = tablelist[index].RobOrderID
+            Controller.Code = tablelist[index].Code
+            Controller.tablelist = onetable
         }
     }
 }

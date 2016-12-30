@@ -67,8 +67,8 @@ class Model_TakeOrderDetails: NSObject {
     }
     
     enum CodeType: Int {
-        case 未抢 = 0
-        case 已抢 = 1
+        case 抢单成功 = 4
+        case 已抢 = 5
     }
     
     var PriceUnitType:[Int:String] = [0:"元／吨",

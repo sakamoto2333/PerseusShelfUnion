@@ -48,8 +48,10 @@ class Messages: NSObject {
         Code[0x1011] = "抢单成功"
         Code[0x1012] = "抢单失败"
         
+        Code[0x2001] = "刷新中"
         Code[0x2002] = "刷新成功"
         Code[0x2003] = "刷新失败"
+        Code[0x2004] = "加载中"
         
         Code[0x3000] = "请输入用户名"
         Code[0x3001] = "请输入密码"
