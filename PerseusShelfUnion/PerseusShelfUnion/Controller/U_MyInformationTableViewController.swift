@@ -156,6 +156,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         alert.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { (UIAlertAction) in
             Messages().showNow(code: 0x2005)
             //获取选择的原图
+
             let imagename = "userimage.png"
             let pickedImage: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             let imagePath = self.fileInDocumentsDirectory(filename: imagename)
@@ -197,6 +198,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
                 .responseJSON { response in
 //                    debugPrint(response)
                     print(response)
+
             }
             
 //            let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
