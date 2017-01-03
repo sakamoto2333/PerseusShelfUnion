@@ -22,8 +22,6 @@ class UserReposity: NSObject, IUserReposity {
             "UserName":Requesting.UserName,
             "Password":Requesting.Password
         ] //传输JSON
-        
-        
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
@@ -56,17 +54,14 @@ class UserReposity: NSObject, IUserReposity {
             "Password":Requesting.Password,
             "UnitName":Requesting.UnitName
         ] //传输JSON
-        print(request)
-        
-        
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.request as Any)
-                print(response.result.value as Any) //打印内容
+//                print(response.request as Any)
+//                print(response.result.value as Any) //打印内容
                 let json = JSON(data: response.data!) //JSON解析
                 Response.Code = Model_RegistrationUser.CodeType(rawValue: json["Code"].int!)
                 Response.UserName = json["UserName"].string
@@ -83,15 +78,13 @@ class UserReposity: NSObject, IUserReposity {
         let parameters = [
             "UserName":Requesting.UserName
         ]
-        print(request)
-        
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
         Alamofire.request(request).responseJSON{response in
             if response.result.value != nil{
-                print(response.request as Any)
-                print(response.result.value as Any)
+//                print(response.request as Any)
+//                print(response.result.value as Any)
                 let json = JSON(data: response.data!)
                 if  let Userpic = json["UserPic"].string{
                     Response?.UserPic = imgurl + Userpic}
@@ -119,15 +112,13 @@ class UserReposity: NSObject, IUserReposity {
         let parameters = [
             "UserName":Requesting.UserName
         ]
-        print(request)
-        
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
         Alamofire.request(request).responseJSON{response in
             if response.result.value != nil{
-                print(response.request as Any)
-                print(response.result.value as Any)
+//                print(response.request as Any)
+//                print(response.result.value as Any)
                 let json = JSON(data: response.data!)
                 if  let Userpic = json["UserPic"].string{
                     Response.UserPic = imgurl + Userpic}
@@ -147,8 +138,8 @@ class UserReposity: NSObject, IUserReposity {
         //上传图片
         Alamofire.upload(URL(string:Requesting)!, to: "phpurlhere", method: .post, headers:nil)
             .responseString { response in
-                print("Success: \(response.result.isSuccess)")
-                print("Response String: \(response.result.value)")
+//                print("Success: \(response.result.isSuccess)")
+//                print("Response String: \(response.result.value)")
                 Messages().show(code: 0x2006)
         }
         
