@@ -10,8 +10,6 @@ import Foundation
 import Alamofire
 
 var BaseOrderUrl = "172.16.101.110:8000/RequireApp"
-//var httpMethod = "POST"
-//var timeoutInterval = 10.0 //超时时间
 
 class OrdersReposity: NSObject, IOrdersReposity {
     

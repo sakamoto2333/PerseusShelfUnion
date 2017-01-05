@@ -130,20 +130,35 @@ class UserReposity: NSObject, IUserReposity {
 
     }
     
-    func upload(Requesting: String) {
-        var request = requestTo(url: "UserCenters")
+    func upload(Requesting: Model_Upload.Requesting) {
         
-        request.httpMethod = httpMethod
-        request.timeoutInterval = timeoutInterval
-        //上传图片
-        Alamofire.upload(URL(string:Requesting)!, to: "phpurlhere", method: .post, headers:nil)
-            .responseString { response in
-//                print("Success: \(response.result.isSuccess)")
-//                print("Response String: \(response.result.value)")
-                Messages().show(code: 0x2006)
+        let imageData = UIImageJPEGRepresentation(Requesting.imageData, 0.1)
+        let UserData = Requesting.UserID.data(using: String.Encoding.utf8)
+        let strData = String(describing: Requesting.strData.rawValue).data(using: String.Encoding.utf8)
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                multipartFormData.append(strData!, withName: "strData")
+                multipartFormData.append(UserData!, withName: "UserData")
+                multipartFormData.append(imageData!, withName: "imageData",
+                                         fileName:"userimage.png", mimeType: "image/png")
+        },
+            to: NSString(format: "%@/%@/%@", imgurl , "Ashx" , "UploadPicture.ashx") as String,
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.response{ response in
+                        let json = JSON(data: response.data!)
+                        if json == 1{
+                            print("上传成功")
+                        }
+                        
+                    }
+                case .failure(let encodingError):
+                    print(encodingError)
+                }
         }
+        )
         
-//        Alamofire.upload(URL(, to: request, method: .post, headers: nil)
         
     }
     

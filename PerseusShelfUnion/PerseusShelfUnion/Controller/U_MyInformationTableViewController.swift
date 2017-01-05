@@ -125,29 +125,6 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         self.present(picker, animated: true, completion: nil)
     }
     
-    func getDocumentsURL() -> NSURL {
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        return documentsURL as NSURL
-    }
-    
-    func fileInDocumentsDirectory(filename: String) -> String {
-        let fileURL = getDocumentsURL().appendingPathComponent(filename)
-        return fileURL!.path
-    }
-    
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
-    
-    func saveImage (image: UIImage, path: String ){
-        let pngImageData = UIImagePNGRepresentation(image)
-        //let jpgImageData = UIImageJPEGRepresentation(image, 1.0)   // if you want to save as JPEG
-//        let result = pngImageData!.write(to: URL(fileURLWithPath: path))
-        let filename = getDocumentsDirectory().appendingPathComponent(path)
-        try? pngImageData?.write(to: filename)
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
@@ -156,68 +133,25 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         alert.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { (UIAlertAction) in
             Messages().showNow(code: 0x2005)
             //获取选择的原图
-
+            let imageView = (info[UIImagePickerControllerOriginalImage] as! UIImage)
             let imagename = "userimage.png"
-            let pickedImage: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-            let imagePath = self.fileInDocumentsDirectory(filename: imagename)
-            self.saveImage(image: pickedImage, path: imagePath)
+            let imagePath = UploadImage().fileInDocumentsDirectory(filename: imagename)
             
-//            let fileManager = FileManager.default
-//            let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
-//            let filePath = "\(rootPath)/img.jpg"
-//            let imageData = UIImageJPEGRepresentation(pickedImage, 1.0)
-//            fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
-//            let imageNSURL:NSURL = NSURL.init(fileURLWithPath: filePath)
-            //上传图片
-//            if (fileManager.fileExists(atPath: filePath)){
-//                let strData = "UserImage".data(using: String.Encoding.utf8)
-//                let file = imageData
-//                Alamofire.upload(multipartFormData: { MultipartFormData in
-//                    MultipartFormData.append(strData!, withName: "value")
-//                    MultipartFormData.append(file!, withName: "UserImage")
-//                }, to: "http://172.16.101.110:8000/Ashx/UploadPicture.ashx", encodingCompletion: { encodingResult in
-//                    switch encodingResult {
-//                        case .success(let upload, _, _):
-//                            upload.responseJSON { response in
-//                                print("成功")
-//                                print(response.request as Any)
-//                                print(response.result.value as Any)
-//                            }
-//                        case .failure(let encodingError):
-//                            print("失败")
-//                            print(encodingError)
-//                    }
-//                })
-//            }
-//            let stream = InputStream.withFileAtPath("img.jpg")
-//            let stream = InputStream(fileAtPath: "img.jpg")
-//            stream?.read(UnsafeMutablePointer<UInt8>.Stride,
-//                        maxLength: Int)
-            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            Alamofire.upload(documentsURL.appendingPathComponent(imagename), to: "http://172.16.101.110:8000/Ashx/UploadPicture.ashx")
-                .responseJSON { response in
-//                    debugPrint(response)
-                    print(response)
-
+            //保存图片
+            if !UploadImage().saveImage(image: imageView, path: imagePath) {
+                print("权限失败")
+                
+            }
+            //读取保存图片
+            if let loadedImage = UploadImage().loadImageFromPath(path: imagePath){
+                //上传图片
+                UserReposity().upload(Requesting: Model_Upload.Requesting(strData: Model_Upload.PicType.UserImage, UserID: UserId, imageData: loadedImage))
+            }
+            else{
+                print("上传失败")
             }
             
-//            let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-//            let dformatter = DateFormatter()
-//            dformatter.dateFormat = "yyyyMMddHHmmss"
-//            let filePath = "\(rootPath)/\(dformatter.string(from: NSDate() as Date)).jpg"
-//            print(filePath)
-//            let imageData = UIImageJPEGRepresentation(pickedImage, 1.0)
-//            fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
-//            if (fileManager.fileExists(atPath: filePath)){
-//                //取得NSURL
-//                let imageNSURL:NSURL = NSURL.init(fileURLWithPath: filePath)
-//                UserReposity().upload(Requesting: imageNSURL)
-//            }
-            
-            
         }))
-        
-        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -281,3 +215,4 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
     
     
 }
+

@@ -36,6 +36,8 @@
 		476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */; };
 		476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8331DFA809900093B38 /* TableViewCellFrame_Top.swift */; };
 		476AC8361DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8351DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift */; };
+		47811C551E1E1BB5008CAA09 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47811C541E1E1BB5008CAA09 /* Upload.swift */; };
+		47811C5E1E1E23B8008CAA09 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47811C5D1E1E23B8008CAA09 /* UploadImage.swift */; };
 		47EC22CC1E00C65800BD439D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22CB1E00C65800BD439D /* Messages.swift */; };
 		47EC22D21E00DEA000BD439D /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47EC22CF1E00DEA000BD439D /* ProgressHUD.bundle */; };
 		47EC22D31E00DEA000BD439D /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22D11E00DEA000BD439D /* ProgressHUD.m */; };
@@ -192,6 +194,8 @@
 		476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldFrame.swift; path = View/TextFieldFrame.swift; sourceTree = "<group>"; };
 		476AC8331DFA809900093B38 /* TableViewCellFrame_Top.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame_Top.swift; path = View/TableViewCellFrame_Top.swift; sourceTree = "<group>"; };
 		476AC8351DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame_SecondMenu.swift; path = View/TableViewCellFrame_SecondMenu.swift; sourceTree = "<group>"; };
+		47811C541E1E1BB5008CAA09 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Model/Upload.swift; sourceTree = "<group>"; };
+		47811C5D1E1E23B8008CAA09 /* UploadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadImage.swift; path = Other/UploadImage.swift; sourceTree = "<group>"; };
 		47EC22CB1E00C65800BD439D /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = Other/Messages.swift; sourceTree = "<group>"; };
 		47EC22CF1E00DEA000BD439D /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		47EC22D01E00DEA000BD439D /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
@@ -402,6 +406,7 @@
 				9DFA469F1E1252E8009373D8 /* GetOrder.swift */,
 				CB2365311E139B1D004512AE /* MyInformation.swift */,
 				CB51AD2A1E14D9350000E0BF /* MyData.swift */,
+				47811C541E1E1BB5008CAA09 /* Upload.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				9D0718161E0134140071C352 /* GenerateCodeView.swift */,
 				47444E3D1E0B901D0028A705 /* MD5.swift */,
 				47EC22CB1E00C65800BD439D /* Messages.swift */,
+				47811C5D1E1E23B8008CAA09 /* UploadImage.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -686,6 +692,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB5B276D1E1213C300975B24 /* O_OrderPlanDateViewController.swift in Sources */,
+				47811C5E1E1E23B8008CAA09 /* UploadImage.swift in Sources */,
 				476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */,
 				47087BA91E077D3A00C2BE89 /* O_OrderInformationViewController.swift in Sources */,
 				9D2C740F1E02375D003F05CC /* MJRefreshStateHeader.m in Sources */,
@@ -730,6 +737,7 @@
 				476AC82E1DFA715900093B38 /* TableViewCellFrame.swift in Sources */,
 				9D0718131E0133860071C352 /* U_MyCreditTableViewController.swift in Sources */,
 				9D2C74121E02375D003F05CC /* NSBundle+MJRefresh.m in Sources */,
+				47811C551E1E1BB5008CAA09 /* Upload.swift in Sources */,
 				9DFA467F1E10F2C8009373D8 /* TakeOrderDetails.swift in Sources */,
 				9D2C74071E02375D003F05CC /* MJRefreshAutoGifFooter.m in Sources */,
 				47093A301E091771004118DF /* UserReposity.swift in Sources */,
