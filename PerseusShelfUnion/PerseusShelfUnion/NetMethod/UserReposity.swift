@@ -17,7 +17,7 @@ class UserReposity: NSObject, IUserReposity {
     
     func LoginUser(Requesting: Model_LoginUser.Requesting){
         var request =  requestTo(url: "login") //接口名称
-        let Response = Model_LoginUser.Response(Code: nil, IsProved: nil, UserID: nil, UserName: nil)
+        let Response: Model_LoginUser.Response? = nil
         let parameters = [
             "UserName":Requesting.UserName,
             "Password":Requesting.Password
@@ -32,10 +32,10 @@ class UserReposity: NSObject, IUserReposity {
 //                    print(response.result.value as Any) //打印内容
                     
                     let json = JSON(data: response.data!) //JSON解析
-                    Response.Code = Model_LoginUser.CodeType(rawValue: json["Code"].int!)
-                    Response.IsProved = json["IsProved"].int
-                    Response.UserID = json["UserID"].string
-                    Response.UserName = json["UserName"].string
+                    Response?.Code = Model_LoginUser.CodeType(rawValue: json["Code"].int!)
+                    Response?.IsProved = json["IsProved"].int
+                    Response?.UserID = json["UserID"].string
+                    Response?.UserName = json["UserName"].string
                 }
                 else{
                     //当超时时间已过
@@ -48,7 +48,7 @@ class UserReposity: NSObject, IUserReposity {
     
     func RegistrationUser(Requesting: Model_RegistrationUser.Requesting) {
         var request =  requestTo(url: "Reg") //接口名称
-        let Response = Model_RegistrationUser.Response(Code: nil, UserName: nil)
+        let Response: Model_RegistrationUser.Response? = nil
         let parameters = [
             "UserName":Requesting.UserName,
             "Password":Requesting.Password,
@@ -63,8 +63,8 @@ class UserReposity: NSObject, IUserReposity {
 //                print(response.request as Any)
 //                print(response.result.value as Any) //打印内容
                 let json = JSON(data: response.data!) //JSON解析
-                Response.Code = Model_RegistrationUser.CodeType(rawValue: json["Code"].int!)
-                Response.UserName = json["UserName"].string
+                Response?.Code = Model_RegistrationUser.CodeType(rawValue: json["Code"].int!)
+                Response?.UserName = json["UserName"].string
             }
             //激活通知
             NotificationCenter.default.post(name: Notification.Name(rawValue: "RegistrationUser"), object: Response)
@@ -74,7 +74,7 @@ class UserReposity: NSObject, IUserReposity {
     
     func MyInformation(Requesting: Model_MyInformation.Requesting) {
         var request = requestTo(url: "UserCenters")
-        var Response:Model_MyInformation.Response? = Model_MyInformation.Response(UserPic: nil, PhoneNum: nil, UserName: nil, UserMail: nil, Unit: nil, Job: nil, Code: nil)
+        var Response: Model_MyInformation.Response? = nil
         let parameters = [
             "UserName":Requesting.UserName
         ]
@@ -108,7 +108,7 @@ class UserReposity: NSObject, IUserReposity {
     
     func MyData(Requesting: Model_MyData.Requesting) {
         var request = requestTo(url: "UserCenters")
-        let Response = Model_MyData.Response(UserPic: nil, PhoneNum: nil, Unit: nil)
+        let Response: Model_MyData.Response? = nil
         let parameters = [
             "UserName":Requesting.UserName
         ]
@@ -121,9 +121,9 @@ class UserReposity: NSObject, IUserReposity {
 //                print(response.result.value as Any)
                 let json = JSON(data: response.data!)
                 if  let Userpic = json["UserPic"].string{
-                    Response.UserPic = imgurl + Userpic}
-                Response.Unit = json["Unit"].string
-                Response.PhoneNum = json["PhoneNum"].string
+                    Response?.UserPic = imgurl + Userpic}
+                Response?.Unit = json["Unit"].string
+                Response?.PhoneNum = json["PhoneNum"].string
             }
             NotificationCenter.default.post(name:Notification.Name(rawValue: "MyData"), object:Response)
         }
