@@ -16,6 +16,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
     func TakeOrders(){
         var request =  requestTo(crotroller: BaseOrderUrl, url: "RobOrderList") //接口名称
         var Response: [Model_TakeOrders.Response]? = [Model_TakeOrders.Response(InstallCycle: nil, InstallPlace: nil, RobOrderID: nil, StartTime: nil, Code: nil, Title: nil, Tonnage: nil)]
+        Response?.removeAll()
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         Alamofire.request(request).responseJSON { response in
@@ -23,8 +24,6 @@ class OrdersReposity: NSObject, IOrdersReposity {
                 //当收到JSON相应时
 //                print(response.request as Any)
 //                print(response.result.value as Any)
-                Response?.removeAll()
-                
                 let json = JSON(data: response.data!) //JSON解析
                 for i in 0..<json.count {
 //                    let date = self.dateTo(datetime: json[i]["StartTime"].string!)
@@ -37,9 +36,6 @@ class OrdersReposity: NSObject, IOrdersReposity {
                         Title: json[i]["Title"].string,
                         Tonnage: json[i]["Tonnage"].string))
                 }
-            }
-            else {
-                Response = nil
             }
             //激活通知
             NotificationCenter.default.post(name: Notification.Name(rawValue: "TakeOrders"), object: Response)
@@ -60,7 +56,6 @@ class OrdersReposity: NSObject, IOrdersReposity {
                 //当收到JSON相应时
 //                print(response.request as Any)
 //                print(response.result.value as Any)
-                
                 let json = JSON(data: response.data!) //JSON解析
                 Response.InsAtticLayer = json["Attic"].string! + "层"
                 Response.InsBeamHgh = json["Beam"].string
@@ -85,6 +80,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
     func MyOrders() {
         var request = requestTo(crotroller: BaseOrderUrl, url: "Order") //接口名称
         var Response: [Model_MyOrders.Response]? = [Model_MyOrders.Response(InsCycle: nil, InsPlace: nil, MyOrderID: nil, Title: nil, StartTime: nil, StateCode: nil, Tonnage: nil)]
+        Response?.removeAll()
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         Alamofire.request(request).responseJSON { response in
@@ -92,27 +88,63 @@ class OrdersReposity: NSObject, IOrdersReposity {
                 //当收到JSON相应时
 //                print(response.request as Any)
 //                print(response.result.value as Any)
-                Response?.removeAll()
-                
                 let json = JSON(data: response.data!) //JSON解析
                 for i in 0..<json.count {
-                    Response?.append(Model_MyOrders.Response(
-                        InsCycle: json[i]["InstallCycle"].string,
-                        InsPlace: json[i]["InstallPlace"].string,
-                        MyOrderID: json[i]["MyOrderID"].string,
-                        Title: json[i]["Title"].string,
-                        StartTime: self.dateTo2(datetime: json[i]["StartTime"].string!),
-                        StateCode: Model_MyOrders.CodeType(rawValue: json[i]["StateCode"].int!),
-                        Tonnage: json[i]["Tonnage"].string))
+                    if Model_MyOrders.CodeType(rawValue: json[i]["StateCode"].int!) != Model_MyOrders.CodeType.审核通过 &&
+                       Model_MyOrders.CodeType(rawValue: json[i]["StateCode"].int!) != Model_MyOrders.CodeType.审核失败 &&
+                       Model_MyOrders.CodeType(rawValue: json[i]["StateCode"].int!) != Model_MyOrders.CodeType.未审核{
+                        Response?.append(Model_MyOrders.Response(
+                            InsCycle: json[i]["InstallCycle"].string,
+                            InsPlace: json[i]["InstallPlace"].string,
+                            MyOrderID: json[i]["MyOrderID"].string,
+                            Title: json[i]["Title"].string,
+                            StartTime: self.dateTo2(datetime: json[i]["StartTime"].string!),
+                            StateCode: Model_MyOrders.CodeType(rawValue: json[i]["StateCode"].int!),
+                            Tonnage: json[i]["Tonnage"].string))
+                    }
                 }
-            }
-            else {
-                Response = nil
             }
             //激活通知
             NotificationCenter.default.post(name: Notification.Name(rawValue: "MyOrders"), object: Response)
         }
         
+    }
+    
+    func MyOrderDetails(Requesting: String) {
+        var request =  requestTo(crotroller: BaseOrderUrl, url: "OrderInfo") //接口名称
+//        let Response = Model_TakeOrderDetails.Response(InsAtticLayer: nil, InsBeamHgh: nil, InsHeight: nil, InsName: nil, InsFork: nil, InsCycle: nil, InsPlace: nil, InsMoney: nil, Weight: nil, InsPhone: nil, InsRemarks: nil, StartTime: nil, Structure: nil, Tonnage: nil, InsType: nil)
+        let parameters = [
+            "InstallID":Requesting
+        ] //传输JSON
+        print(request)
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON { response in
+            if response.result.value != nil {
+                //当收到JSON相应时
+                print(response.request as Any)
+                print(response.result.value as Any)
+                
+//                let json = JSON(data: response.data!) //JSON解析
+//                Response.InsAtticLayer = json["Attic"].string! + "层"
+//                Response.InsBeamHgh = json["Beam"].string
+//                Response.InsHeight = json["Column"].string
+//                Response.InsName = json["Contacts"].string
+//                Response.InsFork = json["Fork"].string
+//                Response.InsCycle = json["InstallCycle"].string
+//                Response.InsPlace = json["InstallPlace"].string
+//                Response.InsMoney = json["OrderOffer"].string! + json["Weight"].string!
+//                Response.InsPhone = json["Phone"].string
+//                Response.InsRemarks = json["Remarks"].string
+//                Response.StartTime = self.date(date: json["StartTime"].string!)
+//                Response.Structure = json["Structure"].string
+//                Response.Tonnage = json["Tonnage"].string
+//                Response.InsType = json["Type"].string
+            }
+            //激活通知
+            NotificationCenter.default.post(name: Notification.Name(rawValue: ""), object: nil)
+        }
     }
     
     func GetOrder(Requesting: Model_GetOrder.Requesting) {
@@ -129,8 +161,8 @@ class OrdersReposity: NSObject, IOrdersReposity {
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.request as Any)
-                print(response.result.value as Any)
+//                print(response.request as Any)
+//                print(response.result.value as Any)
                 
                 let json = JSON(data: response.data!) //JSON解析
                 Response = Model_TakeOrderDetails.CodeType(rawValue: json["Code"].int!)!

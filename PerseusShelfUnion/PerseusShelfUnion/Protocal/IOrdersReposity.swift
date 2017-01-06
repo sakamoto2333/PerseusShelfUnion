@@ -25,4 +25,12 @@ protocol IOrdersReposity{
     
     /// 我的订单
     func MyOrders()
+    
+    
+    /// 我的订单详细
+    ///
+    /// - Parameter Requesting: 订单ID
+    func MyOrderDetails(Requesting: String)
+    
+    
 }

@@ -35,6 +35,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformation(_:)), name: NSNotification.Name(rawValue: "UserCenters1"), object: nil)
         UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
     }
     
@@ -122,8 +123,6 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         }))
     }
     
-    
-    
     func refresh(title: String, place: String) {
         alert.title = "\(title)"
         alert.textFields?.first?.placeholder = "\(place)"
@@ -164,7 +163,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             
             //保存图片
             if !UploadImage().saveImage(image: imageView, path: imagePath) {
-                print("权限失败")
+                Messages().showError(code: 0x2008)
                 
             }
             //读取保存图片
@@ -173,7 +172,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
                 UserReposity().upload(Requesting: Model_Upload.Requesting(strData: Model_Upload.PicType.UserImage, UserID: UserId, imageData: loadedImage))
             }
             else{
-                print("上传失败")
+                Messages().showError(code: 0x2007)
             }
             
         }))
@@ -240,4 +239,3 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
     
     
 }
-

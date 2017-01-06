@@ -15,7 +15,6 @@ protocol IUserReposity {
     /// - Parameter Requesting: LoginUser数据模型
     func LoginUser(Requesting: Model_LoginUser.Requesting)
     
-    
     /// 注册
     ///
     /// - Parameter Requesting: RegistrationUser数据模型
@@ -29,4 +28,7 @@ protocol IUserReposity {
     func MyInformationEdit(Requesting: Model_MyInformation.Response)
 
     func upload(Requesting: Model_Upload.Requesting)
+    
+    /// 资质认证
+    func GetCertificates(Requesting: String)
 }

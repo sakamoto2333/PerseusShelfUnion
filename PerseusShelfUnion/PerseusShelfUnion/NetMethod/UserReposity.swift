@@ -154,7 +154,6 @@ class UserReposity: NSObject, IUserReposity {
     }
     
     func upload(Requesting: Model_Upload.Requesting) {
-        
         let imageData = UIImageJPEGRepresentation(Requesting.imageData, 0.1)
         let UserData = Requesting.UserID.data(using: String.Encoding.utf8)
         let strData = String(describing: Requesting.strData.rawValue).data(using: String.Encoding.utf8)
@@ -172,17 +171,43 @@ class UserReposity: NSObject, IUserReposity {
                     upload.response{ response in
                         let json = JSON(data: response.data!)
                         if json == 1{
-                            print("上传成功")
+                            if Requesting.strData != Model_Upload.PicType.UserImage {
+                                NotificationCenter.default.post(name:Notification.Name(rawValue: "uploadcertificate"), object: json.int)
+                            }
                         }
-                        
                     }
                 case .failure(let encodingError):
                     print(encodingError)
                 }
+        })
+    }
+    
+    func GetCertificates(Requesting: String) {
+        var request = URLRequest(url: URL(string: NSString(format: "%@/%@", imgurl , "RequireApp/Commpany") as String)!)
+        let Response = Model_Certificate.Response(ClimbCard: nil, Qualification: nil, WelderCard: nil, ForkliftCard: nil, ElectricianCard: nil, SafeCard: nil, InsuranceCard: nil, License: nil, msg: nil)
+//        print(request)
+        let parameters = [
+            "UserID": Requesting
+        ]
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON{response in
+            if response.result.value != nil{
+//                print(response.result.value as Any)
+                let json = JSON(data: response.data!)
+                Response.License = imgurl + json["Business"].string!
+                Response.Qualification = imgurl + json["Install"].string!
+                Response.ClimbCard = imgurl + json["Climbing"].string!
+                Response.ElectricianCard = imgurl + json["Electrician"].string!
+                Response.ForkliftCard = imgurl + json["Forklift"].string!
+                Response.InsuranceCard = imgurl + json["Insurance"].string!
+                Response.SafeCard = imgurl + json["SafetyPerson"].string!
+                Response.WelderCard = imgurl + json["Welder"].string!
+                Response.msg = String(json["StateCode"].int!)
+            }
+            NotificationCenter.default.post(name:Notification.Name(rawValue: "getCertificates"), object: Response)
         }
-        )
-        
-        
     }
     
     private func requestTo(url: String) -> URLRequest {

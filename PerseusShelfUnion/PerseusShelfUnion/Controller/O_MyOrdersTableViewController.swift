@@ -13,6 +13,8 @@ class O_MyOrdersTableViewController: UITableViewController {
     let ha = UILabel()
     var isRefresh: Bool = false
     var tablelist: [Model_MyOrders.Response] = []
+    var onetable: Model_TakeOrderDetails.Response!
+    var index: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         let headers = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(header))
@@ -25,9 +27,6 @@ class O_MyOrdersTableViewController: UITableViewController {
         ha.isHidden = false
         self.tableView.estimatedRowHeight = 139
         self.tableView.rowHeight = UITableViewAutomaticDimension
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         OrdersReposity().MyOrders()
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrders(_:)), name: NSNotification.Name(rawValue: "MyOrders"), object: nil)
         Messages().showNow(code: 0x2004)
@@ -112,6 +111,19 @@ class O_MyOrdersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "OrderDetail", sender: self)
+        print(tablelist[indexPath.row].MyOrderID!)
+        OrdersReposity().MyOrderDetails(Requesting: tablelist[indexPath.row].MyOrderID!)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(self.OrderDetails(_:)), name: NSNotification.Name(rawValue: "OrderDetails"), object: nil)
+        Messages().showNow(code: 0x2004)
+        index = indexPath.row
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OrderDetails" {
+            let Controller = segue.destination as! T_OrderDetailTableViewController
+//            Controller.RobOrderID = tablelist[index].RobOrderID
+//            Controller.Code = tablelist[index].Code
+//            Controller.tablelist = onetable
+        }
     }
 }

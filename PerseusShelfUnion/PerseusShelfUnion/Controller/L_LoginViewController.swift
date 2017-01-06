@@ -42,11 +42,13 @@ class L_LoginViewController: UIViewController {
         loginmodel.saveData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.LoginUser(_:)), name: NSNotification.Name(rawValue: "LoginUser"), object: nil)
         Messages().showNow(code: 0x1004)
+        self.view.isUserInteractionEnabled = false
         let Requesting = Model_LoginUser.Requesting(UserName: id.text!, Password: password.text!)
         UserReposity().LoginUser(Requesting: Requesting)
     }
     
     func LoginUser(_ notification:Notification) {
+        self.view.isUserInteractionEnabled = true
         if let Response:Model_LoginUser.Response = notification.object as! Model_LoginUser.Response?{
             if (Response.Code == Model_LoginUser.CodeType.登录成功){
                 Messages().show(code: 0x1005)
