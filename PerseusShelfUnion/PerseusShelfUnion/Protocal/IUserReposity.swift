@@ -23,8 +23,10 @@ protocol IUserReposity {
     
     
     func MyInformation(Requesting: Model_MyInformation.Requesting)
-    
+
     func MyData(Requesting: Model_MyData.Requesting)
     
+    func MyInformationEdit(Requesting: Model_MyInformation.Response)
+
     func upload(Requesting: Model_Upload.Requesting)
 }

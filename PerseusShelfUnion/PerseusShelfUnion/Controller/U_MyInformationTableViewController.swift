@@ -29,7 +29,8 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         loginmodel.loadData()
         Username = loginmodel.LoginList.first?.Name
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformation(_:)), name: NSNotification.Name(rawValue: "UserCenters1"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformationEdit(_:)), name: NSNotification.Name(rawValue: "UserEdit"), object: nil)
+
         Messages().showNow(code: 0x4001)
     }
     
@@ -58,6 +59,11 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             Messages().showError(code: 0x1002)
             
         }
+    }
+    
+    func MyInformationEdit(_ notification:NSNotification){
+        
+        UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,10 +100,29 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             { (UIAlertAction) in
                 if self.alert.textFields?.first?.text != ""
                 {
-                    self.messages = (self.alert.textFields?.first?.text!)!
+                    
+                    switch self.alert.title!{
+                    case "手机号":
+                        self.UserPhoneLabel.text = self.alert.textFields?.first?.text
+                    case "邮箱":
+                       self.UserEmailLabel.text = self.alert.textFields?.first?.text
+                    case "姓名":
+                        self.UserRealNameLabel.text = self.alert.textFields?.first?.text
+                    case "公司":
+                        self.CompanyNameLabel.text = self.alert.textFields?.first?.text
+                    case "职位":
+                        self.UserPositionLabel.text = self.alert.textFields?.first?.text
+                    default:
+                        break
+                    }
+                    let Edit = Model_MyInformation.Response(UserPic: nil, PhoneNum: self.UserPhoneLabel.text, UserName:  self.UserRealNameLabel.text, UserMail: self.UserEmailLabel.text, Unit: self.CompanyNameLabel.text, Job: self.UserPositionLabel.text, Code: nil)
+                    UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: self.Username))
+                    UserReposity().MyInformationEdit(Requesting: Edit)
                 }
         }))
     }
+    
+    
     
     func refresh(title: String, place: String) {
         alert.title = "\(title)"

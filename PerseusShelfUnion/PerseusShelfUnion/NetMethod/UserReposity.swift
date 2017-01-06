@@ -96,11 +96,34 @@ class UserReposity: NSObject, IUserReposity {
                 if Response?.Code != "已认证"{
                     Response?.Code = "未认证"
                 }
+              print(json)
             }
             else{
                 Response = nil
             }
             NotificationCenter.default.post(name:Notification.Name(rawValue: "UserCenters1"), object:Response)
+            
+        }
+    }
+    
+    func MyInformationEdit(Requesting: Model_MyInformation.Response) {
+        var request = requestTo(url: "UserEdit")
+        let parameters = [
+            "UserName":Requesting.UserName,
+            "UserPhone":Requesting.PhoneNum,
+            "UserMail":Requesting.UserMail,
+            "UserUnit":Requesting.Unit,
+            "UserJob":Requesting.Job,
+            "UserID":UserId
+        ]
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON{response in
+            if response.result.value != nil{
+                var json = JSON(data: response.data!)
+            }
+            NotificationCenter.default.post(name:Notification.Name(rawValue: "UserEdit"), object:nil)
             
         }
     }
