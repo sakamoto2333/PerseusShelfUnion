@@ -66,7 +66,7 @@ class U_MyDataTableViewController: UITableViewController {
             else{
                 let imagename = "UserImage.png"
                 let imagePath = UploadImage().fileInDocumentsDirectory(filename: imagename)
-                let _ = UploadImage().saveImage(image: UIImage(named: "滑稽")!, path: imagePath)
+                let _ = UploadImage().saveImage(image: UIImage(named: "默认头像")!, path: imagePath)
                 
             }
             UserPhoneLabel.text = Response.PhoneNum                       

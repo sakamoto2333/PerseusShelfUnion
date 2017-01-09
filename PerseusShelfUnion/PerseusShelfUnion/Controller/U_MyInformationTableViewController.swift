@@ -71,9 +71,6 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             {
                 UserImageImgView.image = loadedImage
             }
-            else{
-                Messages().showError(code: 0x1002)
-            }
         }
         else {
             Messages().showError(code: 0x1013)
