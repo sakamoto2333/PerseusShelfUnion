@@ -31,12 +31,14 @@ class U_MyCertificateTableViewController: UITableViewController,UIImagePickerCon
     var images: UIImageView!
     var views: UIView!
     var which = "0"
+    var ImageShowNumber = 0
     var Image: UIImage!
     override func viewDidLoad() {
         super.viewDidLoad()
         getimage()
         UserReposity().GetCertificates(Requesting: UserId)
         NotificationCenter.default.addObserver(self, selector: #selector(getCertificates), name: NSNotification.Name(rawValue: "getCertificates"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MyCertificateImage), name: NSNotification.Name(rawValue: "MyCertificateImage"), object: nil)
         Messages().showNow(code: 0x2004)
     }
     
@@ -49,61 +51,110 @@ class U_MyCertificateTableViewController: UITableViewController,UIImagePickerCon
             if Response.msg == "1" {
                 if let img = Response.License {
                     self.view1.backgroundColor = UIColor(red: 230/255, green: 56/255, blue: 58/255, alpha: 1)
-                    self.Image1.isHidden = false
-                    let data1 = NSData(contentsOf: NSURL(string: img) as! URL)
-                    self.Image1.image = UIImage(data: data1 as! Data)
-//                    let imagePath = UploadImage().fileInDocumentsDirectory(filename: "1.png")
-//                    UploadImage().saveImage(image: Image1.image!, path: imagePath)
+                    let Requesting = Model_ImageData.Requesting(DataUrl: img, DataName: .CompanyLicense)
+                    UserReposity().download(Requesting: Requesting)
+                    ImageShowNumber += 1
                 }
                 if let img = Response.Qualification {
                     self.view2.backgroundColor = UIColor(red: 230/255, green: 56/255, blue: 58/255, alpha: 1)
-                    self.Image2.isHidden = false
-                    let data2 = NSData(contentsOf: NSURL(string: img) as! URL)
-                    self.Image2.image = UIImage(data: data2 as! Data)
+                    let Requesting = Model_ImageData.Requesting(DataUrl: img, DataName: .CompanyQualification)
+                    UserReposity().download(Requesting: Requesting)
+                    ImageShowNumber += 1
                 }
                 if let img = Response.ClimbCard {
                     self.view3.backgroundColor = UIColor(red: 230/255, green: 56/255, blue: 58/255, alpha: 1)
-                    self.Image3.isHidden = false
-                    let data3 = NSData(contentsOf: NSURL(string: img) as! URL)
-                    self.Image3.image = UIImage(data: data3 as! Data)
+                    let Requesting = Model_ImageData.Requesting(DataUrl: img, DataName: .CompanyClimbCard)
+                    UserReposity().download(Requesting: Requesting)
+                    ImageShowNumber += 1
                 }
                 if let img = Response.WelderCard {
                     self.view4.backgroundColor = UIColor(red: 230/255, green: 56/255, blue: 58/255, alpha: 1)
-                    self.Image4.isHidden = false
-                    let data4 = NSData(contentsOf: NSURL(string: img) as! URL)
-                    self.Image4.image = UIImage(data: data4 as! Data)
+                    let Requesting = Model_ImageData.Requesting(DataUrl: img, DataName: .CompanyWelderCard)
+                    UserReposity().download(Requesting: Requesting)
+                    ImageShowNumber += 1
                 }
                 if let img = Response.ForkliftCard {
                     self.view5.backgroundColor = UIColor(red: 230/255, green: 56/255, blue: 58/255, alpha: 1)
-                    self.Image5.isHidden = false
-                    let data5 = NSData(contentsOf: NSURL(string: img) as! URL)
-                    self.Image5.image = UIImage(data: data5 as! Data)
+                    let Requesting = Model_ImageData.Requesting(DataUrl: img, DataName: .CompanyForkliftCard)
+                    UserReposity().download(Requesting: Requesting)
+                    ImageShowNumber += 1
                 }
                 if let img = Response.ElectricianCard {
                     self.view6.backgroundColor = UIColor(red: 230/255, green: 56/255, blue: 58/255, alpha: 1)
-                    self.Image6.isHidden = false
-                    let data6 = NSData(contentsOf: NSURL(string: img) as! URL)
-                    self.Image6.image = UIImage(data: data6 as! Data)
+                    let Requesting = Model_ImageData.Requesting(DataUrl: img, DataName: .CompanyElectricianCard)
+                    UserReposity().download(Requesting: Requesting)
+                    ImageShowNumber += 1
                 }
                 if let img = Response.SafeCard {
                     self.view7.backgroundColor = UIColor(red: 230/255, green: 56/255, blue: 58/255, alpha: 1)
-                    self.Image7.isHidden = false
-                    let data7 = NSData(contentsOf: NSURL(string: img) as! URL)
-                    self.Image7.image = UIImage(data: data7 as! Data)
+                    let Requesting = Model_ImageData.Requesting(DataUrl: img, DataName: .CompanySafeCard)
+                    UserReposity().download(Requesting: Requesting)
+                    ImageShowNumber += 1
                 }
                 if let img = Response.InsuranceCard {
                     self.view8.backgroundColor = UIColor(red: 230/255, green: 56/255, blue: 58/255, alpha: 1)
-                    self.Image8.isHidden = false
-                    let data8 = NSData(contentsOf: NSURL(string: img) as! URL)
-                    self.Image8.image = UIImage(data: data8 as! Data)
+                    let Requesting = Model_ImageData.Requesting(DataUrl: img, DataName: .CompanyInsuranceCard)
+                    UserReposity().download(Requesting: Requesting)
+                    ImageShowNumber += 1
                 }
-                ProgressHUD.dismiss()
             }
             else {
                 Messages().showError(code: 0x1002)
             }
         }
-        NotificationCenter.default.removeObserver(self)
+//        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func MyCertificateImage(_ notification:Notification) {
+        if let Response: Model_ImageData.Response = notification.object as? Model_ImageData.Response{
+            
+            if let loadedImage = UploadImage().loadImageFromPath(path: Response.FileUrl)
+            {
+                switch  Response.DataName{
+                case .CompanyLicense:
+                    self.Image1.image = loadedImage
+                    self.Image1.isHidden = false
+                    break
+                case .CompanyQualification:
+                    self.Image2.image = loadedImage
+                    self.Image2.isHidden = false
+                    break
+                case .CompanyClimbCard:
+                    self.Image3.image = loadedImage
+                    self.Image3.isHidden = false
+                    break
+                case .CompanyWelderCard:
+                    self.Image4.image = loadedImage
+                    self.Image4.isHidden = false
+                    break
+                case .CompanyForkliftCard:
+                    self.Image5.image = loadedImage
+                    self.Image5.isHidden = false
+                    break
+                case .CompanyElectricianCard:
+                    self.Image6.image = loadedImage
+                    self.Image6.isHidden = false
+                    break
+                case .CompanySafeCard:
+                    self.Image7.image = loadedImage
+                    self.Image7.isHidden = false
+                    break
+                case .CompanyInsuranceCard:
+                    self.Image8.image = loadedImage
+                    self.Image8.isHidden = false
+                    break
+                default:
+                    break
+                }
+                ImageShowNumber -= 1
+            }
+            if(ImageShowNumber == 0){
+                ProgressHUD.dismiss()
+            }
+        }
+        else {
+            Messages().showError(code: 0x1013)
+        }
     }
     
     func uploadcertificate(_ notification:Notification) {

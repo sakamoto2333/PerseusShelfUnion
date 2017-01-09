@@ -153,6 +153,34 @@ class UserReposity: NSObject, IUserReposity {
 
     }
     
+    func download(Requesting: Model_ImageData.Requesting){
+        let destination: DownloadRequest.DownloadFileDestination = { _, response in
+            let imagename = "\(Requesting.DataName).png"
+            let fileURL = UploadImage().fileInDocumentsDirectory(filename: imagename)
+            //两个参数表示如果有同名文件则会覆盖，如果路径中文件夹不存在则会自动创建
+            return (URL(fileURLWithPath: fileURL), [.removePreviousFile, .createIntermediateDirectories])
+            
+        }
+        Alamofire.download(Requesting.DataUrl, to: destination)
+            .response { response in
+                print(response)
+                if (response.destinationURL?.path) != nil {
+                    print(response.destinationURL?.path as Any)
+                    switch Requesting.DataName {
+                    case .UserImage:
+                        NotificationCenter.default.post(name:Notification.Name(rawValue: "MyDataImage"), object: Model_ImageData.Response(FileUrl: (response.destinationURL?.path)!, DataName: Requesting.DataName))
+                        break
+                    case .UserImage1:
+                        NotificationCenter.default.post(name:Notification.Name(rawValue: "MyDataImage1"), object: Model_ImageData.Response(FileUrl: (response.destinationURL?.path)!, DataName: Requesting.DataName))
+                        break
+                    default:
+                        NotificationCenter.default.post(name:Notification.Name(rawValue: "MyCertificateImage"), object: Model_ImageData.Response(FileUrl: (response.destinationURL?.path)!, DataName: Requesting.DataName))
+                        break
+                    }
+                }
+        }
+    }
+    
     func upload(Requesting: Model_Upload.Requesting) {
         let imageData = UIImageJPEGRepresentation(Requesting.imageData, 0.1)
         let UserData = Requesting.UserID.data(using: String.Encoding.utf8)
