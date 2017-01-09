@@ -63,6 +63,12 @@ class U_MyDataTableViewController: UITableViewController {
                 UserReposity().download(Requesting: Requesting)
                 Messages().showNow(code: 0x1014)
             }
+            else{
+                let imagename = "UserImage.png"
+                let imagePath = UploadImage().fileInDocumentsDirectory(filename: imagename)
+                let _ = UploadImage().saveImage(image: UIImage(named: "滑稽")!, path: imagePath)
+                
+            }
             UserPhoneLabel.text = Response.PhoneNum                       
             CompanyNameLabel.text = Response.Unit
             tableView.reloadData()
