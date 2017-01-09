@@ -79,7 +79,7 @@ class U_MyDataTableViewController: UITableViewController {
                 ProgressHUD.dismiss()
             }
             else{
-                ProgressHUD.dismiss()
+                Messages().showError(code: 0x1002)
             }
         }
         else {

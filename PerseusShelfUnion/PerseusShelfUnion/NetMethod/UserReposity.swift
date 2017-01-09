@@ -198,11 +198,13 @@ class UserReposity: NSObject, IUserReposity {
                 case .success(let upload, _, _):
                     upload.response{ response in
                         let json = JSON(data: response.data!)
-                        if json == 1{
-                            if Requesting.strData != Model_Upload.PicType.UserImage {
-                                NotificationCenter.default.post(name:Notification.Name(rawValue: "uploadcertificate"), object: json.int)
-                            }
+                        if Requesting.strData != Model_Upload.PicType.UserImage {
+                            NotificationCenter.default.post(name:Notification.Name(rawValue: "uploadcertificate"), object: json.int)
                         }
+                        else{
+                            NotificationCenter.default.post(name:Notification.Name(rawValue: "MyDataImageUpload"), object: json.int)
+                        }
+                        
                     }
                 case .failure(let encodingError):
                     print(encodingError)

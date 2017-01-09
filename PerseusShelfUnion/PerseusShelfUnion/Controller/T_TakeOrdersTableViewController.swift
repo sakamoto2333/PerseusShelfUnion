@@ -12,7 +12,6 @@ class T_TakeOrdersTableViewController: UITableViewController {
     
     let ha = UILabel()
     var tablelist: [Model_TakeOrders.Response] = []
-    var isRefresh: Bool = false
     var onetable: Model_TakeOrderDetails.Response!
     var index: Int!
     override func viewDidLoad() {
@@ -27,9 +26,11 @@ class T_TakeOrdersTableViewController: UITableViewController {
         ha.isHidden = false
         self.tableView.estimatedRowHeight = 129
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        OrdersReposity().TakeOrders()
+    }
+    override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(self.TakeOrders(_:)), name: NSNotification.Name(rawValue: "TakeOrders"), object: nil)
         Messages().showNow(code: 0x2004)
+        OrdersReposity().TakeOrders()
     }
     
     func TakeOrders(_ notification:Notification) {
@@ -43,25 +44,17 @@ class T_TakeOrdersTableViewController: UITableViewController {
             else {
                 ha.isHidden = true
             }
-            if isRefresh == false {
-                ProgressHUD.dismiss()
-            }
-            if isRefresh == true {
-                Messages().show(code: 0x2002)
-                isRefresh = !isRefresh
-            }
+            ProgressHUD.dismiss()
         }
         else {
             Messages().showError(code: 0x1002)
         }
-        NotificationCenter.default.removeObserver(self)
     }
 
     
     func header() {
         OrdersReposity().TakeOrders()
         NotificationCenter.default.addObserver(self, selector: #selector(self.TakeOrders(_:)), name: NSNotification.Name(rawValue: "TakeOrders"), object: nil)
-        isRefresh = !isRefresh
     }
     
     @IBAction func T_back(segue:UIStoryboardSegue) {
@@ -101,6 +94,9 @@ class T_TakeOrdersTableViewController: UITableViewController {
         cell.InsTonLabel.text = list.Tonnage
         if list.Code == Model_TakeOrders.CodeType.已抢 {
             cell.State.isHidden = false
+        }
+        else {
+            cell.State.isHidden = true
         }
         return cell
     }

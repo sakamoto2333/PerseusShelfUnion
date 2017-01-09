@@ -22,8 +22,8 @@ class OrdersReposity: NSObject, IOrdersReposity {
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-//                print(response.request as Any)
-//                print(response.result.value as Any)
+                print(response.request as Any)
+                print(response.result.value as Any)
                 let json = JSON(data: response.data!) //JSON解析
                 for i in 0..<json.count {
 //                    let date = self.dateTo(datetime: json[i]["StartTime"].string!)
@@ -37,6 +37,9 @@ class OrdersReposity: NSObject, IOrdersReposity {
                         Tonnage: json[i]["Tonnage"].string))
                 }
             }
+            else{
+                Response = nil
+            }
             //激活通知
             NotificationCenter.default.post(name: Notification.Name(rawValue: "TakeOrders"), object: Response)
         }
@@ -44,7 +47,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
     
     func TakeOrderDetails(Requesting: Model_TakeOrderDetails.Requesting) {
         var request = requestTo(crotroller: BaseOrderUrl, url: "RobOrderInfo") //接口名称
-        let Response = Model_TakeOrderDetails.Response(InsAtticLayer: nil, InsBeamHgh: nil, InsHeight: nil, InsName: nil, InsFork: nil, InsCycle: nil, InsPlace: nil, InsMoney: nil, Weight: nil, InsPhone: nil, InsRemarks: nil, StartTime: nil, Structure: nil, Tonnage: nil, InsType: nil)
+        var Response:Model_TakeOrderDetails.Response? = Model_TakeOrderDetails.Response(InsAtticLayer: nil, InsBeamHgh: nil, InsHeight: nil, InsName: nil, InsFork: nil, InsCycle: nil, InsPlace: nil, InsMoney: nil, Weight: nil, InsPhone: nil, InsRemarks: nil, StartTime: nil, Structure: nil, Tonnage: nil, InsType: nil)
         let parameters = [
             "RobOrderID":Requesting.RobOrderID
         ] //传输JSON
@@ -57,20 +60,23 @@ class OrdersReposity: NSObject, IOrdersReposity {
 //                print(response.request as Any)
 //                print(response.result.value as Any)
                 let json = JSON(data: response.data!) //JSON解析
-                Response.InsAtticLayer = json["Attic"].string! + "层"
-                Response.InsBeamHgh = json["Beam"].string
-                Response.InsHeight = json["Column"].string
-                Response.InsName = json["Contacts"].string
-                Response.InsFork = json["Fork"].string
-                Response.InsCycle = json["InstallCycle"].string
-                Response.InsPlace = json["InstallPlace"].string
-                Response.InsMoney = json["OrderOffer"].string! + json["Weight"].string!
-                Response.InsPhone = json["Phone"].string
-                Response.InsRemarks = json["Remarks"].string
-                Response.StartTime = self.date(date: json["StartTime"].string!)
-                Response.Structure = json["Structure"].string
-                Response.Tonnage = json["Tonnage"].string
-                Response.InsType = json["Type"].string
+                Response?.InsAtticLayer = json["Attic"].string! + "层"
+                Response?.InsBeamHgh = json["Beam"].string
+                Response?.InsHeight = json["Column"].string
+                Response?.InsName = json["Contacts"].string
+                Response?.InsFork = json["Fork"].string
+                Response?.InsCycle = json["InstallCycle"].string
+                Response?.InsPlace = json["InstallPlace"].string
+                Response?.InsMoney = json["OrderOffer"].string! + json["Weight"].string!
+                Response?.InsPhone = json["Phone"].string
+                Response?.InsRemarks = json["Remarks"].string
+                Response?.StartTime = self.date(date: json["StartTime"].string!)
+                Response?.Structure = json["Structure"].string
+                Response?.Tonnage = json["Tonnage"].string
+                Response?.InsType = json["Type"].string
+            }
+            else{
+                Response = nil
             }
             //激活通知
             NotificationCenter.default.post(name: Notification.Name(rawValue: "OrderDetails"), object: Response)
@@ -103,6 +109,9 @@ class OrdersReposity: NSObject, IOrdersReposity {
                             Tonnage: json[i]["Tonnage"].string))
                     }
                 }
+            }
+            else{
+                Response = nil
             }
             //激活通知
             NotificationCenter.default.post(name: Notification.Name(rawValue: "MyOrders"), object: Response)

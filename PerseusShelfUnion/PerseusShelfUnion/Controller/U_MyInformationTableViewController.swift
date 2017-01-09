@@ -31,8 +31,14 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformation(_:)), name: NSNotification.Name(rawValue: "UserCenters1"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformationEdit(_:)), name: NSNotification.Name(rawValue: "UserEdit"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformationImage(_:)), name: NSNotification.Name(rawValue: "MyDataImage1"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyDataImageUpload(_:)), name: NSNotification.Name(rawValue: "MyDataImageUpload"), object: nil)
+        let imagename = "UserImage.png"
+        let imagePath = UploadImage().fileInDocumentsDirectory(filename: imagename)
+        //读取保存图片
+        if let loadedImage = UploadImage().loadImageFromPath(path: imagePath){
+            UserImageImgView.image = loadedImage
+        }
 
-        Messages().showNow(code: 0x4001)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,13 +46,11 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
     }
     
     func MyInformation(_ notification:NSNotification){
-        ProgressHUD.dismiss()
         if let Response: Model_MyInformation.Response = notification.object as? Model_MyInformation.Response{
             if let userpic = Response.UserPic
             {
                 let Requesting = Model_ImageData.Requesting(DataUrl: userpic, DataName: .UserImage1)
                 UserReposity().download(Requesting: Requesting)
-                Messages().showNow(code: 0x1014)
             }
             UserRealNameLabel.text = Response.UserName
             UserEmailLabel.text = Response.UserMail
@@ -66,16 +70,29 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             if let loadedImage = UploadImage().loadImageFromPath(path: Response.FileUrl)
             {
                 UserImageImgView.image = loadedImage
-                ProgressHUD.dismiss()
+            }
+            else{
+                Messages().showError(code: 0x1002)
             }
         }
         else {
             Messages().showError(code: 0x1013)
         }
     }
+    func MyDataImageUpload(_ notification:Notification) {
+        if let Response: Int = notification.object as? Int{
+            if Response == 1{
+                UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
+                Messages().show(code: 0x2006)
+            }
+            else{
+                Messages().showError(code: 0x2007)
+            }
+        }
+    }
     
     func MyInformationEdit(_ notification:NSNotification){
-        
+        Messages().show(code: 0x1015)
         UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
     }
     

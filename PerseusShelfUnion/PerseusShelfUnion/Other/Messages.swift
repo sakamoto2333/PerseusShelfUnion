@@ -49,6 +49,7 @@ class Messages: NSObject {
         Code[0x1012] = "抢单失败"
         Code[0x1013] = "用户图片获取失败"
         Code[0x1014] = "获取用户图片中"
+        Code[0x1015] = "个人信息修改成功"
         
         Code[0x2001] = "刷新中"
         Code[0x2002] = "刷新成功"

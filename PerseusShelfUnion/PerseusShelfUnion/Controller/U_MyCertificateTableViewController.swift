@@ -247,67 +247,51 @@ class U_MyCertificateTableViewController: UITableViewController,UIImagePickerCon
     }
     
     @IBAction func Qbutton1(_ sender: Any) {
-        if Image1.isHidden == true {
             self.present(alert, animated: true, completion: nil)
             images = Image1
             views = view1
-            which = "1"
-        }
+            which = "8"
     }
     @IBAction func Qbutton2(_ sender: Any) {
-        if Image2.isHidden == true {
             self.present(alert, animated: true, completion: nil)
             images = Image2
             views = view2
-            which = "2"
-        }
+            which = "1"
     }
     @IBAction func Qbutton3(_ sender: Any) {
-        if Image3.isHidden == true {
             self.present(alert, animated: true, completion: nil)
             images = Image3
             views = view3
-            which = "3"
-        }
+            which = "2"
     }
     @IBAction func Qbutton4(_ sender: Any) {
-        if Image4.isHidden == true {
             self.present(alert, animated: true, completion: nil)
             images = Image4
             views = view4
-            which = "4"
-        }
+            which = "3"
     }
     @IBAction func Qbutton5(_ sender: Any) {
-        if Image5.isHidden == true {
             self.present(alert, animated: true, completion: nil)
             images = Image5
             views = view5
-            which = "5"
-        }
+            which = "4"
     }
     @IBAction func Qbutton6(_ sender: Any) {
-        if Image6.isHidden == true {
             self.present(alert, animated: true, completion: nil)
             images = Image6
             views = view6
-            which = "6"
-        }
+            which = "5"
     }
     @IBAction func Qbutton7(_ sender: Any) {
-        if Image7.isHidden == true {
             self.present(alert, animated: true, completion: nil)
             images = Image7
             views = view7
-            which = "7"
-        }
+            which = "6"
     }
     @IBAction func Qbutton8(_ sender: Any) {
-        if Image8.isHidden == true {
             self.present(alert, animated: true, completion: nil)
             images = Image8
             views = view8
-            which = "8"
-        }
+            which = "7"
     }
 }

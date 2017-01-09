@@ -64,12 +64,11 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
             NotificationCenter.default.removeObserver(self)
             if Response == Model_TakeOrderDetails.CodeType.抢单成功 {
                 Messages().show(code: 0x1011)
-//                OrderBack
-                self.performSegue(withIdentifier: "OrderBack", sender: self)
+                GetTheOrder.contentView.backgroundColor = UIColor.gray
+                
             }
             else if Response == Model_TakeOrderDetails.CodeType.已抢 {
                 Messages().show(code: 0x1012)
-                self.performSegue(withIdentifier: "OrderBack", sender: self)
             }
             else {
                 Messages().showError(code: 0x1002)

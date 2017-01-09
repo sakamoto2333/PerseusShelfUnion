@@ -27,8 +27,11 @@ class O_MyOrdersTableViewController: UITableViewController {
         ha.isHidden = false
         self.tableView.estimatedRowHeight = 139
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        OrdersReposity().MyOrders()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrders(_:)), name: NSNotification.Name(rawValue: "MyOrders"), object: nil)
+        OrdersReposity().MyOrders()
         Messages().showNow(code: 0x2004)
     }
     
@@ -43,13 +46,7 @@ class O_MyOrdersTableViewController: UITableViewController {
             else {
                 ha.isHidden = true
             }
-            if isRefresh == false {
-                ProgressHUD.dismiss()
-            }
-            if isRefresh == true {
-                Messages().show(code: 0x2002)
-                isRefresh = !isRefresh
-            }
+            ProgressHUD.dismiss()
         }
         else {
             Messages().showError(code: 0x1002)
@@ -60,7 +57,6 @@ class O_MyOrdersTableViewController: UITableViewController {
     func header() {
         OrdersReposity().MyOrders()
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrders(_:)), name: NSNotification.Name(rawValue: "MyOrders"), object: nil)
-        isRefresh = !isRefresh
     }
     
     @IBAction func O_Mback(segue:UIStoryboardSegue) {
