@@ -10,9 +10,10 @@ import UIKit
 
 class O_OrderPlanDateViewController: UIViewController {
 
+    @IBOutlet weak var TheDate: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        TheDate.text = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .long)
         // Do any additional setup after loading the view.
     }
 

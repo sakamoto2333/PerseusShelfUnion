@@ -16,7 +16,6 @@ class O_OrderPlanTimeCollectionViewController: UICollectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
     }
     override func didReceiveMemoryWarning() {
@@ -32,11 +31,9 @@ class O_OrderPlanTimeCollectionViewController: UICollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let lianjie:String = "DesignViewCell"
-  
-        let cell = ((self.collectionView?.dequeueReusableCell(withReuseIdentifier: lianjie, for: indexPath))! as UICollectionViewCell)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DesignViewCell", for: indexPath) as UICollectionViewCell
         if let a = cell.viewWithTag(1) as? UILabel{
-            a.text = String(indexPath.row+1)
+            a.text = String(indexPath.row + 1)
         }
         cell.layer.borderColor =  UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor
         cell.layer.borderWidth = 1
@@ -45,7 +42,7 @@ class O_OrderPlanTimeCollectionViewController: UICollectionViewController{
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("第\(indexPath.section) 分区 ,第\(indexPath.row) 个元素")
+//        print("第\(indexPath.section) 分区 ,第\(indexPath.row) 个元素")
     }
    
     

@@ -47,14 +47,14 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MG-05-fdz">
-                                    <rect key="frame" x="104" y="35" width="178" height="0.0"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MG-05-fdz">
+                                    <rect key="frame" x="104" y="25.5" width="178" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwf-XL-M2N">
-                                    <rect key="frame" x="104" y="34.5" width="178" height="0.0"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwf-XL-M2N">
+                                    <rect key="frame" x="104" y="50" width="178" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -63,7 +63,7 @@
                             <color key="backgroundColor" red="0.8980392157" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailingMargin" secondItem="gZF-aR-S4s" secondAttribute="trailing" id="1xH-K2-0ko"/>
-                                <constraint firstItem="nwf-XL-M2N" firstAttribute="top" secondItem="0MG-05-fdz" secondAttribute="bottom" id="6AJ-b2-OQn"/>
+                                <constraint firstItem="nwf-XL-M2N" firstAttribute="top" secondItem="0MG-05-fdz" secondAttribute="bottom" constant="5" id="6AJ-b2-OQn"/>
                                 <constraint firstItem="gZF-aR-S4s" firstAttribute="leading" secondItem="0MG-05-fdz" secondAttribute="trailing" id="8Kv-kc-eJ1"/>
                                 <constraint firstItem="0MG-05-fdz" firstAttribute="leading" secondItem="dFp-PY-y1V" secondAttribute="trailing" constant="5" id="AXI-cb-jlG"/>
                                 <constraint firstItem="nwf-XL-M2N" firstAttribute="leading" secondItem="0MG-05-fdz" secondAttribute="leading" id="BYE-73-YeM"/>

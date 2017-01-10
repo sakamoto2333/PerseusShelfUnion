@@ -7,14 +7,12 @@
 //
 
 import UIKit
-
+var MyOrderID: String!
 class O_MyOrdersTableViewController: UITableViewController {
 
     let ha = UILabel()
     var isRefresh: Bool = false
     var tablelist: [Model_MyOrders.Response] = []
-    var onetable: Model_TakeOrderDetails.Response!
-    var index: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         let headers = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(header))
@@ -27,6 +25,10 @@ class O_MyOrdersTableViewController: UITableViewController {
         ha.isHidden = false
         self.tableView.estimatedRowHeight = 139
         self.tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,7 +53,7 @@ class O_MyOrdersTableViewController: UITableViewController {
         else {
             Messages().showError(code: 0x1002)
         }
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "MyOrders"), object: self)
     }
     
     func header() {
@@ -107,19 +109,7 @@ class O_MyOrdersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(tablelist[indexPath.row].MyOrderID!)
-        OrdersReposity().MyOrderDetails(Requesting: tablelist[indexPath.row].MyOrderID!)
-        //        NotificationCenter.default.addObserver(self, selector: #selector(self.OrderDetails(_:)), name: NSNotification.Name(rawValue: "OrderDetails"), object: nil)
-        Messages().showNow(code: 0x2004)
-        index = indexPath.row
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OrderDetails" {
-            let Controller = segue.destination as! T_OrderDetailTableViewController
-//            Controller.RobOrderID = tablelist[index].RobOrderID
-//            Controller.Code = tablelist[index].Code
-//            Controller.tablelist = onetable
-        }
+        MyOrderID = tablelist[indexPath.row].MyOrderID!
+        performSegue(withIdentifier: "MyOrderDetail", sender: self)
     }
 }

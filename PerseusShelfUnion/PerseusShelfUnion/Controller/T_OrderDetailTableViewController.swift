@@ -59,6 +59,10 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func GetOrder(_ notification:Notification) {
         if let Response: Model_TakeOrderDetails.CodeType = notification.object as? Model_TakeOrderDetails.CodeType{
             NotificationCenter.default.removeObserver(self)

@@ -30,6 +30,10 @@ class O_StepListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    @IBAction func O_Oback(segue:UIStoryboardSegue) {
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,11 +67,11 @@ class O_StepListTableViewController: UITableViewController {
         if indexPath.section == StepAmount{
             return
         }
-        if indexPath.row < 4  {
-            let alert = UIAlertController(title: "提示", message: "\(indexPath.section) + \(indexPath.row)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+//        if indexPath.row < 4  {
+//            let alert = UIAlertController(title: "提示", message: "\(indexPath.section) + \(indexPath.row)", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
     }
 
     
@@ -98,6 +102,7 @@ class O_StepListTableViewController: UITableViewController {
                 break
             }
         }
+        //添加按钮
         if indexPath.section == StepAmount{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Add", for: indexPath)
             return cell
@@ -106,8 +111,10 @@ class O_StepListTableViewController: UITableViewController {
              //test:1~2为未完成
             if indexPath.section < 2{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Menu1", for: indexPath) as! O_StepListTableViewCell
+                //删除按钮
                 cell.FinishButton.addTarget(self, action: #selector(FinishButtonMessage(_:)), for: .touchDown)
                 cell.FinishButton.tag = indexPath.section
+                //完成按钮
                 cell.DelButton.addTarget(self, action: #selector(DelButtonMessage(_:)), for: .touchDown)
                 cell.DelButton.tag = indexPath.section
                 return cell
@@ -131,51 +138,4 @@ class O_StepListTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

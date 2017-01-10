@@ -27,6 +27,11 @@ class T_TakeOrdersTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 129
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(self.TakeOrders(_:)), name: NSNotification.Name(rawValue: "TakeOrders"), object: nil)
         Messages().showNow(code: 0x2004)

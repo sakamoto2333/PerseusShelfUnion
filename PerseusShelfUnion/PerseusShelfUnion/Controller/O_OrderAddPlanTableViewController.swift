@@ -57,7 +57,6 @@ class O_OrderAddPlanTableViewController: UITableViewController {
         {
             alert.title = "工序"
             alert.textFields?.first?.placeholder = "请输入工序"
-            alert.textFields?.first?.keyboardType = .numberPad
             alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
             print(messages)
@@ -67,7 +66,6 @@ class O_OrderAddPlanTableViewController: UITableViewController {
         {
             alert.title = "工具"
             alert.textFields?.first?.placeholder = "请输入工具"
-            alert.textFields?.first?.keyboardType = .numberPad
             alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
             print(messages)
@@ -77,7 +75,6 @@ class O_OrderAddPlanTableViewController: UITableViewController {
         {
             alert.title = "责任人"
             alert.textFields?.first?.placeholder = "请输入责任人"
-            alert.textFields?.first?.keyboardType = .numberPad
             alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
             print(messages)
@@ -87,7 +84,6 @@ class O_OrderAddPlanTableViewController: UITableViewController {
         {
             alert.title = "人工"
             alert.textFields?.first?.placeholder = "请输入人工"
-            alert.textFields?.first?.keyboardType = .numberPad
             alert.textFields?.first?.text = ""
             self.present(alert, animated: true, completion: nil)
             print(messages)

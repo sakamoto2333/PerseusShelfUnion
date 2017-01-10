@@ -96,7 +96,6 @@ class UserReposity: NSObject, IUserReposity {
                 if Response?.Code != "已认证"{
                     Response?.Code = "未认证"
                 }
-              print(json)
             }
             else{
                 Response = nil
@@ -121,7 +120,7 @@ class UserReposity: NSObject, IUserReposity {
         request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
         Alamofire.request(request).responseJSON{response in
             if response.result.value != nil{
-                var json = JSON(data: response.data!)
+                
             }
             NotificationCenter.default.post(name:Notification.Name(rawValue: "UserEdit"), object:nil)
             
@@ -163,9 +162,9 @@ class UserReposity: NSObject, IUserReposity {
         }
         Alamofire.download(Requesting.DataUrl, to: destination)
             .response { response in
-                print(response)
+//                print(response)
                 if (response.destinationURL?.path) != nil {
-                    print(response.destinationURL?.path as Any)
+//                    print(response.destinationURL?.path as Any)
                     switch Requesting.DataName {
                     case .UserImage:
                         NotificationCenter.default.post(name:Notification.Name(rawValue: "MyDataImage"), object: Model_ImageData.Response(FileUrl: (response.destinationURL?.path)!, DataName: Requesting.DataName))

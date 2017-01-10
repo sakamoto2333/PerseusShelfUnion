@@ -22,7 +22,11 @@ class U_MyDataTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyData(_:)), name: NSNotification.Name(rawValue: "MyData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyDataImage(_:)), name: NSNotification.Name(rawValue: "MyDataImage"), object: nil)
         
-        Messages().showNow(code: 0x4001)
+        Messages().showNow(code: 0x2004)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {

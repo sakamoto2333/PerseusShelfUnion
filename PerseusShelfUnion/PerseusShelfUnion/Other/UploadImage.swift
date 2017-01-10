@@ -34,12 +34,12 @@ class UploadImage: NSObject {
     }
     
     func loadImageFromPath(path: String) -> UIImage?{
-        print(path)
+//        print(path)
         let image = UIImage(contentsOfFile: path)
         if image == nil{
-            print("missing image at:\(path)")
+//            print("missing image at:\(path)")
         }
-        print("Loading image from path:\(path)")
+//        print("Loading image from path:\(path)")
         return image
     }
 }

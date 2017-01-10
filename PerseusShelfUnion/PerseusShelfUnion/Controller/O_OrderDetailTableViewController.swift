@@ -27,10 +27,43 @@ class O_OrderDetailTableViewController: UITableViewController {
     @IBOutlet weak var InsNameLabel: UILabel!
     @IBOutlet weak var InsPhoneLabel: UILabel!
     
-    var InstallID: Int!
-    var tablelist: Model_TakeOrderDetails.Response!
     override func viewDidLoad() {
         super.viewDidLoad()
+        RemarkLabel.lineBreakMode = NSLineBreakMode.byCharWrapping
+        RemarkLabel.sizeToFit()
+        Messages().showNow(code: 0x2004)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        OrdersReposity().MyOrderDetails(Requesting: MyOrderID)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrderDetails(_:)), name: NSNotification.Name(rawValue: "MyOrderDetail"), object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func MyOrderDetails(_ notification:Notification) {
+        if let Response: Model_TakeOrderDetails.Response = notification.object as! Model_TakeOrderDetails.Response?{
+            InsShelftypeLabel.text = Response.InsType
+            InsTonnageLabel.text = Response.Tonnage
+            InsplaceLabel.text = Response.InsPlace
+            InsStartDateLabel.text = Response.StartTime
+            InsCycleLabel.text = Response.InsCycle
+            InsHeightLabel.text = Response.InsHeight
+            InsBeamHghLabel.text = Response.InsBeamHgh
+            InsAtticLayerLabel.text = Response.InsAtticLayer
+            InsForkExtensionLabel.text = Response.InsFork
+            RemarkLabel.text = Response.InsRemarks
+            InsMoneyLabel.text = Response.InsMoney
+            InsNameLabel.text = Response.InsName
+            InsPhoneLabel.text = Response.InsPhone
+            ProgressHUD.dismiss()
+        }
+        else {
+            Messages().showError(code: 0x1002)
+        }
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {

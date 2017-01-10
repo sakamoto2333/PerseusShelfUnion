@@ -42,6 +42,10 @@ class U_MyCertificateTableViewController: UITableViewController,UIImagePickerCon
         Messages().showNow(code: 0x2004)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

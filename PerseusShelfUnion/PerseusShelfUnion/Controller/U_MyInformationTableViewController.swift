@@ -41,6 +41,10 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
 
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
     }
