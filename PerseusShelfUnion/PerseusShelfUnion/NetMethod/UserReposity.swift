@@ -239,6 +239,38 @@ class UserReposity: NSObject, IUserReposity {
         }
     }
     
+    func MyEvaluation(UserID: String) {
+        var request = requestTo(url: "MyCredit") //接口名称
+        var Response: [Model_Evaluation.Response]? = [Model_Evaluation.Response(Code: nil, EvalSatisfied: nil, EvalQuality: nil, EvalAccident: nil, EvalReachRate: nil, EvalContent: nil, EvalManagement: nil)]
+        let parameters = ["InstallID": UserID]
+//        print(request)
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON { response in
+            if response.result.value != nil {
+                //当收到JSON相应时
+                print(response.result.value as Any)
+                let json = JSON(data: response.data!)
+                for i in 0..<json.count {
+                    Response?.append(Model_Evaluation.Response(
+                        Code: nil,
+                        EvalSatisfied: json[i]["Satisfaction"].double,
+                        EvalQuality: json[i]["Quality"].double,
+                        EvalAccident: json[i]["Safety"].double,
+                        EvalReachRate: json[i]["Deliveryrate"].double,
+                        EvalContent: json[i]["EvaluateContent"].string,
+                        EvalManagement: json[i]["Manage"].double))
+                }
+            }
+            else {
+                Response = nil
+            }
+            //激活通知
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "MyEvaluation"), object: Response)
+        }
+    }
+    
     private func requestTo(url: String) -> URLRequest {
         return URLRequest(url: URL(string: NSString(format: "http://%@/%@", BaseUrl , url) as String)!)
     }

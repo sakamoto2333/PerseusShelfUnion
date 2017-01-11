@@ -43,12 +43,7 @@ class T_TakeOrdersTableViewController: UITableViewController {
         if let Response: [Model_TakeOrders.Response] = notification.object as! [Model_TakeOrders.Response]?{
             tablelist = Response
             tableView.reloadData()
-            if tablelist.count == 0 {
-                ha.isHidden = false
-            }
-            else {
-                ha.isHidden = true
-            }
+            tablelist.count == 0 ? (ha.isHidden = false) : (ha.isHidden = true)
             ProgressHUD.dismiss()
         }
         else {

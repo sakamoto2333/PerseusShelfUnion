@@ -43,12 +43,31 @@ class L_RegistrationViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    @IBAction func password(_ sender: UITextField) {
+        if UserPasswordTextField.text == "" {
+            UserPasswordAgainTextField.layer.borderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0).cgColor
     @IBAction func again(_ sender: Any) {
         if UserPasswordTextField.text != UserPasswordAgainTextField.text {
             UserPasswordAgainTextField.layer.borderColor = UIColor.red.cgColor
         }
         else {
-            UserPasswordAgainTextField.layer.borderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0).cgColor
+            if UserPasswordTextField.text != UserPasswordAgainTextField.text {
+                UserPasswordAgainTextField.layer.borderColor = UIColor.red.cgColor
+            }
+            else {
+                UserPasswordAgainTextField.layer.borderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0).cgColor
+            }
+        }
+    }
+    
+    @IBAction func again(_ sender: Any) {
+        if UserPasswordTextField.text != "" {
+            if UserPasswordTextField.text != UserPasswordAgainTextField.text {
+                UserPasswordAgainTextField.layer.borderColor = UIColor.red.cgColor
+            }
+            else {
+                UserPasswordAgainTextField.layer.borderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0).cgColor
+            }
         }
     }
     

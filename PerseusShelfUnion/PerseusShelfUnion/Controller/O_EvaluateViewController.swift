@@ -27,24 +27,36 @@ class O_EvaluateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        OrdersReposity().OrderEvaluation(OrderID: MyOrderID)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrderDetails(_:)), name: NSNotification.Name(rawValue: "MyOrderDetail"), object: nil)
+        Messages().showNow(code: 0x2004)
+    }
+    
+    func MyOrderDetails(_ notification:Notification) {
+        if let Response: Model_Evaluation.Response = notification.object as? Model_Evaluation.Response {
+            if Response.Code == 0 {
+                Messages().show(code: 0x1023)
+            }
+            else {
+                EvalSatisfiedLabel.text = String(describing: Response.EvalSatisfied)
+                EvalQualityLabel.text = String(describing: Response.EvalQuality)
+                EvalReachRateLabel.text = String(describing: Response.EvalReachRate)
+                EvalAccidentLabel.text = String(describing: Response.EvalAccident)
+                EvalManagementLabel.text = String(describing: Response.EvalManagement)
+                EvalContentLabel.text = Response.EvalContent
+                ProgressHUD.dismiss()
+            }
+        }
+        else {
+            Messages().showError(code: 0x1002)
+        }
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
