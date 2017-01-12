@@ -25,10 +25,6 @@ class U_MyDataTableViewController: UITableViewController {
         Messages().showNow(code: 0x2004)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         UserReposity().MyData(Requesting: Model_MyData.Requesting(UserName: Username))
     }
