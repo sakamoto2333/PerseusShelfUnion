@@ -116,8 +116,13 @@ class O_StepListTableViewController: UITableViewController {
         }
         //添加按钮
         if indexPath.section == StepAmount.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Add", for: indexPath)
-            return cell
+            if ListRefresh.Day == AllCount {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Add", for: indexPath)
+                if OrderCode == Model_MyOrders.CodeType.已完成 || OrderCode == Model_MyOrders.CodeType.已完结 {
+                    cell.isHidden = true
+                }
+                return cell
+            }
         }
         if indexPath.row > 3 {
              //test:1~2为未完成
@@ -135,9 +140,6 @@ class O_StepListTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Menu2", for: indexPath)
                 return cell
             }
-        }
-        if ListRefresh.Day != AllCount {
-            cellnil.isHidden = true
         }
         return cellnil
     }

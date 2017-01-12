@@ -31,4 +31,8 @@ protocol IUserReposity {
     
     /// 资质认证
     func GetCertificates(Requesting: String)
+    
+    func download(Requesting: Model_ImageData.Requesting)
+    
+    func MyEvaluation(UserID: String)
 }

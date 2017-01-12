@@ -30,6 +30,8 @@ class L_RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserPasswordTextField.isSecureTextEntry = true
+        UserPasswordAgainTextField.isSecureTextEntry = true
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         generateCodeView.CreateGenerateCodeAction()
         

@@ -32,5 +32,17 @@ protocol IOrdersReposity{
     /// - Parameter Requesting: 订单ID
     func MyOrderDetails(Requesting: String)
     
+    func MyPlan(Requesting: String)
     
+    func MyPlanDetail(Requesting: Model_MyPlanDetail.Requesting, IsRefresh: Bool)
+    
+    func MyPlanDetailDelete(ProcessID: String, DayItem: Int)
+    
+    func MyPlanDetailEnd(ProcessID: String, DayItem: Int)
+    
+    func MyPlanEnd(OfferID: String, UserID: String)
+    
+    func OrderEvaluation(OrderID: String)
+    
+    func MyPlanAdd(Requesting: Model_MyPlanAdd.Requesting)
 }

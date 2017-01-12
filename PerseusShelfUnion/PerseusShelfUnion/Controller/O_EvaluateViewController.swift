@@ -31,7 +31,7 @@ class O_EvaluateViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         OrdersReposity().OrderEvaluation(OrderID: MyOrderID)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrderDetails(_:)), name: NSNotification.Name(rawValue: "MyOrderDetail"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrderDetails(_:)), name: NSNotification.Name(rawValue: "OrderEvaluation"), object: nil)
         Messages().showNow(code: 0x2004)
     }
     
@@ -41,17 +41,43 @@ class O_EvaluateViewController: UIViewController {
                 Messages().show(code: 0x1023)
             }
             else {
-                EvalSatisfiedLabel.text = String(describing: Response.EvalSatisfied)
-                EvalQualityLabel.text = String(describing: Response.EvalQuality)
-                EvalReachRateLabel.text = String(describing: Response.EvalReachRate)
-                EvalAccidentLabel.text = String(describing: Response.EvalAccident)
-                EvalManagementLabel.text = String(describing: Response.EvalManagement)
+                let a = Int(Response.EvalSatisfied!)
+                EvalSatisfiedLabel.text = String(a)
+                let b = Int(Response.EvalQuality!)
+                EvalQualityLabel.text = String(b)
+                let c = Int(Response.EvalReachRate!)
+                EvalReachRateLabel.text = String(c)
+                let d = Int(Response.EvalAccident!)
+                EvalAccidentLabel.text = String(d)
+                let e = Int(Response.EvalManagement!)
+                EvalManagementLabel.text = String(e)
                 EvalContentLabel.text = Response.EvalContent
+                let all = (a+b+c+d+e)/5
+                AverageLabel.text = String(all)
+                if all == 10 {
+                    Star1ImgView.image = UIImage(named: "ic_star")
+                    Star2ImgView.image = UIImage(named: "ic_star")
+                    Star3ImgView.image = UIImage(named: "ic_star")
+                    Star4ImgView.image = UIImage(named: "ic_star")
+                    Star5ImgView.image = UIImage(named: "ic_star")
+                }
+                else if all >= 0 {
+                    all > 8 ? (Star5ImgView.image = UIImage(named: "ic_star")) : ()
+                    all > 6 ? (all < 8 ? (Star4ImgView.image = UIImage(named: "ic_star_half")) : (Star4ImgView.image = UIImage(named: "ic_star"))) : ()
+                    all > 4 ? (all < 6 ? (Star3ImgView.image = UIImage(named: "ic_star_half")) : (Star3ImgView.image = UIImage(named: "ic_star"))) : ()
+                    all > 2 ? (all < 4 ? (Star2ImgView.image = UIImage(named: "ic_star_half")) : (Star2ImgView.image = UIImage(named: "ic_star"))) : ()
+                    all > 0 ? (all < 2 ? (Star1ImgView.image = UIImage(named: "ic_star_half")) : (Star1ImgView.image = UIImage(named: "ic_star"))) : ()
+                }
                 ProgressHUD.dismiss()
             }
         }
         else {
-            Messages().showError(code: 0x1002)
+            if OrderCode == Model_MyOrders.CodeType.已完结 {
+                Messages().showError(code: 0x1002)
+            }
+            else {
+                ProgressHUD.dismiss()
+            }
         }
         NotificationCenter.default.removeObserver(self)
     }

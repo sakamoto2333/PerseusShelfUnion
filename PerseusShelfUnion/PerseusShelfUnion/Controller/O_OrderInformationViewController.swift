@@ -13,6 +13,7 @@ class O_OrderInformationViewController: UIViewController {
     
     @IBOutlet weak var segment: UISegmentedControl!
 
+    @IBOutlet weak var Finish: UIBarButtonItem!
     @IBOutlet weak var information: UIView!
     @IBOutlet weak var plan: UIView!
     @IBOutlet weak var evaluation: UIView!
@@ -44,11 +45,16 @@ class O_OrderInformationViewController: UIViewController {
         information.isHidden = false
         plan.isHidden = true
         evaluation.isHidden = true
+        if OrderCode == Model_MyOrders.CodeType.已完成 || OrderCode == Model_MyOrders.CodeType.已完结 {
+            Finish.isEnabled = false
+            Finish.title = ""
+        }
     }
     
     func MyPlanEnd(_ notification:Notification) {
         if let Response: Int = notification.object as? Int{
-            Response == 1 ? (Messages().show(code: 0x1022)) : (Messages().show(code: 0x1021))
+            Response == 1 ? (Messages().show(code: 0x1022)) : (Messages().showError(code: 0x1021))
+            performSegue(withIdentifier: "OrderBack", sender: self)
         }
         else {
             Messages().showError(code: 0x1002)

@@ -101,6 +101,7 @@ class U_MyCertificateTableViewController: UITableViewController,UIImagePickerCon
                     UserReposity().download(Requesting: Requesting)
                     ImageShowNumber += 1
                 }
+                ImageShowNumber == 0 ? (ProgressHUD.dismiss()) : ()
             }
             else {
                 Messages().showError(code: 0x1002)

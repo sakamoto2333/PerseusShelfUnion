@@ -19,6 +19,7 @@ class L_LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginmodel.loadData()
+        password.isSecureTextEntry = true
         if loginmodel.LoginList.count > 0 {
             id.text = loginmodel.LoginList.first?.Name
             password.text = loginmodel.LoginList.first?.Password
