@@ -36,10 +36,6 @@ class O_StepListTableViewController: UITableViewController {
     
     @IBAction func O_Oback(segue:UIStoryboardSegue) {
     }
-    
-    @IBAction func O_Oback(segue:UIStoryboardSegue) {
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
