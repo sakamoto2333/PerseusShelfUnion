@@ -16,16 +16,15 @@ class OrdersReposity: NSObject, IOrdersReposity {
     
     func TakeOrders(){
         var request =  requestTo(crotroller: BaseOrderUrl, url: "RobOrderList") //接口名称
-        var Response: [Model_TakeOrders.Response]?
+        var Response: [Model_TakeOrders.Response]? = [Model_TakeOrders.Response(InstallCycle: nil, InstallPlace: nil, RobOrderID: nil, StartTime: nil, Code: nil, Title: nil, Tonnage: nil)]
+        Response?.removeAll()
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
 //                print(response.request as Any)
-                print(response.result.value as Any)
-                Response?.removeAll()
-                
+//                print(response.result.value as Any)
                 let json = JSON(data: response.data!) //JSON解析
                 for i in 0..<json.count {
                     Response?.append(Model_TakeOrders.Response(
@@ -48,7 +47,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
     
     func TakeOrderDetails(Requesting: Model_TakeOrderDetails.Requesting) {
         var request = requestTo(crotroller: BaseOrderUrl, url: "RobOrderInfo") //接口名称
-        let Response: Model_TakeOrderDetails.Response? = nil
+        var Response:Model_TakeOrderDetails.Response? = Model_TakeOrderDetails.Response(InsAtticLayer: nil, InsBeamHgh: nil, InsHeight: nil, InsName: nil, InsFork: nil, InsCycle: nil, InsPlace: nil, InsMoney: nil, Weight: nil, InsPhone: nil, InsRemarks: nil, StartTime: nil, Structure: nil, Tonnage: nil, InsType: nil)
         let parameters = [
             "RobOrderID":Requesting.RobOrderID
         ] //传输JSON
@@ -71,10 +70,13 @@ class OrdersReposity: NSObject, IOrdersReposity {
                 Response?.InsMoney = json["OrderOffer"].string! + json["Weight"].string!
                 Response?.InsPhone = json["Phone"].string
                 Response?.InsRemarks = json["Remarks"].string
-                Response?.StartTime = self.date(date: json["StartTime"].string!)
+                Response?.StartTime = self.datelast(date: json["StartTime"].string!)
                 Response?.Structure = json["Structure"].string
                 Response?.Tonnage = json["Tonnage"].string
                 Response?.InsType = json["Type"].string
+            }
+            else{
+                Response = nil
             }
             //激活通知
             NotificationCenter.default.post(name: Notification.Name(rawValue: "OrderDetails"), object: Response)
@@ -83,16 +85,15 @@ class OrdersReposity: NSObject, IOrdersReposity {
     
     func MyOrders() {
         var request = requestTo(crotroller: BaseOrderUrl, url: "Order") //接口名称
-        var Response: [Model_MyOrders.Response]?
+        var Response: [Model_MyOrders.Response]? = [Model_MyOrders.Response(InsCycle: nil, InsPlace: nil, MyOrderID: nil, Title: nil, StartTime: nil, StateCode: nil, Tonnage: nil)]
+        Response?.removeAll()
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
 //                print(response.request as Any)
-                print(response.result.value as Any)
-                Response?.removeAll()
-                
+//                print(response.result.value as Any)
                 let json = JSON(data: response.data!) //JSON解析
                 for i in 0..<json.count {
                     if Model_MyOrders.CodeType(rawValue: json[i]["StateCode"].int!) != Model_MyOrders.CodeType.审核通过 &&
@@ -103,7 +104,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
                             InsPlace: json[i]["InstallPlace"].string,
                             MyOrderID: json[i]["MyOrderID"].string,
                             Title: json[i]["Title"].string,
-                            StartTime: self.dateTo2(datetime: json[i]["StartTime"].string!),
+                            StartTime: self.datelast(date: json[i]["StartTime"].string!),
                             StateCode: Model_MyOrders.CodeType(rawValue: json[i]["StateCode"].int!),
                             Tonnage: json[i]["Tonnage"].string))
                     }
@@ -363,7 +364,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
     
     func GetOrder(Requesting: Model_GetOrder.Requesting) {
         var request =  requestTo(crotroller: BaseOrderUrl, url: "RobOrderSubmit") //接口名称
-        var Response: Model_TakeOrderDetails.CodeType? = nil
+        var Response: Model_TakeOrderDetails.CodeType!
         let parameters = [
             "RobOrderID":Requesting.RobOrderID,
             "OfferMoney":Requesting.OfferMoney,
