@@ -8,6 +8,8 @@
 
 import UIKit
 
+var UserId = ""
+
 class L_LoginViewController: UIViewController {
 
     @IBOutlet weak var id: TextFieldFrame!
@@ -25,6 +27,10 @@ class L_LoginViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -40,17 +46,20 @@ class L_LoginViewController: UIViewController {
         loginmodel.saveData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.LoginUser(_:)), name: NSNotification.Name(rawValue: "LoginUser"), object: nil)
         Messages().showNow(code: 0x1004)
+        self.view.isUserInteractionEnabled = false
         let Requesting = Model_LoginUser.Requesting(UserName: id.text!, Password: password.text!)
         UserReposity().LoginUser(Requesting: Requesting)
     }
     
     func LoginUser(_ notification:Notification) {
+        self.view.isUserInteractionEnabled = true
         if let Response:Model_LoginUser.Response = notification.object as! Model_LoginUser.Response?{
             if (Response.Code == Model_LoginUser.CodeType.登录成功){
                 Messages().show(code: 0x1005)
                 loginmodel.loadData()
                 loginmodel.LoginList.append(LoginPassword(Name: id.text!, Password: password.text!))
                 loginmodel.saveData()
+                UserId = Response.UserID!
                 self.performSegue(withIdentifier: "ToMainView", sender: self)
             }
             else if(Response.Code == Model_LoginUser.CodeType.没有该用户){

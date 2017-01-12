@@ -29,8 +29,20 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         loginmodel.loadData()
         Username = loginmodel.LoginList.first?.Name
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformation(_:)), name: NSNotification.Name(rawValue: "UserCenters1"), object: nil)
-        
-        Messages().showNow(code: 0x4001)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformationEdit(_:)), name: NSNotification.Name(rawValue: "UserEdit"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyInformationImage(_:)), name: NSNotification.Name(rawValue: "MyDataImage1"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyDataImageUpload(_:)), name: NSNotification.Name(rawValue: "MyDataImageUpload"), object: nil)
+        let imagename = "UserImage.png"
+        let imagePath = UploadImage().fileInDocumentsDirectory(filename: imagename)
+        //读取保存图片
+        if let loadedImage = UploadImage().loadImageFromPath(path: imagePath){
+            UserImageImgView.image = loadedImage
+        }
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,9 +53,8 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         if let Response: Model_MyInformation.Response = notification.object as? Model_MyInformation.Response{
             if let userpic = Response.UserPic
             {
-                let data = NSData(contentsOf: NSURL(string: userpic) as! URL)
-                UserImageImgView.image = UIImage(data: data as! Data)
-                
+                let Requesting = Model_ImageData.Requesting(DataUrl: userpic, DataName: .UserImage1)
+                UserReposity().download(Requesting: Requesting)
             }
             UserRealNameLabel.text = Response.UserName
             UserEmailLabel.text = Response.UserMail
@@ -52,12 +63,38 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             UserPositionLabel.text = Response.Job
             CompanyStateLabel.text = Response.Code
             tableView.reloadData()
-            ProgressHUD.dismiss()
         }
         else{
             Messages().showError(code: 0x1002)
             
         }
+    }
+    func MyInformationImage(_ notification:Notification) {
+        if let Response: Model_ImageData.Response = notification.object as? Model_ImageData.Response{
+            if let loadedImage = UploadImage().loadImageFromPath(path: Response.FileUrl)
+            {
+                UserImageImgView.image = loadedImage
+            }
+        }
+        else {
+            Messages().showError(code: 0x1013)
+        }
+    }
+    func MyDataImageUpload(_ notification:Notification) {
+        if let Response: Int = notification.object as? Int{
+            if Response == 1{
+                UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
+                Messages().show(code: 0x2006)
+            }
+            else{
+                Messages().showError(code: 0x2007)
+            }
+        }
+    }
+    
+    func MyInformationEdit(_ notification:NSNotification){
+        Messages().show(code: 0x1015)
+        UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: Username))
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,7 +131,24 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             { (UIAlertAction) in
                 if self.alert.textFields?.first?.text != ""
                 {
-                    self.messages = (self.alert.textFields?.first?.text!)!
+                    
+                    switch self.alert.title!{
+                    case "手机号":
+                        self.UserPhoneLabel.text = self.alert.textFields?.first?.text
+                    case "邮箱":
+                       self.UserEmailLabel.text = self.alert.textFields?.first?.text
+                    case "姓名":
+                        self.UserRealNameLabel.text = self.alert.textFields?.first?.text
+                    case "公司":
+                        self.CompanyNameLabel.text = self.alert.textFields?.first?.text
+                    case "职位":
+                        self.UserPositionLabel.text = self.alert.textFields?.first?.text
+                    default:
+                        break
+                    }
+                    let Edit = Model_MyInformation.Response(UserPic: nil, PhoneNum: self.UserPhoneLabel.text, UserName:  self.UserRealNameLabel.text, UserMail: self.UserEmailLabel.text, Unit: self.CompanyNameLabel.text, Job: self.UserPositionLabel.text, Code: nil)
+                    UserReposity().MyInformation(Requesting: Model_MyInformation.Requesting(UserName: self.Username))
+                    UserReposity().MyInformationEdit(Requesting: Edit)
                 }
         }))
     }
@@ -214,10 +268,21 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
 //                UserReposity().upload(Requesting: imageNSURL)
 //            }
             
+            //保存图片
+            if !UploadImage().saveImage(image: imageView, path: imagePath) {
+                Messages().showError(code: 0x2008)
+                
+            }
+            //读取保存图片
+            if let loadedImage = UploadImage().loadImageFromPath(path: imagePath){
+                //上传图片
+                UserReposity().upload(Requesting: Model_Upload.Requesting(strData: Model_Upload.PicType.UserImage, UserID: UserId, imageData: loadedImage))
+            }
+            else{
+                Messages().showError(code: 0x2007)
+            }
             
         }))
-        
-        
         self.present(alert, animated: true, completion: nil)
     }
     

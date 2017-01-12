@@ -39,12 +39,35 @@ class L_RegistrationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @IBAction func password(_ sender: UITextField) {
+        if UserPasswordTextField.text == "" {
+            UserPasswordAgainTextField.layer.borderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0).cgColor
     @IBAction func again(_ sender: Any) {
         if UserPasswordTextField.text != UserPasswordAgainTextField.text {
             UserPasswordAgainTextField.layer.borderColor = UIColor.red.cgColor
         }
         else {
-            UserPasswordAgainTextField.layer.borderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0).cgColor
+            if UserPasswordTextField.text != UserPasswordAgainTextField.text {
+                UserPasswordAgainTextField.layer.borderColor = UIColor.red.cgColor
+            }
+            else {
+                UserPasswordAgainTextField.layer.borderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0).cgColor
+            }
+        }
+    }
+    
+    @IBAction func again(_ sender: Any) {
+        if UserPasswordTextField.text != "" {
+            if UserPasswordTextField.text != UserPasswordAgainTextField.text {
+                UserPasswordAgainTextField.layer.borderColor = UIColor.red.cgColor
+            }
+            else {
+                UserPasswordAgainTextField.layer.borderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0).cgColor
+            }
         }
     }
     
@@ -61,27 +84,27 @@ class L_RegistrationViewController: UIViewController {
     }
     
     @IBAction func register(_ sender: AnyObject) {
-//        if generateCodeView.codeString.lowercased() != CodeTextField.text?.lowercased() {
-//            Messages().showError(code: 0x3003)
-//        }
-//        else if CompanyNameTextField.text == "" {
-//            Messages().showError(code: 0x3002)
-//        }
-//        else if UserNameTextField.text == "" {
-//            Messages().showError(code: 0x3000)
-//        }
-//        else if UserPasswordTextField.text == "" {
-//            Messages().showError(code: 0x3001)
-//        }
-//        else if UserPasswordAgainTextField.text != UserPasswordTextField.text {
-//            Messages().showError(code: 0x3004)
-//        }
-//        else {
+        if generateCodeView.codeString.lowercased() != CodeTextField.text?.lowercased() {
+            Messages().showError(code: 0x3003)
+        }
+        else if CompanyNameTextField.text == "" {
+            Messages().showError(code: 0x3002)
+        }
+        else if UserNameTextField.text == "" {
+            Messages().showError(code: 0x3000)
+        }
+        else if UserPasswordTextField.text == "" {
+            Messages().showError(code: 0x3001)
+        }
+        else if UserPasswordAgainTextField.text != UserPasswordTextField.text {
+            Messages().showError(code: 0x3004)
+        }
+        else {
             Messages().showNow(code: 0x1008)
             let Requesting = Model_RegistrationUser.Requesting(UserName: UserNameTextField.text!, Password: UserPasswordTextField.text!, UnitName: CompanyNameTextField.text!)
             UserReposity().RegistrationUser(Requesting: Requesting)
             NotificationCenter.default.addObserver(self, selector: #selector(RegistrationUser(_:)), name: NSNotification.Name(rawValue: "RegistrationUser"), object: nil)
-//        }
+        }
     }
     
     func RegistrationUser(_ notification:Notification) {

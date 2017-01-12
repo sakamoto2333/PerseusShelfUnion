@@ -10,9 +10,11 @@ import UIKit
 
 class O_OrderPlanDateViewController: UIViewController {
 
+    @IBOutlet weak var TheDate: UILabel!
+    var date: String!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        TheDate.text = date
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +22,4 @@ class O_OrderPlanDateViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-
 }

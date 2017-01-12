@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var MyOrderID: String!
 class O_MyOrdersTableViewController: UITableViewController {
 
     let ha = UILabel()
@@ -27,9 +27,13 @@ class O_MyOrdersTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        OrdersReposity().MyOrders()
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrders(_:)), name: NSNotification.Name(rawValue: "MyOrders"), object: nil)
+        OrdersReposity().MyOrders()
         Messages().showNow(code: 0x2004)
     }
     
@@ -38,30 +42,18 @@ class O_MyOrdersTableViewController: UITableViewController {
         if let Response: [Model_MyOrders.Response] = notification.object as! [Model_MyOrders.Response]?{
             tablelist = Response
             tableView.reloadData()
-            if tablelist.count == 0 {
-                ha.isHidden = false
-            }
-            else {
-                ha.isHidden = true
-            }
-            if isRefresh == false {
-                ProgressHUD.dismiss()
-            }
-            if isRefresh == true {
-                Messages().show(code: 0x2002)
-                isRefresh = !isRefresh
-            }
+            tablelist.count == 0 ? (ha.isHidden = false) : (ha.isHidden = true)
+            ProgressHUD.dismiss()
         }
         else {
             Messages().showError(code: 0x1002)
         }
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "MyOrders"), object: self)
     }
     
     func header() {
         OrdersReposity().MyOrders()
         NotificationCenter.default.addObserver(self, selector: #selector(self.MyOrders(_:)), name: NSNotification.Name(rawValue: "MyOrders"), object: nil)
-        isRefresh = !isRefresh
     }
     
     @IBAction func O_Mback(segue:UIStoryboardSegue) {
@@ -112,6 +104,7 @@ class O_MyOrdersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "OrderDetail", sender: self)
+        MyOrderID = tablelist[indexPath.row].MyOrderID!
+        performSegue(withIdentifier: "MyOrderDetail", sender: self)
     }
 }

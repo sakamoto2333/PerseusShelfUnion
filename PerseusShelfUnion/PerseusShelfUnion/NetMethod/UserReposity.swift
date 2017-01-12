@@ -105,6 +105,28 @@ class UserReposity: NSObject, IUserReposity {
         }
     }
     
+    func MyInformationEdit(Requesting: Model_MyInformation.Response) {
+        var request = requestTo(url: "UserEdit")
+        let parameters = [
+            "UserName":Requesting.UserName,
+            "UserPhone":Requesting.PhoneNum,
+            "UserMail":Requesting.UserMail,
+            "UserUnit":Requesting.Unit,
+            "UserJob":Requesting.Job,
+            "UserID":UserId
+        ]
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON{response in
+            if response.result.value != nil{
+                
+            }
+            NotificationCenter.default.post(name:Notification.Name(rawValue: "UserEdit"), object:nil)
+            
+        }
+    }
+    
     
     func MyData(Requesting: Model_MyData.Requesting) {
         var request = requestTo(url: "UserCenters")
@@ -130,9 +152,98 @@ class UserReposity: NSObject, IUserReposity {
 
     }
     
-    func upload(Requesting: String) {
-        var request = requestTo(url: "UserCenters")
-        
+    func download(Requesting: Model_ImageData.Requesting){
+        let destination: DownloadRequest.DownloadFileDestination = { _, response in
+            let imagename = "\(Requesting.DataName).png"
+            let fileURL = UploadImage().fileInDocumentsDirectory(filename: imagename)
+            //两个参数表示如果有同名文件则会覆盖，如果路径中文件夹不存在则会自动创建
+            return (URL(fileURLWithPath: fileURL), [.removePreviousFile, .createIntermediateDirectories])
+            
+        }
+        Alamofire.download(Requesting.DataUrl, to: destination)
+            .response { response in
+//                print(response)
+                if (response.destinationURL?.path) != nil {
+//                    print(response.destinationURL?.path as Any)
+                    switch Requesting.DataName {
+                    case .UserImage:
+                        NotificationCenter.default.post(name:Notification.Name(rawValue: "MyDataImage"), object: Model_ImageData.Response(FileUrl: (response.destinationURL?.path)!, DataName: Requesting.DataName))
+                        break
+                    case .UserImage1:
+                        NotificationCenter.default.post(name:Notification.Name(rawValue: "MyDataImage1"), object: Model_ImageData.Response(FileUrl: (response.destinationURL?.path)!, DataName: Requesting.DataName))
+                        break
+                    default:
+                        NotificationCenter.default.post(name:Notification.Name(rawValue: "MyCertificateImage"), object: Model_ImageData.Response(FileUrl: (response.destinationURL?.path)!, DataName: Requesting.DataName))
+                        break
+                    }
+                }
+        }
+    }
+    
+    func upload(Requesting: Model_Upload.Requesting) {
+        let imageData = UIImageJPEGRepresentation(Requesting.imageData, 0.1)
+        let UserData = Requesting.UserID.data(using: String.Encoding.utf8)
+        let strData = String(describing: Requesting.strData.rawValue).data(using: String.Encoding.utf8)
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                multipartFormData.append(strData!, withName: "strData")
+                multipartFormData.append(UserData!, withName: "UserData")
+                multipartFormData.append(imageData!, withName: "imageData",
+                                         fileName:"userimage.png", mimeType: "image/png")
+        },
+            to: NSString(format: "%@/%@/%@", imgurl , "Ashx" , "UploadPicture.ashx") as String,
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.response{ response in
+                        let json = JSON(data: response.data!)
+                        if Requesting.strData != Model_Upload.PicType.UserImage {
+                            NotificationCenter.default.post(name:Notification.Name(rawValue: "uploadcertificate"), object: json.int)
+                        }
+                        else{
+                            NotificationCenter.default.post(name:Notification.Name(rawValue: "MyDataImageUpload"), object: json.int)
+                        }
+                        
+                    }
+                case .failure(let encodingError):
+                    print(encodingError)
+                }
+        })
+    }
+    
+    func GetCertificates(Requesting: String) {
+        var request = URLRequest(url: URL(string: NSString(format: "%@/%@", imgurl , "RequireApp/Commpany") as String)!)
+        let Response = Model_Certificate.Response(ClimbCard: nil, Qualification: nil, WelderCard: nil, ForkliftCard: nil, ElectricianCard: nil, SafeCard: nil, InsuranceCard: nil, License: nil, msg: nil)
+//        print(request)
+        let parameters = [
+            "UserID": Requesting
+        ]
+        request.httpMethod = httpMethod
+        request.timeoutInterval = timeoutInterval
+        request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
+        Alamofire.request(request).responseJSON{response in
+            if response.result.value != nil{
+//                print(response.result.value as Any)
+                let json = JSON(data: response.data!)
+                Response.License = imgurl + json["Business"].string!
+                Response.Qualification = imgurl + json["Install"].string!
+                Response.ClimbCard = imgurl + json["Climbing"].string!
+                Response.ElectricianCard = imgurl + json["Electrician"].string!
+                Response.ForkliftCard = imgurl + json["Forklift"].string!
+                Response.InsuranceCard = imgurl + json["Insurance"].string!
+                Response.SafeCard = imgurl + json["SafetyPerson"].string!
+                Response.WelderCard = imgurl + json["Welder"].string!
+                Response.msg = String(json["StateCode"].int!)
+            }
+            NotificationCenter.default.post(name:Notification.Name(rawValue: "getCertificates"), object: Response)
+        }
+    }
+    
+    func MyEvaluation(UserID: String) {
+        var request = requestTo(url: "MyCredit") //接口名称
+        var Response: [Model_Evaluation.Response]? = [Model_Evaluation.Response(Code: nil, EvalSatisfied: nil, EvalQuality: nil, EvalAccident: nil, EvalReachRate: nil, EvalContent: nil, EvalManagement: nil)]
+        let parameters = ["InstallID": UserID]
+//        print(request)
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         //上传图片
@@ -142,9 +253,6 @@ class UserReposity: NSObject, IUserReposity {
 //                print("Response String: \(response.result.value)")
                 Messages().show(code: 0x2006)
         }
-        
-//        Alamofire.upload(URL(, to: request, method: .post, headers: nil)
-        
     }
     
     private func requestTo(url: String) -> URLRequest {

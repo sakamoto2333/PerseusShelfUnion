@@ -31,11 +31,14 @@
 		47444E3E1E0B901D0028A705 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47444E3D1E0B901D0028A705 /* MD5.swift */; };
 		4763B9FC1E0CB37800AC1D94 /* IOrdersReposity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763B9FB1E0CB37800AC1D94 /* IOrdersReposity.swift */; };
 		4763BA061E0CC84500AC1D94 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763BA051E0CC84500AC1D94 /* LoginUser.swift */; };
+		476690021E2326F500160FA0 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476690011E2326F500160FA0 /* ImageData.swift */; };
 		476AC81A1DF9340D00093B38 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 476AC8191DF9340D00093B38 /* Icons.xcassets */; };
 		476AC82E1DFA715900093B38 /* TableViewCellFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC82D1DFA715900093B38 /* TableViewCellFrame.swift */; };
 		476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */; };
 		476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8331DFA809900093B38 /* TableViewCellFrame_Top.swift */; };
 		476AC8361DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476AC8351DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift */; };
+		47811C551E1E1BB5008CAA09 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47811C541E1E1BB5008CAA09 /* Upload.swift */; };
+		47811C5E1E1E23B8008CAA09 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47811C5D1E1E23B8008CAA09 /* UploadImage.swift */; };
 		47EC22CC1E00C65800BD439D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22CB1E00C65800BD439D /* Messages.swift */; };
 		47EC22D21E00DEA000BD439D /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47EC22CF1E00DEA000BD439D /* ProgressHUD.bundle */; };
 		47EC22D31E00DEA000BD439D /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22D11E00DEA000BD439D /* ProgressHUD.m */; };
@@ -74,6 +77,9 @@
 		9D2C74131E02375D003F05CC /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C73FD1E02375D003F05CC /* UIScrollView+MJExtension.m */; };
 		9D2C74141E02375D003F05CC /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C73FF1E02375D003F05CC /* UIScrollView+MJRefresh.m */; };
 		9D2C74151E02375D003F05CC /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C74011E02375D003F05CC /* UIView+MJExtension.m */; };
+		9DE064AC1E25C55C00145127 /* MyPlanDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE064AB1E25C55C00145127 /* MyPlanDetail.swift */; };
+		9DE064B51E2605D100145127 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE064B41E2605D100145127 /* Evaluation.swift */; };
+		9DE064B71E260D0500145127 /* EvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE064B61E260D0500145127 /* EvaluationTableViewCell.swift */; };
 		9DFA46611E10BB00009373D8 /* TakeOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA46601E10BB00009373D8 /* TakeOrders.swift */; };
 		9DFA466A1E10BB38009373D8 /* OrdersReposity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA46691E10BB38009373D8 /* OrdersReposity.swift */; };
 		9DFA466C1E10BB99009373D8 /* RegistrationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA466B1E10BB99009373D8 /* RegistrationUser.swift */; };
@@ -81,6 +87,11 @@
 		9DFA46951E124ED5009373D8 /* MyOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA46941E124ED5009373D8 /* MyOrders.swift */; };
 		9DFA46A01E1252E8009373D8 /* GetOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA469F1E1252E8009373D8 /* GetOrder.swift */; };
 		9DFA46B01E1342CF009373D8 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA46AF1E1342CF009373D8 /* LoginModel.swift */; };
+		9DFA46D71E15F1F6009373D8 /* MyOrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA46D61E15F1F6009373D8 /* MyOrderDetails.swift */; };
+		9DFD608D1E1F6B2E002DC3E6 /* GetCertificates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD608C1E1F6B2E002DC3E6 /* GetCertificates.swift */; };
+		9DFD60B71E24CAD1002DC3E6 /* MyPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD60B61E24CAD1002DC3E6 /* MyPlan.swift */; };
+		9DFD60B91E24D4E5002DC3E6 /* PlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD60B81E24D4E5002DC3E6 /* PlanCollectionViewCell.swift */; };
+		9DFD60BB1E24D6FF002DC3E6 /* MyPlanAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD60BA1E24D6FF002DC3E6 /* MyPlanAdd.swift */; };
 		CB1334481E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1334471E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift */; };
 		CB2365321E139B1D004512AE /* MyInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2365311E139B1D004512AE /* MyInformation.swift */; };
 		CB51AD2B1E14D9350000E0BF /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB51AD2A1E14D9350000E0BF /* MyData.swift */; };
@@ -187,11 +198,14 @@
 		47444E3D1E0B901D0028A705 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = Other/MD5.swift; sourceTree = "<group>"; };
 		4763B9FB1E0CB37800AC1D94 /* IOrdersReposity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IOrdersReposity.swift; path = Protocal/IOrdersReposity.swift; sourceTree = "<group>"; };
 		4763BA051E0CC84500AC1D94 /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginUser.swift; path = Model/LoginUser.swift; sourceTree = "<group>"; };
+		476690011E2326F500160FA0 /* ImageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		476AC8191DF9340D00093B38 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		476AC82D1DFA715900093B38 /* TableViewCellFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame.swift; path = View/TableViewCellFrame.swift; sourceTree = "<group>"; };
 		476AC8311DFA7ECE00093B38 /* TextFieldFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldFrame.swift; path = View/TextFieldFrame.swift; sourceTree = "<group>"; };
 		476AC8331DFA809900093B38 /* TableViewCellFrame_Top.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame_Top.swift; path = View/TableViewCellFrame_Top.swift; sourceTree = "<group>"; };
 		476AC8351DFA865100093B38 /* TableViewCellFrame_SecondMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellFrame_SecondMenu.swift; path = View/TableViewCellFrame_SecondMenu.swift; sourceTree = "<group>"; };
+		47811C541E1E1BB5008CAA09 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Model/Upload.swift; sourceTree = "<group>"; };
+		47811C5D1E1E23B8008CAA09 /* UploadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadImage.swift; path = Other/UploadImage.swift; sourceTree = "<group>"; };
 		47EC22CB1E00C65800BD439D /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = Other/Messages.swift; sourceTree = "<group>"; };
 		47EC22CF1E00DEA000BD439D /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		47EC22D01E00DEA000BD439D /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
@@ -252,6 +266,9 @@
 		9D2C73FF1E02375D003F05CC /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		9D2C74001E02375D003F05CC /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		9D2C74011E02375D003F05CC /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		9DE064AB1E25C55C00145127 /* MyPlanDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPlanDetail.swift; path = Model/MyPlanDetail.swift; sourceTree = "<group>"; };
+		9DE064B41E2605D100145127 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Evaluation.swift; path = Model/Evaluation.swift; sourceTree = "<group>"; };
+		9DE064B61E260D0500145127 /* EvaluationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EvaluationTableViewCell.swift; path = View/EvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		9DFA46601E10BB00009373D8 /* TakeOrders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeOrders.swift; path = Model/TakeOrders.swift; sourceTree = "<group>"; };
 		9DFA46691E10BB38009373D8 /* OrdersReposity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersReposity.swift; path = NetMethod/OrdersReposity.swift; sourceTree = "<group>"; };
 		9DFA466B1E10BB99009373D8 /* RegistrationUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationUser.swift; path = Model/RegistrationUser.swift; sourceTree = "<group>"; };
@@ -259,6 +276,11 @@
 		9DFA46941E124ED5009373D8 /* MyOrders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrders.swift; path = Model/MyOrders.swift; sourceTree = "<group>"; };
 		9DFA469F1E1252E8009373D8 /* GetOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetOrder.swift; path = Model/GetOrder.swift; sourceTree = "<group>"; };
 		9DFA46AF1E1342CF009373D8 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModel.swift; path = Model/LoginModel.swift; sourceTree = "<group>"; };
+		9DFA46D61E15F1F6009373D8 /* MyOrderDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrderDetails.swift; path = Model/MyOrderDetails.swift; sourceTree = "<group>"; };
+		9DFD608C1E1F6B2E002DC3E6 /* GetCertificates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetCertificates.swift; path = Model/GetCertificates.swift; sourceTree = "<group>"; };
+		9DFD60B61E24CAD1002DC3E6 /* MyPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPlan.swift; path = Model/MyPlan.swift; sourceTree = "<group>"; };
+		9DFD60B81E24D4E5002DC3E6 /* PlanCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlanCollectionViewCell.swift; path = View/PlanCollectionViewCell.swift; sourceTree = "<group>"; };
+		9DFD60BA1E24D6FF002DC3E6 /* MyPlanAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPlanAdd.swift; path = Model/MyPlanAdd.swift; sourceTree = "<group>"; };
 		CB1334471E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = O_OrderPlanTimeCollectionViewController.swift; path = Controller/O_OrderPlanTimeCollectionViewController.swift; sourceTree = "<group>"; };
 		CB2365311E139B1D004512AE /* MyInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyInformation.swift; path = Model/MyInformation.swift; sourceTree = "<group>"; };
 		CB51AD2A1E14D9350000E0BF /* MyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyData.swift; path = Model/MyData.swift; sourceTree = "<group>"; };
@@ -386,6 +408,8 @@
 				472587401E025DC700B9D108 /* HasOrderedLabel.swift */,
 				472587421E03B9E200B9D108 /* T_OrderDetailTableViewCell.swift */,
 				47087BB21E08B98900C2BE89 /* O_StepListTableViewCell.swift */,
+				9DFD60B81E24D4E5002DC3E6 /* PlanCollectionViewCell.swift */,
+				9DE064B61E260D0500145127 /* EvaluationTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -400,8 +424,16 @@
 				9DFA467E1E10F2C8009373D8 /* TakeOrderDetails.swift */,
 				9DFA46941E124ED5009373D8 /* MyOrders.swift */,
 				9DFA469F1E1252E8009373D8 /* GetOrder.swift */,
+				9DFA46D61E15F1F6009373D8 /* MyOrderDetails.swift */,
 				CB2365311E139B1D004512AE /* MyInformation.swift */,
 				CB51AD2A1E14D9350000E0BF /* MyData.swift */,
+				47811C541E1E1BB5008CAA09 /* Upload.swift */,
+				9DFD608C1E1F6B2E002DC3E6 /* GetCertificates.swift */,
+				476690011E2326F500160FA0 /* ImageData.swift */,
+				9DFD60B61E24CAD1002DC3E6 /* MyPlan.swift */,
+				9DFD60BA1E24D6FF002DC3E6 /* MyPlanAdd.swift */,
+				9DE064AB1E25C55C00145127 /* MyPlanDetail.swift */,
+				9DE064B41E2605D100145127 /* Evaluation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -424,6 +456,7 @@
 				9D0718161E0134140071C352 /* GenerateCodeView.swift */,
 				47444E3D1E0B901D0028A705 /* MD5.swift */,
 				47EC22CB1E00C65800BD439D /* Messages.swift */,
+				47811C5D1E1E23B8008CAA09 /* UploadImage.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -686,11 +719,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB5B276D1E1213C300975B24 /* O_OrderPlanDateViewController.swift in Sources */,
+				9DFA46D71E15F1F6009373D8 /* MyOrderDetails.swift in Sources */,
+				47811C5E1E1E23B8008CAA09 /* UploadImage.swift in Sources */,
 				476AC8341DFA809900093B38 /* TableViewCellFrame_Top.swift in Sources */,
 				47087BA91E077D3A00C2BE89 /* O_OrderInformationViewController.swift in Sources */,
 				9D2C740F1E02375D003F05CC /* MJRefreshStateHeader.m in Sources */,
 				47EC22D31E00DEA000BD439D /* ProgressHUD.m in Sources */,
+				9DFD60B91E24D4E5002DC3E6 /* PlanCollectionViewCell.swift in Sources */,
 				476AC8321DFA7ECE00093B38 /* TextFieldFrame.swift in Sources */,
+				9DE064B51E2605D100145127 /* Evaluation.swift in Sources */,
 				9D2C74131E02375D003F05CC /* UIScrollView+MJExtension.m in Sources */,
 				9D2C740D1E02375D003F05CC /* MJRefreshGifHeader.m in Sources */,
 				9D2C740B1E02375D003F05CC /* MJRefreshBackNormalFooter.m in Sources */,
@@ -699,14 +736,17 @@
 				470706C71DFFA0D800F27AAF /* TableButton_Red.swift in Sources */,
 				470706C91DFFA0F500F27AAF /* ButtonWhite.swift in Sources */,
 				9D0718171E0134140071C352 /* GenerateCodeView.swift in Sources */,
+				9DFD608D1E1F6B2E002DC3E6 /* GetCertificates.swift in Sources */,
 				4721AD7C1DF7B8E4000CD963 /* PerseusShelfUnion.xcdatamodeld in Sources */,
 				9D2C74041E02375D003F05CC /* MJRefreshComponent.m in Sources */,
 				472587431E03B9E200B9D108 /* T_OrderDetailTableViewCell.swift in Sources */,
 				9D0718101E0133860071C352 /* T_OrderDetailTableViewController.swift in Sources */,
 				9D2C74081E02375D003F05CC /* MJRefreshAutoNormalFooter.m in Sources */,
 				9D07180E1E0133860071C352 /* L_RegistrationViewController.swift in Sources */,
+				476690021E2326F500160FA0 /* ImageData.swift in Sources */,
 				47087BB11E08B81300C2BE89 /* O_StepListTableViewController.swift in Sources */,
 				9D07180F1E0133860071C352 /* O_MyOrdersTableViewController.swift in Sources */,
+				9DFD60BB1E24D6FF002DC3E6 /* MyPlanAdd.swift in Sources */,
 				47444E3E1E0B901D0028A705 /* MD5.swift in Sources */,
 				9DFA46B01E1342CF009373D8 /* LoginModel.swift in Sources */,
 				9D0718151E0133860071C352 /* U_MyInformationTableViewController.swift in Sources */,
@@ -715,6 +755,7 @@
 				9D2C740A1E02375D003F05CC /* MJRefreshBackGifFooter.m in Sources */,
 				9D2C740E1E02375D003F05CC /* MJRefreshNormalHeader.m in Sources */,
 				9D0718111E0133860071C352 /* T_TakeOrdersTableViewController.swift in Sources */,
+				9DFD60B71E24CAD1002DC3E6 /* MyPlan.swift in Sources */,
 				9D2C74091E02375D003F05CC /* MJRefreshAutoStateFooter.m in Sources */,
 				9DFA46A01E1252E8009373D8 /* GetOrder.swift in Sources */,
 				CB2365321E139B1D004512AE /* MyInformation.swift in Sources */,
@@ -730,9 +771,11 @@
 				476AC82E1DFA715900093B38 /* TableViewCellFrame.swift in Sources */,
 				9D0718131E0133860071C352 /* U_MyCreditTableViewController.swift in Sources */,
 				9D2C74121E02375D003F05CC /* NSBundle+MJRefresh.m in Sources */,
+				47811C551E1E1BB5008CAA09 /* Upload.swift in Sources */,
 				9DFA467F1E10F2C8009373D8 /* TakeOrderDetails.swift in Sources */,
 				9D2C74071E02375D003F05CC /* MJRefreshAutoGifFooter.m in Sources */,
 				47093A301E091771004118DF /* UserReposity.swift in Sources */,
+				9DE064B71E260D0500145127 /* EvaluationTableViewCell.swift in Sources */,
 				9DFA466C1E10BB99009373D8 /* RegistrationUser.swift in Sources */,
 				9D2C74151E02375D003F05CC /* UIView+MJExtension.m in Sources */,
 				9D2C74141E02375D003F05CC /* UIScrollView+MJRefresh.m in Sources */,
@@ -742,6 +785,7 @@
 				4763B9FC1E0CB37800AC1D94 /* IOrdersReposity.swift in Sources */,
 				470706C11DFE7F4F00F27AAF /* TableViewCellFrame_Middle.swift in Sources */,
 				CB1334481E10FB5B000E865C /* O_OrderPlanTimeCollectionViewController.swift in Sources */,
+				9DE064AC1E25C55C00145127 /* MyPlanDetail.swift in Sources */,
 				47093A0A1E090E41004118DF /* SwiftyJSON.swift in Sources */,
 				9DFA46951E124ED5009373D8 /* MyOrders.swift in Sources */,
 				470706C31DFF8BA300F27AAF /* ButtonRed.swift in Sources */,
@@ -876,7 +920,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 533BE66A65;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PerseusShelfUnion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -895,7 +939,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 533BE66A65;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PerseusShelfUnion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

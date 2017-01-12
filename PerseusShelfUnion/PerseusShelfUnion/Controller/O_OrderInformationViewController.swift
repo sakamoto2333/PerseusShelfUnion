@@ -33,7 +33,6 @@ class O_OrderInformationViewController: UIViewController {
         default:
             break
         }
-        
     }
     
     @IBAction func O_back(segue:UIStoryboardSegue) {
@@ -45,25 +44,32 @@ class O_OrderInformationViewController: UIViewController {
         information.isHidden = false
         plan.isHidden = true
         evaluation.isHidden = true
- 
+    }
+    
+    func MyPlanEnd(_ notification:Notification) {
+        if let Response: Int = notification.object as? Int{
+            Response == 1 ? (Messages().show(code: 0x1022)) : (Messages().show(code: 0x1021))
+        }
+        else {
+            Messages().showError(code: 0x1002)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func AllEnd(_ sender: Any) {
+        let alert = UIAlertController(title: "警告", message: "确定完结整个订单么", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { (UIAlertAction) in
+            OrdersReposity().MyPlanEnd(OfferID: MyOrderID, UserID: UserId)
+            NotificationCenter.default.addObserver(self, selector: #selector(self.MyPlanEnd(_:)), name: NSNotification.Name(rawValue: "MyPlanEnd"), object: nil)
+            Messages().showNow(code: 0x4001)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 
     @IBAction func back(segue:UIStoryboardSegue) {
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

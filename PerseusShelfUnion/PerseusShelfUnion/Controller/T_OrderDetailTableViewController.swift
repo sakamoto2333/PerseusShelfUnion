@@ -54,17 +54,26 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
         InsPhoneLabel.text = tablelist.InsPhone
         tableView.reloadData()
         ProgressHUD.dismiss()
+        if Code == Model_TakeOrders.CodeType.已抢 {
+            GetTheOrder.contentView.backgroundColor = UIColor.gray
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func GetOrder(_ notification:Notification) {
         if let Response: Model_TakeOrderDetails.CodeType = notification.object as? Model_TakeOrderDetails.CodeType{
+            NotificationCenter.default.removeObserver(self)
             if Response == Model_TakeOrderDetails.CodeType.抢单成功 {
                 Messages().show(code: 0x1011)
-//                OrderBack
-                self.performSegue(withIdentifier: "OrderBack", sender: self)
-                NotificationCenter.default.removeObserver(self)
+                GetTheOrder.contentView.backgroundColor = UIColor.gray
+                
             }
-            else if Response == Model_TakeOrderDetails.CodeType.已抢 {}
+            else if Response == Model_TakeOrderDetails.CodeType.已抢 {
+                Messages().show(code: 0x1012)
+            }
             else {
                 Messages().showError(code: 0x1002)
             }

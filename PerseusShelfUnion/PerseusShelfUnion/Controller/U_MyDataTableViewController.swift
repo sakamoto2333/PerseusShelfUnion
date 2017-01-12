@@ -16,13 +16,17 @@ class U_MyDataTableViewController: UITableViewController {
     @IBOutlet weak var CompanyNameLabel: UILabel!
     var Username: String! = ""
     let loginmodel = LoginModel()
-    var BaseUrl = "172.16.101.110:8000"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         NotificationCenter.default.addObserver(self, selector: #selector(self.MyData(_:)), name: NSNotification.Name(rawValue: "MyData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyData(_:)), name: NSNotification.Name(rawValue: "MyData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyDataImage(_:)), name: NSNotification.Name(rawValue: "MyDataImage"), object: nil)
         
-        Messages().showNow(code: 0x4001)
+        Messages().showNow(code: 0x2004)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,22 +60,41 @@ class U_MyDataTableViewController: UITableViewController {
     
     func MyData(_ notification:Notification) {
         if let Response: Model_MyData.Response = notification.object as? Model_MyData.Response{
-            
-         if let userpic = Response.UserPic
-         {
-            let data = NSData(contentsOf: NSURL(string: userpic) as! URL)
-            UserImageImgVIew.image = UIImage(data: data as! Data)
-            
+            ProgressHUD.dismiss()
+            if let userpic = Response.UserPic
+            {
+                let Requesting = Model_ImageData.Requesting(DataUrl: userpic, DataName: .UserImage)
+                UserReposity().download(Requesting: Requesting)
+                Messages().showNow(code: 0x1014)
             }
-            UserPhoneLabel.text = Response.PhoneNum
+            else{
+                let imagename = "UserImage.png"
+                let imagePath = UploadImage().fileInDocumentsDirectory(filename: imagename)
+                let _ = UploadImage().saveImage(image: UIImage(named: "默认头像")!, path: imagePath)
+                
+            }
+            UserPhoneLabel.text = Response.PhoneNum                       
             CompanyNameLabel.text = Response.Unit
             tableView.reloadData()
-            ProgressHUD.dismiss()
         }
         else {
-            Messages().showError(code: 0x1002)
+            Messages().showError(code: 0x2004)
         }
-
+    }
+    func MyDataImage(_ notification:Notification) {
+        if let Response: Model_ImageData.Response = notification.object as? Model_ImageData.Response{
+            if let loadedImage = UploadImage().loadImageFromPath(path: Response.FileUrl)
+            {
+                UserImageImgVIew.image = loadedImage
+                ProgressHUD.dismiss()
+            }
+            else{
+                Messages().showError(code: 0x1002)
+            }
+        }
+        else {
+            Messages().showError(code: 0x1013)
+        }
     }
 
-   }
+}
