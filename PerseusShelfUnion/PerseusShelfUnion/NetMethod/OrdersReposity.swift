@@ -173,7 +173,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.result.value as Any)
+//                print(response.result.value as Any)
                 
                 let json = JSON(data: response.data!)
                 Response?.Number = json["DayNumber"].int
@@ -267,7 +267,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.result.value as Any)
+//                print(response.result.value as Any)
                 let json = JSON(data: response.data!)
                 Response = json["Code"].int
             }
@@ -283,16 +283,17 @@ class OrdersReposity: NSObject, IOrdersReposity {
         var request = requestTo(crotroller: PlanOrder, url: "FinishOrder") //接口名称
         var Response: Int?
         let parameters = [
-            "ProcessID": OfferID,
-            "DayItem": UserID,
-            ]
+            "OrderID": OfferID,
+            "UserID": UserID
+        ]
+        print(request)
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.result.value as Any)
+//                print(response.result.value as Any)
                 let json = JSON(data: response.data!)
                 Response = json["Code"].int
             }
@@ -305,22 +306,23 @@ class OrdersReposity: NSObject, IOrdersReposity {
     }
     
     func OrderEvaluation(OrderID: String) {
-        var request = requestTo(crotroller: PlanOrder, url: "Evaluate") //接口名称
+        var request = requestTo(crotroller: BaseOrderUrl, url: "Evaluate") //接口名称
         var Response: Model_Evaluation.Response? = Model_Evaluation.Response(Code: nil, EvalSatisfied: nil, EvalQuality: nil, EvalAccident: nil, EvalReachRate: nil, EvalContent: nil, EvalManagement: nil)
-        let parameters = ["InstallID": OrderID]
+        let parameters = ["OrderID": OrderID]
+        print(request)
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.result.value as Any)
+//                print(response.result.value as Any)
                 let json = JSON(data: response.data!)
                 Response?.Code = json["Code"].int
                 Response?.EvalSatisfied = json["Satisfaction"].double
                 Response?.EvalQuality = json["Quality"].double
                 Response?.EvalAccident =  json["Safety"].double
-                Response?.EvalReachRate = json["Deliveryrate"].double
+                Response?.EvalReachRate = json["DeliveryRate"].double
                 Response?.EvalContent =  json["EvaluateContent"].string
                 Response?.EvalManagement =  json["Manage"].double
             }

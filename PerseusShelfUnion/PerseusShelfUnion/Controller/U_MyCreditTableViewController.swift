@@ -50,12 +50,33 @@ class U_MyCreditTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EvaluationCell", for: indexPath) as! EvaluationTableViewCell
-        cell.EvalSatisfiedLabel.text = String(describing: AllEvaluation[indexPath.row].EvalSatisfied)
-        cell.EvalQualityLabel.text = String(describing: AllEvaluation[indexPath.row].EvalQuality)
-        cell.EvalReachRateLabel.text = String(describing: AllEvaluation[indexPath.row].EvalReachRate)
-        cell.EvalAccidentLabel.text = String(describing: AllEvaluation[indexPath.row].EvalAccident)
-        cell.EvalManagementLabel.text = String(describing: AllEvaluation[indexPath.row].EvalManagement)
+        let a = Int(AllEvaluation[indexPath.row].EvalSatisfied!)
+        cell.EvalSatisfiedLabel.text = String(a)
+        let b = Int(AllEvaluation[indexPath.row].EvalQuality!)
+        cell.EvalQualityLabel.text = String(b)
+        let c = Int(AllEvaluation[indexPath.row].EvalReachRate!)
+        cell.EvalReachRateLabel.text = String(c)
+        let d = Int(AllEvaluation[indexPath.row].EvalAccident!)
+        cell.EvalAccidentLabel.text = String(d)
+        let e = Int(AllEvaluation[indexPath.row].EvalManagement!)
+        cell.EvalManagementLabel.text = String(e)
         cell.EvalContentLabel.text = AllEvaluation[indexPath.row].EvalContent
+        let all = (a+b+c+d+e)/5
+        cell.AverageLabel.text = String(all)
+        if all == 10 {
+            cell.Star1ImgView.image = UIImage(named: "ic_star")
+            cell.Star2ImgView.image = UIImage(named: "ic_star")
+            cell.Star3ImgView.image = UIImage(named: "ic_star")
+            cell.Star4ImgView.image = UIImage(named: "ic_star")
+            cell.Star5ImgView.image = UIImage(named: "ic_star")
+        }
+        else if all >= 0 {
+            all > 8 ? (cell.Star5ImgView.image = UIImage(named: "ic_star")) : ()
+            all > 6 ? (all < 8 ? (cell.Star4ImgView.image = UIImage(named: "ic_star_half")) : (cell.Star4ImgView.image = UIImage(named: "ic_star"))) : ()
+            all > 4 ? (all < 6 ? (cell.Star3ImgView.image = UIImage(named: "ic_star_half")) : (cell.Star3ImgView.image = UIImage(named: "ic_star"))) : ()
+            all > 2 ? (all < 4 ? (cell.Star2ImgView.image = UIImage(named: "ic_star_half")) : (cell.Star2ImgView.image = UIImage(named: "ic_star"))) : ()
+            all > 0 ? (all < 2 ? (cell.Star1ImgView.image = UIImage(named: "ic_star_half")) : (cell.Star1ImgView.image = UIImage(named: "ic_star"))) : ()
+        }
         return cell
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 var MyOrderID: String!
+var OrderCode: Model_MyOrders.CodeType!
 class O_MyOrdersTableViewController: UITableViewController {
 
     let ha = UILabel()
@@ -105,6 +106,7 @@ class O_MyOrdersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         MyOrderID = tablelist[indexPath.row].MyOrderID!
+        OrderCode = tablelist[indexPath.row].StateCode
         performSegue(withIdentifier: "MyOrderDetail", sender: self)
     }
 }

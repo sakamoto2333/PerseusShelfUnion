@@ -223,16 +223,32 @@ class UserReposity: NSObject, IUserReposity {
         request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
         Alamofire.request(request).responseJSON{response in
             if response.result.value != nil{
-//                print(response.result.value as Any)
+                print(response.result.value as Any)
                 let json = JSON(data: response.data!)
-                Response.License = imgurl + json["Business"].string!
-                Response.Qualification = imgurl + json["Install"].string!
-                Response.ClimbCard = imgurl + json["Climbing"].string!
-                Response.ElectricianCard = imgurl + json["Electrician"].string!
-                Response.ForkliftCard = imgurl + json["Forklift"].string!
-                Response.InsuranceCard = imgurl + json["Insurance"].string!
-                Response.SafeCard = imgurl + json["SafetyPerson"].string!
-                Response.WelderCard = imgurl + json["Welder"].string!
+                if json["Business"].string != nil {
+                    Response.License = imgurl + json["Business"].string!
+                }
+                if json["Install"].string != nil {
+                    Response.Qualification = imgurl + json["Install"].string!
+                }
+                if json["Climbing"].string != nil {
+                    Response.ClimbCard = imgurl + json["Climbing"].string!
+                }
+                if json["Electrician"].string != nil {
+                    Response.ElectricianCard = imgurl + json["Electrician"].string!
+                }
+                if json["Forklift"].string != nil {
+                    Response.ForkliftCard = imgurl + json["Forklift"].string!
+                }
+                if json["Insurance"].string != nil {
+                    Response.InsuranceCard = imgurl + json["Insurance"].string!
+                }
+                if json["SafetyPerson"].string != nil {
+                    Response.SafeCard = imgurl + json["SafetyPerson"].string!
+                }
+                if json["Welder"].string != nil {
+                    Response.WelderCard = imgurl + json["Welder"].string!
+                }
                 Response.msg = String(json["StateCode"].int!)
             }
             NotificationCenter.default.post(name:Notification.Name(rawValue: "getCertificates"), object: Response)
@@ -242,16 +258,15 @@ class UserReposity: NSObject, IUserReposity {
     func MyEvaluation(UserID: String) {
         var request = requestTo(url: "MyCredit") //接口名称
         var Response: [Model_Evaluation.Response]? = [Model_Evaluation.Response(Code: nil, EvalSatisfied: nil, EvalQuality: nil, EvalAccident: nil, EvalReachRate: nil, EvalContent: nil, EvalManagement: nil)]
-        let parameters = ["InstallID": UserID]
-//        print(request)
+        print(request)
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
-        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
                 print(response.result.value as Any)
                 let json = JSON(data: response.data!)
+                Response?.removeAll()
                 for i in 0..<json.count {
                     Response?.append(Model_Evaluation.Response(
                         Code: nil,
