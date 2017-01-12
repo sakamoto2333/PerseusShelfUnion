@@ -309,7 +309,7 @@ class OrdersReposity: NSObject, IOrdersReposity {
         var request = requestTo(crotroller: BaseOrderUrl, url: "Evaluate") //接口名称
         var Response: Model_Evaluation.Response? = Model_Evaluation.Response(Code: nil, EvalSatisfied: nil, EvalQuality: nil, EvalAccident: nil, EvalReachRate: nil, EvalContent: nil, EvalManagement: nil)
         let parameters = ["OrderID": OrderID]
-        print(request)
+//        print(request)
         request.httpMethod = httpMethod
         request.timeoutInterval = timeoutInterval
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])

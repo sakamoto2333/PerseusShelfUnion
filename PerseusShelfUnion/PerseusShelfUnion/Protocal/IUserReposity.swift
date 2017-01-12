@@ -34,5 +34,5 @@ protocol IUserReposity {
     
     func download(Requesting: Model_ImageData.Requesting)
     
-    func MyEvaluation(UserID: String)
+    func MyEvaluation()
 }
