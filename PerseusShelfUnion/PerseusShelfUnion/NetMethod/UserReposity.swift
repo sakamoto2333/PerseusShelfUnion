@@ -29,7 +29,7 @@ class UserReposity: NSObject, IUserReposity {
                 if response.result.value != nil {
                     //当收到JSON相应时
 //                    print(response.request as Any)
-//                    print(response.result.value as Any) //打印内容
+                    print(response.result.value as Any) //打印内容
                     
                     let json = JSON(data: response.data!) //JSON解析
                     Response.Code = Model_LoginUser.CodeType(rawValue: json["Code"].int!)
@@ -93,9 +93,6 @@ class UserReposity: NSObject, IUserReposity {
                 Response?.PhoneNum = json["PhoneNum"].string
                 Response?.Unit = json["Unit"].string
                 Response?.UserName = json["UserName"].string
-                if Response?.Code != "已认证"{
-                    Response?.Code = "未认证"
-                }
             }
             else{
                 Response = nil
@@ -263,7 +260,7 @@ class UserReposity: NSObject, IUserReposity {
         Alamofire.request(request).responseJSON { response in
             if response.result.value != nil {
                 //当收到JSON相应时
-                print(response.result.value as Any)
+//                print(response.result.value as Any)
                 let json = JSON(data: response.data!)
                 Response?.removeAll()
                 for i in 0..<json.count {

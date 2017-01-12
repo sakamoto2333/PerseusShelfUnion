@@ -25,6 +25,7 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
     let loginmodel = LoginModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        IsProved == 1 ? (CompanyStateLabel.text = "已认证") : (CompanyStateLabel.text = "未认证")
         message()
         loginmodel.loadData()
         Username = loginmodel.LoginList.first?.Name
@@ -38,7 +39,6 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
         if let loadedImage = UploadImage().loadImageFromPath(path: imagePath){
             UserImageImgView.image = loadedImage
         }
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -61,7 +61,6 @@ class U_MyInformationTableViewController: UITableViewController,UIImagePickerCon
             UserPhoneLabel.text = Response.PhoneNum
             CompanyNameLabel.text = Response.Unit
             UserPositionLabel.text = Response.Job
-            CompanyStateLabel.text = Response.Code
             tableView.reloadData()
         }
         else{

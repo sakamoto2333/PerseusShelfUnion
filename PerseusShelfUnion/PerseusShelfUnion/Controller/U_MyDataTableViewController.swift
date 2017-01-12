@@ -19,9 +19,6 @@ class U_MyDataTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.MyData(_:)), name: NSNotification.Name(rawValue: "MyData"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.MyDataImage(_:)), name: NSNotification.Name(rawValue: "MyDataImage"), object: nil)
-        
         Messages().showNow(code: 0x2004)
     }
     
@@ -30,6 +27,8 @@ class U_MyDataTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyData(_:)), name: NSNotification.Name(rawValue: "MyData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.MyDataImage(_:)), name: NSNotification.Name(rawValue: "MyDataImage"), object: nil)
         UserReposity().MyData(Requesting: Model_MyData.Requesting(UserName: Username))
     }
     

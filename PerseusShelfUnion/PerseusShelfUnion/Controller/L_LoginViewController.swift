@@ -9,7 +9,7 @@
 import UIKit
 
 var UserId = ""
-
+var IsProved: Int!
 class L_LoginViewController: UIViewController {
 
     @IBOutlet weak var id: TextFieldFrame!
@@ -61,6 +61,7 @@ class L_LoginViewController: UIViewController {
                 loginmodel.LoginList.append(LoginPassword(Name: id.text!, Password: password.text!))
                 loginmodel.saveData()
                 UserId = Response.UserID!
+                IsProved = Response.IsProved
                 self.performSegue(withIdentifier: "ToMainView", sender: self)
             }
             else if(Response.Code == Model_LoginUser.CodeType.没有该用户){
