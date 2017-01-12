@@ -14,7 +14,7 @@ class U_MyCreditTableViewController: UITableViewController {
     var AllEvaluation: [Model_Evaluation.Response] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserReposity().MyEvaluation(UserID: UserId)
+        UserReposity().MyEvaluation()
         ha.text = "暂无数据"
         ha.textColor = UIColor.gray
         ha.textAlignment = .center
@@ -46,6 +46,10 @@ class U_MyCreditTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AllEvaluation.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 224
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

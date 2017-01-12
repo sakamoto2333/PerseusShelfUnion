@@ -37,8 +37,6 @@ class T_OrderDetailTableViewController: UITableViewController, UIPickerViewDataS
     var tablelist: Model_TakeOrderDetails.Response!
     override func viewDidLoad() {
         super.viewDidLoad()
-        RemarkLabel.lineBreakMode = NSLineBreakMode.byCharWrapping
-        RemarkLabel.sizeToFit()
         InsShelftypeLabel.text = tablelist.InsType
         InsTonnageLabel.text = tablelist.Tonnage
         InsplaceLabel.text = tablelist.InsPlace

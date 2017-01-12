@@ -84,7 +84,7 @@ class UserReposity: NSObject, IUserReposity {
         Alamofire.request(request).responseJSON{response in
             if response.result.value != nil{
 //                print(response.request as Any)
-//                print(response.result.value as Any)
+                print(response.result.value as Any)
                 let json = JSON(data: response.data!)
                 if  let Userpic = json["UserPic"].string{
                     Response?.UserPic = imgurl + Userpic}
@@ -120,10 +120,9 @@ class UserReposity: NSObject, IUserReposity {
         request.httpBody = try! JSONSerialization .data(withJSONObject: parameters, options: [])
         Alamofire.request(request).responseJSON{response in
             if response.result.value != nil{
-                
+//                print(response.result.value as Any)
             }
             NotificationCenter.default.post(name:Notification.Name(rawValue: "UserEdit"), object:nil)
-            
         }
     }
     
@@ -255,7 +254,7 @@ class UserReposity: NSObject, IUserReposity {
         }
     }
     
-    func MyEvaluation(UserID: String) {
+    func MyEvaluation() {
         var request = requestTo(url: "MyCredit") //接口名称
         var Response: [Model_Evaluation.Response]? = [Model_Evaluation.Response(Code: nil, EvalSatisfied: nil, EvalQuality: nil, EvalAccident: nil, EvalReachRate: nil, EvalContent: nil, EvalManagement: nil)]
         print(request)
